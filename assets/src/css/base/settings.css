@@ -1,0 +1,39 @@
+:root {
+  --accent-color: #c2ece7;
+  --accent-text-color: #3e625d;
+  --body-background-color: #f1f1f1;
+  --elements-background-color: #ffffff;
+  --notice-background-color: --accent-color;
+  --notice-text-color: var(--accent-text-color);
+  --black: #000000;
+  --white: #ffffff;
+  --light-gray: #dcdcdc;
+  --gray-2p5: #f9f9f9;
+  --gray-5: #f2f2f2;
+  --gray-10: #e6e6e6;
+  --gray-15: #d9d9d9;
+  --gray-20: #ccc;
+  --gray-30: #ccc;
+  --gray-40: #ccc;
+  --gray-50: #7f7f7f;
+  --gray-60: #666666;
+  --gray-70: #4c4c4c;
+  --gray-80: #323232;
+  --gray-90: #191919;
+  --gray-95: #0c0c0c;
+  --gray-97p5: #060606;
+  --moderate-duration: 500ms;
+  --long-duration: 900ms;
+  --short-duration: 250ms;
+  --very-short-duration: 100ms;
+  --body-text-color: var(--gray-60);
+  --headlines-font-family: "DM Serif Display", serif;
+}
+
+.kadim {
+  &[color-scheme="dark"] {
+    --elements-background-color: var(--gray-90);
+    --body-text-color: var(--gray-10);
+    --body-background-color: var(--gray-97p5);
+  }
+}

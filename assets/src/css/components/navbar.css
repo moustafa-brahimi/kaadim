@@ -1,0 +1,270 @@
+.navbar {
+  min-height: 4rem;
+  background: var(--elements-background-color);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  position: relative;
+
+  &__container {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    min-height: 4rem;
+  }
+
+  .btn-scheme {
+    position: absolute;
+    right: 0;
+    top: calc(50% - 0.75rem);
+    margin-right: 4rem;
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  column-gap: 10px;
+
+  &__dropdown-icon {
+    display: none;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      height: 14px;
+      top: 50%;
+      right: 0;
+      left: 0;
+      background: var(--accent-color);
+      border-radius: 4px;
+      opacity: 0.5;
+      transition: all var(--moderate-duration) easeOutCubic;
+      transform-origin: left;
+      transform: scaleX(0);
+    }
+
+    &:hover,
+    &:focus-within {
+      &::before {
+        transform: scaleX(1);
+      }
+    }
+
+    a {
+      color: var(--body-text-color);
+      position: relative;
+      padding: 0.8rem;
+      transition: all var(--very-short-duration) easeOutExpo;
+
+      &:focus-visible {
+        outline: none;
+        font-weight: bold;
+        color: var(--accent-text-color);
+      }
+    }
+
+    &--has-children {
+      padding-right: 10px;
+    }
+  }
+
+  &__item--has-children > a &__dropdown-icon {
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: calc(50% - 5px);
+    height: 10px;
+    width: 10px;
+    opacity: 0.6;
+    transition: all 0.1s linear;
+    transform: translateX(10px);
+  }
+
+  &__item--has-children:hover > a &__dropdown-icon,
+  &__item--has-children:focus-within > a &__dropdown-icon {
+    transform: translateX(4px);
+  }
+
+  &__item--has-children:hover > &__sub-menu,
+  &__item--has-children:focus-within > &__sub-menu {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0, 0);
+    transition-delay: 0s;
+  }
+
+  &__sub-menu {
+    position: absolute;
+    display: flex;
+    top: 100%;
+    left: 0;
+    flex-direction: column;
+    min-width: 200px;
+    background: var(--gray-90);
+    transform: translate(0, 10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s easeOutCubic;
+    transition-delay: 0.5s;
+    z-index: 100;
+  }
+
+  &__sub-menu &__item {
+    width: 100%;
+    transition: all var(--very-short-duration) easeOutCubic;
+    &::before {
+      display: none;
+    }
+
+    &:hover,
+    &:focus-within {
+      padding-left: 4px;
+    }
+
+    a {
+      display: block;
+      padding: 22px 10px 22px 22px;
+      width: 100%;
+      color: var(--gray-10);
+      transition: all var(--very-short-duration) easeOutExpo;
+
+      &:focus-visible {
+        outline: none;
+        font-weight: bold;
+        color: var(--accent-text-color);
+      }
+    }
+  }
+
+  &__sub-menu &__item--has-children &__dropdown-icon {
+    transform: rotate(-90deg);
+    right: 20px;
+  }
+
+  &__sub-menu &__sub-menu {
+    transform: translate(10px, 0);
+    margin: 0 0 0 5px;
+    left: 100%;
+    top: 0;
+  }
+}
+
+.search-btn {
+  width: 3rem;
+  border: none;
+  background: none;
+  margin-left: 8rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  cursor: pointer;
+  color: var(--body-text-color);
+  transform-origin: center;
+  transition: all var(--short-duration) easeOutExpo;
+
+  &:before {
+    content: "";
+    height: 40px;
+    width: 40px;
+    background-color: var(--accent-color);
+    position: absolute;
+    transform: translate(-50%, -50%) scale(1.05);
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--short-duration) easeOutCubic;
+  }
+
+  &__icon {
+    position: relative;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.25);
+    color: var(--accent-text-color);
+    &::before {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+  }
+  &:focus-visible {
+    background: var(--accent-color);
+    outline: none;
+    border-radius: 4px;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.sidemenu-btn {
+  width: 3rem;
+  border: none;
+  background: none;
+  margin-left: 4rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  cursor: pointer;
+  color: var(--body-text-color);
+  transition: all var(--short-duration) easeOutExpo;
+
+  &:before {
+    content: "";
+    height: 40px;
+    width: 40px;
+    background-color: var(--accent-color);
+    position: absolute;
+    transform: translate(-50%, -50%) scale(1.05);
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--moderate-duration) easeOutCubic;
+  }
+
+  &__icon {
+    position: relative;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.25);
+    color: var(--accent-text-color);
+    &::before {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+  }
+  &:focus-visible {
+    background: var(--accent-color);
+    outline: none;
+    border-radius: 4px;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .menu {
+    display: none;
+  }
+}

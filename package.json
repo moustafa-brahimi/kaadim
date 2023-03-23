@@ -1,0 +1,36 @@
+{
+  "name": "kadim",
+  "version": "0.0.1",
+  "description": "Wordpress Theme",
+  "main": "index.php",
+  "scripts": {
+    "js:build": "npx webpack watch",
+    "css:build": "postcss -w ./assets/src/css/style.css -o ./assets/dist/css/style.css"
+  },
+  "author": "Moustafa Brahimi",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.18.9",
+    "@babel/preset-env": "^7.18.9",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "animejs": "^3.2.1",
+    "autoprefixer": "^10.4.7",
+    "babel-loader": "^8.2.5",
+    "cssnano": "^5.1.12",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^10.0.0",
+    "postcss-color-mod-function": "^3.0.3",
+    "postcss-conditionals": "^2.1.0",
+    "postcss-easings": "^3.0.1",
+    "postcss-for": "^2.1.1",
+    "postcss-import": "^14.1.0",
+    "postcss-nested": "^5.0.6",
+    "postcss-preset-env": "^7.7.2",
+    "postcss-random": "^1.0.9",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
+}

@@ -1,0 +1,10 @@
+<svg id="Group_2" data-name="Group 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12.068" height="8.084" viewBox="0 0 12.068 8.084" role="presentation">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="0.837" stop-color="#fff"/>
+      <stop offset="1" stop-color="#ddd"/>
+    </linearGradient>
+  </defs>
+  <path id="cloud2" d="M195.025,333.7l.439.13h8.38a2.544,2.544,0,0,0-1.323-4.911c-.96-5.274-8.021-3.214-7.3.675A2.167,2.167,0,0,0,195.025,333.7Z" transform="translate(-193.643 -325.744)" fill="url(#linear-gradient)"/>
+</svg>
