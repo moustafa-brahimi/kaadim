@@ -210,7 +210,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
       loadMoreButtons = document.querySelectorAll( ".js-btn-loadmore" ),
       postsContainer = document.getElementById( "kadim-posts" );
 
-    let paged = 1;
+    let paged = 1,
+        requestGoing = false;
 
     const { ajaxUrl, loadMorePostsNonce } = globals; 
 
@@ -224,6 +225,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
           event.preventDefault();
 
+          if( requestGoing ) { return; }
+
           paged += 1;
 
           button.classList.add( loadingModifier );
@@ -233,7 +236,11 @@ document.addEventListener( 'DOMContentLoaded', () => {
           data.append( "action", "loadmore_posts" );
           data.append( "paged", paged );
           data.append( "nonce", loadMorePostsNonce );
-            
+          
+          requestGoing = true;
+
+          console.log( requestGoing );
+
           fetch( ajaxUrl, {
 
             method: "POST",
@@ -253,9 +260,13 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
             posts.forEach( post => postsContainer.append( post ) );
 
-            MacroLoading.init();
+            MacroLoading.refresh();
 
             button.classList.remove( loadingModifier );
+
+          }).finally( () => {
+
+            requestGoing = false;
 
           });
 

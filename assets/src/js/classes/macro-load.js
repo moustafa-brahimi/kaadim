@@ -12,12 +12,14 @@ class MacroLoading {
     static init() {
 
 
-        const { updateNodes, addScroller, viewPortChanged } =   MacroLoading;
+        const { updateNodes, addScroller, loadImagesInViewPort, loadAll } =   MacroLoading;
         
         updateNodes();
         addScroller( window );
 
-        window.addEventListener( 'load', viewPortChanged );
+        loadImagesInViewPort();
+
+        window.addEventListener( 'load', loadAll );
         
         const { images, preloadClass, loadingClass, loadedClass } =   MacroLoading;
 
@@ -62,11 +64,18 @@ class MacroLoading {
 
     }
 
+    static refresh() {
+
+        MacroLoading.updateNodes();
+        MacroLoading.loadAll();
+
+    }
+ 
     static addScroller( element ) {
 
         if( !( element instanceof HTMLElement || element instanceof Window ) ) { return; };
         
-        element.addEventListener( 'scroll', MacroLoading.viewPortChanged );
+        element.addEventListener( 'scroll', MacroLoading.loadImagesInViewPort );
 
     }
 
@@ -103,7 +112,7 @@ class MacroLoading {
 
     }
 
-    static viewPortChanged() {
+    static loadImagesInViewPort() {
 
         const { images, isInViewport, loadingClass, loadedClass, preloadClass, imageLoaded }    =   MacroLoading;
 
@@ -167,6 +176,69 @@ class MacroLoading {
     
         });
 
+    }
+
+    static loadAll() {
+
+        console.log( "load time" );
+
+        const { images, isInViewport, loadingClass, loadedClass, preloadClass, imageLoaded }    =   MacroLoading;
+
+        images.forEach( ( image ) => {
+
+            const { classList }  =   image;
+            
+            if( classList.contains( loadedClass ) )  { return; }
+
+            if( classList.contains( loadingClass ) ) { return; }
+
+            if( !( image.hasAttribute( 'data-background' ) || image.hasAttribute( 'data-image' ) ) ) { return; }
+                
+            classList.add( loadingClass );
+
+            let url     =   image.getAttribute( image.hasAttribute( 'data-background' ) ? 'data-background' : 'data-image' );
+
+            fetch( url ).then( ( response ) => response.blob() ).then( ( blob ) => {
+
+
+                let objectURL = URL.createObjectURL( blob );
+
+                setTimeout(() => {
+
+                    images.forEach( ( image ) => {
+
+                        const { classList }  =   image;
+    
+                        if( image.getAttribute( 'data-image' ) == url )  {
+                            
+                            image.setAttribute( 'src', objectURL );
+                            image.addEventListener( 'load', imageLoaded );
+                        
+                        } else if( image.getAttribute( 'data-background' ) == url ) {
+                        
+                            image.style.backgroundImage =   `url(${objectURL})`;
+                            classList.add( loadedClass );
+                        
+                        } 
+                        
+                        else {
+                            return;
+                        }
+    
+                        classList.remove( loadingClass );
+                        classList.remove( preloadClass );
+    
+                        images.delete( image );
+    
+                    });
+    
+                    
+                }, 2000);
+
+
+            });
+    
+        });
     }
     
 }

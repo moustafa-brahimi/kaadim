@@ -1,3 +1,26 @@
+@keyframes buttonLoading {
+
+  0% {
+    box-shadow: 5px 6px var(--accent-text-color);
+  }
+
+  100% {
+    box-shadow: -5px -6px var(--accent-text-color);
+    filter: invert(1)
+  }
+
+}
+
+@keyframes float {
+	0% {
+		transform: translatey(2px);
+	}
+
+  100% {
+		transform: translatey(-2px);
+	}
+}
+
 .kadim-posts {
   &__loadmore {
     margin: 0 auto;
@@ -12,8 +35,15 @@
     min-width: 180px;
     box-shadow: 5px 6px var(--accent-text-color);
     font-size: 1.2rem;
+    transition: all var(--short-duration) easeOutQuint;
     &--loading {
-      filter: grayscale(1);
+      filter: grayscale(.4);
+      animation: alternate var(--long-duration) infinite buttonLoading easeInOutQuint;
+
+      .icon {
+        animation: alternate-reverse float var(--long-duration) easeInOutQuint infinite ;
+      }
+
     }
   }
 }
