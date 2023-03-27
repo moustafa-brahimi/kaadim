@@ -10,5 +10,6 @@
 @import "./components/post-card.css";
 @import "./components/button/color-scheme.css";
 @import "./components/button/button.css";
+@import "./components/instagram.css";
 
 @import "./base/layout.css";

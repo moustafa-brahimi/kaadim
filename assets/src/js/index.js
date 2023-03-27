@@ -1,6 +1,7 @@
 // import "../css/style.css";
 import "./icons.js";
 import "./classes/slider-compact.js";
+import InstagramIcon from "./classes/instagram-icon";
 import MacroLoading from "./classes/macro-load";
 import ColorScheme from "./classes/color-scheme";
 import loadMore from "./classes/load-more-posts.js";
@@ -277,5 +278,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
       });
 
+    new InstagramIcon();
 
 });

@@ -1,0 +1,9 @@
+.instagram-grid {
+    display: grid;
+    width: 100%;
+    overflow: hidden;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 6px;
+    margin: 90px 0 0;
+    padding: 6px;
+}

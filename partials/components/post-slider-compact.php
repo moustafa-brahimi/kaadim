@@ -33,7 +33,7 @@
     <div class="compact-post__content">
 
 
-    <?php $post_categroies  =   get_the_category(); ?>
+        <?php $post_categroies  =   get_the_category(); ?>
             
 
         <?php $first_category   =   array_pop( $post_categroies ); ?>

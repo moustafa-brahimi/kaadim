@@ -144,4 +144,8 @@ let stringToHTML = (str) => {
 
 };
 
-export { getClosest, getParents, isInViewPort, isTouchDevice, getRelativeOffset, stringToHTML }
+const randomNumber = (min, max) => {
+    return Math.random() * (max - min) + min;
+}
+
+export { getClosest, getParents, isInViewPort, isTouchDevice, getRelativeOffset, stringToHTML, randomNumber }
