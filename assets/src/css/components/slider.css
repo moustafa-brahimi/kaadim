@@ -28,6 +28,9 @@
     transition: filter var(--short-duration) ease,
       transform var(--moderate-duration) ease !important;
     transform-origin: center;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 
     &--loaded {
       transform: unset;

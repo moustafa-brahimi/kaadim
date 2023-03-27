@@ -29,9 +29,12 @@
             
         </main>
 
-        <button class="kadim-posts__loadmore js-btn-loadmore" >
+        <button 
+            title='<?php echo esc_attr_e("Load more", "kadim"); ?>'
+            class="kadim-posts__loadmore js-btn-loadmore"
+        >
 
-        <i class="fa-solid fa-ellipsis"></i>
+        <i class="fa-solid icon fa-ellipsis"></i>
 
         </button>
         
