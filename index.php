@@ -8,6 +8,8 @@
 <?php get_template_part( 'partials/slider', 'compact' ); ?>
 
 
+
+
 <?php if( have_posts() ): ?>
 
     <div class="container">

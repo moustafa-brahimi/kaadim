@@ -393,6 +393,8 @@ function kadim_loadmore_ajax() {
 
 	endwhile;
 
+	echo $query->max_num_pages . " - " . $paged;
+
 	die();
 
 

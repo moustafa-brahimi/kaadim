@@ -212,7 +212,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
     let paged = 1;
 
-    const { ajaxUrl, loadMorePostsNonce } = globals; 
+    const { ajaxUrl, loadMorePostsNonce } = globals;
 
       loadMoreButtons.forEach(( button ) => {
 

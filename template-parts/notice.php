@@ -1,4 +1,4 @@
-² 1&<?php if( get_theme_mod( 'kadim_notice_status' ) && !( isset($_COOKIE["collapsed"]) && is_true($_COOKIE["collapsed"]) ) ): ?>
+<?php if( get_theme_mod( 'kadim_notice_status' ) && !( isset($_COOKIE["collapsed"]) && is_true($_COOKIE["collapsed"]) ) ): ?>
 
   <div class="notice" id="notice">
 
