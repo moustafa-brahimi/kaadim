@@ -26,6 +26,8 @@ class InstagramIcon {
         let centerX = width / 2;
         let centerY = height / 2;
 
+        context.lineWidth = 2;
+
         this.centreCircles.forEach( (circle) => {
 
             context.beginPath();
@@ -45,7 +47,31 @@ class InstagramIcon {
             }
 
         });
- 
+
+        context.beginPath();
+
+        let offset1 = 0;
+        let offset2 = 0.292 - offset1;
+        context.lineWidth = 2;
+
+
+        context.moveTo( width * offset1, height * offset2 );
+        context.arcTo(0, 0, width * offset2, height * offset1, 146 );
+
+        context.lineTo( width * (  1 - offset2 ), height * offset1 );
+        context.arcTo(width, 0, width * ( 1 - offset1 ), height * offset2, 146 );
+
+        
+        context.lineTo( width * (  1 - offset1 ), height * ( 1 - offset2 ) );
+        context.arcTo(width, height, width * ( 1 - offset2 ), height * ( 1 - offset1 ), 146 );
+
+        context.lineTo( width *  offset2, height * ( 1 - offset1 ) );
+        context.arcTo(0, height, width * offset1, height * ( 1 - offset2 ), 146 );
+
+        context.closePath();
+        context.stroke();
+
+        console.log( ( offset2 - offset1 ) * width );
 
 
         requestAnimationFrame( () => this.animate() );
