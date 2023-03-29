@@ -50,27 +50,35 @@ class InstagramIcon {
 
         context.beginPath();
 
-        let offset1 = 0;
-        let offset2 = 0.292 - offset1;
-        context.lineWidth = 2;
+        let offset1 = 0.102 / 2; // 0.048;
+        let offset2 = 0.28;
+        context.lineWidth = 41;
+
+        let border = new Path2D();
 
 
-        context.moveTo( width * offset1, height * offset2 );
-        context.arcTo(0, 0, width * offset2, height * offset1, 146 );
 
-        context.lineTo( width * (  1 - offset2 ), height * offset1 );
-        context.arcTo(width, 0, width * ( 1 - offset1 ), height * offset2, 146 );
 
-        
-        context.lineTo( width * (  1 - offset1 ), height * ( 1 - offset2 ) );
-        context.arcTo(width, height, width * ( 1 - offset2 ), height * ( 1 - offset1 ), 146 );
+        border.moveTo( width * offset1, height * offset2 );
+        border.quadraticCurveTo(offset1 * width, offset1 * height, width * offset2, height * offset1 );
 
-        context.lineTo( width *  offset2, height * ( 1 - offset1 ) );
-        context.arcTo(0, height, width * offset1, height * ( 1 - offset2 ), 146 );
+        border.lineTo( width * (  1 - offset2 ), height * offset1 );
+        border.quadraticCurveTo(width * ( 1 - offset1 ), height * offset1, width * ( 1 - offset1 ), height * offset2 );
 
-        context.closePath();
-        context.stroke();
 
+        border.lineTo( width * (  1 - offset1 ), height * ( 1 - offset2 ) );
+        border.quadraticCurveTo(width * ( 1 - offset1 ), height * ( 1 - offset1 ), width * ( 1 - offset2 ), height * ( 1 - offset1 ) );
+
+        border.lineTo( width *  offset2, height * ( 1 - offset1 ) );
+        border.quadraticCurveTo(width * offset1, height * ( 1 - offset1 ), width * offset1, height * ( 1 - offset2 ) );
+
+        let circlePath = new Path2D();
+        circlePath.arc(150, 75, 75, 0, 2 * Math.PI);
+        context.clip( border );
+
+        context.clip( circlePath );
+        context.fillStyle = "blue";
+        context.fillRect(0, 0, width, height);
         console.log( ( offset2 - offset1 ) * width );
 
 
