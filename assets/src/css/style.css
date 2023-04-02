@@ -13,3 +13,7 @@
 @import "./components/instagram.css";
 
 @import "./base/layout.css";
+
+.instagram-icon__outer {
+  clip-path: url(#instagram-outer);
+}

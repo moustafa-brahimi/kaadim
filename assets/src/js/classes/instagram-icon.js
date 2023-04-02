@@ -3,6 +3,7 @@ import { randomNumber } from "../functions";
 class InstagramIcon {
 
     centreCircles = [];
+    outerCircles = [];
     canvas = document.getElementById( "instagram-icon" );
 
     constructor( canvas = false ) {
@@ -11,6 +12,13 @@ class InstagramIcon {
 
             this.canvas = canvas;
         }
+
+        this.outerCanvas = this.canvas.cloneNode(); 
+
+        this.outerCanvas.classList.add( "instagram-icon__outer" );
+
+        this?.canvas?.parentNode?.appendChild( this.outerCanvas );
+
 
         this.draw();
 
@@ -21,7 +29,6 @@ class InstagramIcon {
         const { context, width, height } = this;
 
         this.context.clearRect( 0, 0, width, height);
-        this.context.lineWidth = 2;
 
         let centerX = width / 2;
         let centerY = height / 2;
@@ -48,38 +55,32 @@ class InstagramIcon {
 
         });
 
-        context.beginPath();
+        const { outerContext, outerHeight, outerWidth } = this;
 
-        let offset1 = 0.102 / 2; // 0.048;
-        let offset2 = 0.28;
-        context.lineWidth = 41;
-
-        let border = new Path2D();
+        outerContext.clearRect( 0, 0, outerWidth, outerHeight);
 
 
+        this.outerCircles.forEach( (circle) => {
 
+            // console.log( circle.x );
 
-        border.moveTo( width * offset1, height * offset2 );
-        border.quadraticCurveTo(offset1 * width, offset1 * height, width * offset2, height * offset1 );
+            outerContext.beginPath();
+            outerContext.arc( circle.x, circle.y, circle.r, 0, 2 * Math.PI );
+            outerContext.closePath();
+            outerContext.stroke();
 
-        border.lineTo( width * (  1 - offset2 ), height * offset1 );
-        border.quadraticCurveTo(width * ( 1 - offset1 ), height * offset1, width * ( 1 - offset1 ), height * offset2 );
+            circle.x += circle.ax;
+            circle.y += circle.ay;
 
+            if( circle.x > circle.refX + circle.bondariesX || circle.x < circle.refX - circle.bondariesX ) {
+                circle.ax = -circle.ax;
+            }
 
-        border.lineTo( width * (  1 - offset1 ), height * ( 1 - offset2 ) );
-        border.quadraticCurveTo(width * ( 1 - offset1 ), height * ( 1 - offset1 ), width * ( 1 - offset2 ), height * ( 1 - offset1 ) );
+            if( circle.y > circle.refY + circle.bondariesY || circle.y < circle.refY - circle.bondariesY ) {
+                circle.ay = -circle.ay;
+            }
 
-        border.lineTo( width *  offset2, height * ( 1 - offset1 ) );
-        border.quadraticCurveTo(width * offset1, height * ( 1 - offset1 ), width * offset1, height * ( 1 - offset2 ) );
-
-        let circlePath = new Path2D();
-        circlePath.arc(150, 75, 75, 0, 2 * Math.PI);
-        context.clip( border );
-
-        context.clip( circlePath );
-        context.fillStyle = "blue";
-        context.fillRect(0, 0, width, height);
-        console.log( ( offset2 - offset1 ) * width );
+        });
 
 
         requestAnimationFrame( () => this.animate() );
@@ -94,6 +95,8 @@ class InstagramIcon {
         const middleCircleMinRaduis = width * 0.166;
 
         context.strokeStyle = "#dddddd";
+        context.lineWidth = 2;
+
 
         for( let i = 0; i < 25; i++ ) {
 
@@ -111,8 +114,8 @@ class InstagramIcon {
                 x: width / 2 + XMove,
                 y: height / 2 + YMove,
                 r: randomCircleRaduis,
-                ax: ( Math.random() > 0.5 ? 0.05 : -0.05 ),
-                ay: ( Math.random() > 0.5 ? 0.05 : -0.05 ),
+                ax: ( Math.random() > 0.5 ? 0.1 : -0.1 ),
+                ay: ( Math.random() > 0.5 ? 0.1 : -0.1 ),
                 bondaries: howMuchIcanMove,
 
             });
@@ -137,8 +140,8 @@ class InstagramIcon {
                 x: width * (1 - 0.232) + XMove,
                 y: height * 0.232 + YMove,
                 r: randomCircleRaduis,
-                ax: ( Math.random() > 0.5 ? 0.05 : -0.05 ),
-                ay: ( Math.random() > 0.5 ? 0.05 : -0.05 ),
+                ax: ( Math.random() > 0.5 ? 0.1 : -0.1 ),
+                ay: ( Math.random() > 0.5 ? 0.1 : -0.1 ),
                 bondaries: howMuchIcanMove,
 
             });
@@ -146,6 +149,87 @@ class InstagramIcon {
 
 
         }
+
+        const { outerWidth, outerHeight, outerContext } = this;
+
+        outerContext.strokeStyle = "#dddddd";
+        outerContext.lineWidth = 2;
+
+
+        for( let i = 0; i < 250; i++ ) {
+
+
+            let side = parseInt( i / ( 250 / 4 ) );
+            let refX = 0.152;
+            let refY = 0.5;
+            
+           
+            
+            let randomCircleRaduis = randomNumber( 0, outerWidth * 0.152 );
+
+
+            switch( side ) {
+
+                case 0:
+
+                    refX = 0.152;
+                    refY = 0.5;
+    
+                break;
+                
+                case 1:
+
+                    refX = 0.5;
+                    refY = 0.152;
+    
+                break;
+
+                
+                case 2:
+
+                    refX = ( 1 - 0.152 );
+                    refY = 0.5;
+    
+                break;
+
+                case 3:
+                
+                    refX = 0.5;
+                    refY = ( 1 - 0.152 );
+
+                break;
+
+
+            }
+
+
+            let howMuchIcanMoveX = ( refX == 0.5 ? refX : 0.5 * 0.152 ) * outerWidth - randomCircleRaduis;
+            let howMuchIcanMoveY = ( refY == 0.5 ? refY : 0.5 * 0.152 ) * outerHeight - randomCircleRaduis;
+
+            let XMove = randomNumber( -howMuchIcanMoveX, howMuchIcanMoveX );
+            let YMove = randomNumber( -howMuchIcanMoveY, howMuchIcanMoveY );
+
+            refX *= outerWidth;
+            refY *= outerHeight;
+
+            this.outerCircles.push({
+
+                refX: refX,
+                refY: refY,
+                x: refX + XMove,
+                y: refY + YMove,
+                r: randomCircleRaduis,
+                ax: ( Math.random() > 0.5 ? 0.25 : -0.25 ),
+                ay: ( Math.random() > 0.5 ? 0.25 : -0.25 ),
+                bondariesX: howMuchIcanMoveX,
+                bondariesY: howMuchIcanMoveY,
+
+            });
+
+
+
+        }
+
 
 
        // requestAnimationFrame( () => this.animate() );
@@ -170,6 +254,26 @@ class InstagramIcon {
     get height() {
 
         return this.canvas.clientHeight;
+
+    }
+
+
+    
+    get outerContext() {
+
+        return this.outerCanvas.getContext( "2d" );
+
+    }
+
+    get outerWidth() {
+
+        return this.outerCanvas.clientWidth;
+
+    }
+    
+    get outerHeight() {
+
+        return this.outerCanvas.clientHeight;
 
     }
 
