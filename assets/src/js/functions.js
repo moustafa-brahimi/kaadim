@@ -144,8 +144,19 @@ let stringToHTML = (str) => {
 
 };
 
+let isDOM = (obj) => {
+	var tag = obj.tagName;
+	try {
+	  obj.tagName = '';  // Read-only for DOM, should throw exception
+	  obj.tagName = tag; // Restore for normal objects
+	  return false;
+	} catch (e) {
+	  return true;
+	}
+  }
+
 const randomNumber = (min, max) => {
     return Math.random() * (max - min) + min;
 }
 
-export { getClosest, getParents, isInViewPort, isTouchDevice, getRelativeOffset, stringToHTML, randomNumber }
+export { getClosest, getParents, isInViewPort, isTouchDevice, getRelativeOffset, stringToHTML, randomNumber, isDOM }

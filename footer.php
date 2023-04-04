@@ -42,10 +42,11 @@
 
       </div>
 
-      <canvas id="instagram-icon" width="500" height="500"></canvas>
+      <!-- <canvas id="" width="500" height="500"></canvas> -->
 
-      <i class="instagram-icon" ></i>
+      <i id="instagram-icon" size="500"></i>
 
+      <!--
 
       <svg xmlns="http://www.w3.org/2000/svg" width="500" height="499.888" viewBox="0 0 500 499.888">
 
@@ -55,6 +56,7 @@
       
       </svg>
 
+      -->
 
 
 
