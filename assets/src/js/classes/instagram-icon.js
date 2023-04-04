@@ -2,9 +2,52 @@ import { randomNumber } from "../functions";
 
 class InstagramIcon {
 
-    centreCircles = [];
     outerCircles = [];
     canvas = document.getElementById( "instagram-icon" );
+    size = 500;
+    
+    
+    
+    middleRingleCircles = [];
+    middleRingRelativeX = 0.5;
+    middleRingRelativeY = 0.5;
+    middleRingMinRelativeRadius = 0.166;
+    middleRingMaxRelativeRadius = 0.258;
+    middleRingAccelerationX = 0.1;
+    middleRingAccelerationY = 0.1;
+    middleRingCirclesCount = 25;
+    middleRingContextProperties = {
+        strokeStyle: "#dddddd",
+        lineWidth: 2,
+    };
+
+
+    upRightCircleCircles = [];
+    upRightCircleMinRelativeRadius = 0;
+    upRightCircleMaxRelativeRadius = 0.062;
+    upRightCircleRelativeX = 1 - 0.232;
+    upRightCircleRelativeY = 0.232;
+    upRightCircleAccelerationX = 0.1;
+    upRightCircleAccelerationY = 0.1;
+    upRightCircleCirclesCount = 25;
+    upRightCircleCanvasProperties = {
+        strokeStyle: "#dddddd",
+        lineWidth: 2,
+    };
+
+
+    borderMinRelativeRadius = 0;
+    borderMaxRelativeRadius = 0.09;
+    borderRelativeDistance = 0.5;
+    borderRelativeSecondaryDistance = 0.152;
+    borderCirclesCount = 320;
+    borderAccelerationX = 0.25;
+    borderAccelerationY = 0.25;
+    borderContextProperties = {
+        strokeStyle: "#ea7",
+        lineWidth: 2,
+    };
+
 
     constructor( canvas = false ) {
 
@@ -26,16 +69,10 @@ class InstagramIcon {
 
     animate() {
 
-        const { context, width, height } = this;
+        
+        let drawArrayOfCircles = ( circle, context ) => {
 
-        this.context.clearRect( 0, 0, width, height);
-
-        let centerX = width / 2;
-        let centerY = height / 2;
-
-        context.lineWidth = 2;
-
-        this.centreCircles.forEach( (circle) => {
+            let boundaries;
 
             context.beginPath();
             context.arc( circle.x, circle.y, circle.r, 0, 2 * Math.PI );
@@ -45,42 +82,53 @@ class InstagramIcon {
             circle.x += circle.ax;
             circle.y += circle.ay;
 
-            if( circle.x > circle.refX + circle.bondaries || circle.x < circle.refX - circle.bondaries ) {
+            if( typeof circle.boundaries != 'object' ) {
+
+                boundaries = {
+                    x : circle.boundaries,
+                    y : circle.boundaries
+                }
+
+            } else {
+                boundaries = circle.boundaries;
+            }
+
+            if( circle.x > circle.refX + boundaries.x || circle.x < circle.refX - boundaries.y ) {
                 circle.ax = -circle.ax;
             }
 
-            if( circle.y > circle.refY + circle.bondaries || circle.y < circle.refY - circle.bondaries ) {
+            if( circle.y > circle.refY + boundaries.y || circle.y < circle.refY - boundaries.y ) {
                 circle.ay = -circle.ay;
             }
 
-        });
 
-        const { outerContext, outerHeight, outerWidth } = this;
+        };
+
+
+
+        const { 
+            context,
+            size,
+            middleRingContextProperties,
+        } = this;
+
+        this.context.clearRect( 0, 0, size, size);
+        Object.assign( context, middleRingContextProperties );
+        this.middleRingleCircles.forEach( (circle) => drawArrayOfCircles( circle, context ) );
+
+
+
+        const { 
+            outerContext,
+            outerHeight,
+            outerWidth,
+            borderContextProperties,
+        
+        } = this;
 
         outerContext.clearRect( 0, 0, outerWidth, outerHeight);
-
-
-        this.outerCircles.forEach( (circle) => {
-
-            // console.log( circle.x );
-
-            outerContext.beginPath();
-            outerContext.arc( circle.x, circle.y, circle.r, 0, 2 * Math.PI );
-            outerContext.closePath();
-            outerContext.stroke();
-
-            circle.x += circle.ax;
-            circle.y += circle.ay;
-
-            if( circle.x > circle.refX + circle.bondariesX || circle.x < circle.refX - circle.bondariesX ) {
-                circle.ax = -circle.ax;
-            }
-
-            if( circle.y > circle.refY + circle.bondariesY || circle.y < circle.refY - circle.bondariesY ) {
-                circle.ay = -circle.ay;
-            }
-
-        });
+        Object.assign( outerContext, borderContextProperties );
+        this.outerCircles.forEach( (circle) => drawArrayOfCircles( circle, outerContext ) );
 
 
         requestAnimationFrame( () => this.animate() );
@@ -89,34 +137,46 @@ class InstagramIcon {
 
     draw() {
 
-        const { context, width, height } = this;
+        const { 
+            size,
+            middleRingRelativeX,
+            middleRingRelativeY,
+            middleRingMinRelativeRadius,
+            middleRingMaxRelativeRadius,
+            middleRingAccelerationX,
+            middleRingAccelerationY,
+            middleRingCirclesCount,
 
-        const middleCircleMaxRaduis = width * 0.258;
-        const middleCircleMinRaduis = width * 0.166;
 
-        context.strokeStyle = "#dddddd";
-        context.lineWidth = 2;
+        } = this;
+
+        
+        /** Generating Middle Ring Circles */
+
+        const   middleRingMaxRaduis = size * middleRingMaxRelativeRadius,
+                middleRingMinRaduis = size * middleRingMinRelativeRadius,
+                middleRingCenterX = size * middleRingRelativeX,
+                middleRingCenterY = size * middleRingRelativeY;
+
+        for( let i = 0; i < middleRingCirclesCount; i++ ) {
 
 
-        for( let i = 0; i < 25; i++ ) {
+            let randomCircleRaduis = randomNumber( middleRingMinRaduis, middleRingMaxRaduis );
+            let boundaries = Math.min( randomCircleRaduis - middleRingMinRaduis, middleRingMaxRaduis - randomCircleRaduis );    
 
+            let positioningX = randomNumber( -boundaries, boundaries );
+            let positioningY = randomNumber( -boundaries, boundaries );
 
-            let randomCircleRaduis = randomNumber( middleCircleMinRaduis, middleCircleMaxRaduis );
-            let howMuchIcanMove = Math.min( randomCircleRaduis - middleCircleMinRaduis, middleCircleMaxRaduis - randomCircleRaduis )
+            this.middleRingleCircles.push({
 
-            let XMove = randomNumber( -howMuchIcanMove, howMuchIcanMove );
-            let YMove = randomNumber( -howMuchIcanMove, howMuchIcanMove );
-
-            this.centreCircles.push({
-
-                refX: width / 2,
-                refY: height / 2,
-                x: width / 2 + XMove,
-                y: height / 2 + YMove,
+                refX: middleRingCenterX,
+                refY: middleRingCenterY,
+                x: middleRingCenterX + positioningX,
+                y: middleRingCenterY + positioningY,
                 r: randomCircleRaduis,
-                ax: ( Math.random() > 0.5 ? 0.1 : -0.1 ),
-                ay: ( Math.random() > 0.5 ? 0.1 : -0.1 ),
-                bondaries: howMuchIcanMove,
+                ax: ( Math.random() > 0.5 ? middleRingAccelerationX : -middleRingAccelerationX ),
+                ay: ( Math.random() > 0.5 ? middleRingAccelerationY : -middleRingAccelerationY ),
+                boundaries,
 
             });
 
@@ -124,78 +184,105 @@ class InstagramIcon {
 
         }
 
-        for( let i = 0; i < 25; i++ ) {
+
+        /** Generating Up right circle circles */
+
+        const {
+            upRightCircleRelativeX,
+            upRightCircleRelativeY,
+            upRightCircleMinRelativeRadius,
+            upRightCircleMaxRelativeRadius,
+            upRightCircleCirclesCount,
+            upRightCircleAccelerationX,
+            upRightCircleAccelerationY,
+        } = this;
+
+        const   upRightMinRadius = upRightCircleMinRelativeRadius * size,
+                upRightMaxRadius = upRightCircleMaxRelativeRadius * size,
+                upRightCenterX = upRightCircleRelativeX * size,
+                upRightCenterY = upRightCircleRelativeY * size;
 
 
-            let randomCircleRaduis = randomNumber( 0, height * 0.062 );
-            let howMuchIcanMove = height * 0.062 - randomCircleRaduis;
+        for( let i = 0; i < upRightCircleCirclesCount; i++ ) {
 
-            let XMove = randomNumber( -howMuchIcanMove, howMuchIcanMove );
-            let YMove = randomNumber( -howMuchIcanMove, howMuchIcanMove );
+            let randomCircleRaduis = randomNumber( upRightMinRadius, upRightMaxRadius );
+            let boundaries = upRightMaxRadius - randomCircleRaduis;
 
-            this.centreCircles.push({
+            let positioningX = randomNumber( -boundaries, boundaries );
+            let positioningY = randomNumber( -boundaries, boundaries );
 
-                refX: width * (1 - 0.232),
-                refY: height * 0.232,
-                x: width * (1 - 0.232) + XMove,
-                y: height * 0.232 + YMove,
+            this.middleRingleCircles.push({
+
+                refX: upRightCenterX,
+                refY: upRightCenterY,
+                x: upRightCenterX + positioningX,
+                y: upRightCenterY + positioningY,
                 r: randomCircleRaduis,
-                ax: ( Math.random() > 0.5 ? 0.1 : -0.1 ),
-                ay: ( Math.random() > 0.5 ? 0.1 : -0.1 ),
-                bondaries: howMuchIcanMove,
+                ax: ( Math.random() > 0.5 ? upRightCircleAccelerationX : -upRightCircleAccelerationX ),
+                ay: ( Math.random() > 0.5 ? upRightCircleAccelerationY : -upRightCircleAccelerationY ),
+                boundaries,
 
             });
 
-
-
         }
 
-        const { outerWidth, outerHeight, outerContext } = this;
 
-        outerContext.strokeStyle = "#dddddd";
-        outerContext.lineWidth = 2;
+
+        /** Generating Border Circles */
+
+        const {
+            borderMinRelativeRadius,
+            borderMaxRelativeRadius,
+            borderRelativeDistance,
+            borderRelativeSecondaryDistance,
+            borderAccelerationX,
+            borderAccelerationY,
+        } = this;
+
+        const   borderMinRadius = size * borderMinRelativeRadius ,
+                borderMaxRadius = size * borderMaxRelativeRadius;
 
 
         for( let i = 0; i < 250; i++ ) {
 
 
             let side = parseInt( i / ( 250 / 4 ) );
-            let refX = 0.152;
-            let refY = 0.5;
+            let refX = borderRelativeSecondaryDistance;
+            let refY = borderRelativeDistance;
             
            
             
-            let randomCircleRaduis = randomNumber( 0, outerWidth * 0.152 );
+            let randomCircleRaduis = randomNumber( borderMinRadius, borderMaxRadius );
 
 
             switch( side ) {
 
                 case 0:
 
-                    refX = 0.152;
-                    refY = 0.5;
+                    refX = borderRelativeSecondaryDistance;
+                    refY = borderRelativeDistance;
     
                 break;
                 
                 case 1:
 
-                    refX = 0.5;
-                    refY = 0.152;
+                    refX = borderRelativeDistance;
+                    refY = borderRelativeSecondaryDistance;
     
                 break;
 
                 
                 case 2:
 
-                    refX = ( 1 - 0.152 );
-                    refY = 0.5;
+                    refX = ( 1 - borderRelativeSecondaryDistance );
+                    refY = borderRelativeDistance;
     
                 break;
 
                 case 3:
                 
-                    refX = 0.5;
-                    refY = ( 1 - 0.152 );
+                    refX = borderRelativeDistance;
+                    refY = ( 1 - borderRelativeSecondaryDistance );
 
                 break;
 
@@ -203,26 +290,29 @@ class InstagramIcon {
             }
 
 
-            let howMuchIcanMoveX = ( refX == 0.5 ? refX : 0.5 * 0.152 ) * outerWidth - randomCircleRaduis;
-            let howMuchIcanMoveY = ( refY == 0.5 ? refY : 0.5 * 0.152 ) * outerHeight - randomCircleRaduis;
+            let boundariesX = ( refX == borderRelativeDistance ? refX : borderRelativeSecondaryDistance ) * size - randomCircleRaduis;
+            let boundariesY = ( refY == borderRelativeDistance ? refY : borderRelativeSecondaryDistance ) * size - randomCircleRaduis;
 
-            let XMove = randomNumber( -howMuchIcanMoveX, howMuchIcanMoveX );
-            let YMove = randomNumber( -howMuchIcanMoveY, howMuchIcanMoveY );
+            let positioningX = randomNumber( -boundariesX, boundariesX );
+            let positioningY = randomNumber( -boundariesY, boundariesY );
 
-            refX *= outerWidth;
-            refY *= outerHeight;
+            refX *= size;
+            refY *= size;
 
             this.outerCircles.push({
 
-                refX: refX,
-                refY: refY,
-                x: refX + XMove,
-                y: refY + YMove,
+                refX,
+                refY,
+                x: refX + positioningX,
+                y: refY + positioningY,
                 r: randomCircleRaduis,
-                ax: ( Math.random() > 0.5 ? 0.25 : -0.25 ),
-                ay: ( Math.random() > 0.5 ? 0.25 : -0.25 ),
-                bondariesX: howMuchIcanMoveX,
-                bondariesY: howMuchIcanMoveY,
+                ax: randomNumber( -borderAccelerationX, borderAccelerationX ),
+                ay: randomNumber( -borderAccelerationY, borderAccelerationY ),
+                boundaries: {
+                    x: boundariesX,
+                    y: boundariesY,
+                }
+
 
             });
 
@@ -230,9 +320,6 @@ class InstagramIcon {
 
         }
 
-
-
-       // requestAnimationFrame( () => this.animate() );
 
         this.animate();
 
