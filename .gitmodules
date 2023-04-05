@@ -1,0 +1,3 @@
+[submodule "assets/src/js/octo"]
+	path = assets/src/js/octo
+	url = git@github.com:brahimi-mustapha/octo.git

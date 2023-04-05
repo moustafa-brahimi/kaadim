@@ -1,0 +1,3 @@
+.instagram-icon__outer {
+  clip-path: url(#instagram-border-mask);
+}
