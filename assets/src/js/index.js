@@ -280,6 +280,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
       });
 
-    new octo.InstagramIcon();
+   
+  console.log( octo.InstagramIcon.allIcons );
 
 });

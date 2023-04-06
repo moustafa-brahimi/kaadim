@@ -1,9 +1,66 @@
+@keyframes fade {
+  0% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
+
 .instagram-grid {
-    display: grid;
-    width: 100%;
-    overflow: hidden;
-    grid-template-columns: repeat(6, 1fr);
-    column-gap: 6px;
-    margin: 90px 0 0;
-    padding: 6px;
+  position: relative;
+  display: grid;
+  width: 100%;
+  overflow: hidden;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 6px;
+  margin: 90px 0 0;
+  padding: 6px;
+  height: 250px;
+
+  &::after {
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    background: var(--black);
+    opacity: 0.5;
+  }
+
+  .octo-instagram-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  &__image {
+    height: 250px;
+    display: flex;
+    .image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      background: #d6249f;
+      background: radial-gradient(
+        circle at 30% 107%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285aeb 90%
+      );
+
+      animation: alternate-reverse var(--long-duration) infinite fade
+        easeInOutCirc;
+
+      &--loaded {
+        animation: none;
+      }
+    }
+  }
 }

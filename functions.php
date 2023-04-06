@@ -402,3 +402,9 @@ function kadim_loadmore_ajax() {
 
 add_action( "wp_ajax_loadmore_posts", "kadim_loadmore_ajax" );
 add_action( "wp_ajax_nopriv_loadmore_posts", "kadim_loadmore_ajax" );
+
+/**  */
+
+function request($path) {
+	return json_decode(file_get_contents($path), true); 
+}

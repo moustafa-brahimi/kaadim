@@ -3,23 +3,6 @@
       
       <?php get_search_form(); ?>
 
-      <?php $token = "IGQVJWSWxpbzg4aE01QXFrTHhaQnpWWW9HaDZAqa2VlRE5yQjZAqM29rdi1BbnFIenVXSXh1UEJMSzdCOExpdlY0RDRjejhQRzlnZAmxnclFpcWZAVVEg2ZAFNFQ1B6OEpIR3RONUFpUjZAR"; ?>
-      
-      <?php
-
-      function request($path) {
-        return json_decode(file_get_contents($path), true); 
-      }
-
-      $url = "https://api.instagram.com/oauth/access_token";
-      $header = 0;
-
-      $feed = request( sprintf( "https://graph.instagram.com/me/media?fields=username,permalink,timestamp,caption,media_url&access_token=%s", $token ) );
-
-
-      ?>
-
-
 
       <button type="button" class="modal-searchform__collapse js-btn-collapse-searchform">
 
@@ -31,19 +14,57 @@
 
     <footer>
 
-      <div class="instagram-grid">
-          
-        <?php foreach( $feed["data"] as $key => $element ): ?>
+      <?php $token = "IGQVJWSWxpbzg4aE01QXFrTHhaQnpWWW9HaDZAqa2VlRE5yQjZAqM29rdi1BbnFIenVXSXh1UEJMSzdCOExpdlY0RDRjejhQRzlnZAmxnclFpcWZAVVEg2ZAFNFQ1B6OEpIR3RONUFpUjZAR"; ?>
+      <?php $url = "https://api.instagram.com/oauth/access_token"; ?>
+      
 
-          <img src="<?php print( $element["media_url"] ); ?>" />
+      <?php if( $token ): ?>
 
-        <?php endforeach; ?>
+        <?php $feed = request( sprintf( "https://graph.instagram.com/me/media?fields=username,permalink,timestamp,caption,media_url,thumbnail_url&access_token=%s", $token ) ); ?>
 
+        <?php if( is_array( $feed ) && isset( $feed[ "data" ] ) && is_array( $feed[ "data" ] ) && !empty( $feed[ "data" ] ) ): ?>
 
-      </div>
+          <div class="instagram-grid">
 
+            <?php $i = 0; ?>
+  
+            <?php while( $i < 6 ): ?>
 
-      <i class="octo octo-instagram-icon" size="500"></i>
+              <?php foreach( $feed["data"] as $key => $element ): ?>
+
+                <?php $i += 1; ?>
+              
+                <?php if( $element && isset( $element[ "media_url" ] ) && !empty( $element[ "media_url" ] ) ): ?>
+
+                  <div class="instagram-grid__image">
+
+                    <img
+                      
+                      data-loading-method="macro"
+                      data-image="<?php esc_attr_e( $element["media_url"] ); ?>"
+                      class='image'
+                      
+                    />
+
+                  </div>
+
+                  <?php if( $i >= 6 ) { break; } ?>
+
+                <?php endif; ?>
+      
+              <?php endforeach; ?>
+
+            <?php endwhile; ?>
+    
+            <i class="octo octo-instagram-icon" size="150"></i>
+
+          </div>
+
+        <?php endif;?>
+  
+
+      <?php endif; ?>
+
 
 
     </footer>
