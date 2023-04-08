@@ -2,6 +2,94 @@
 
 
 
+// ========================= Colors ========================= //
+
+new \Kirki\Section(
+	'kadim_colors',
+	[
+		'priority'    => 5,
+		'title'       => esc_html__( 'Color', 'kadim' ),
+	]
+);
+
+new \Kirki\Field\Color(
+	[
+		'settings'    => 'kadim_accent_color',
+		'label'       => __( 'Accent color', 'kadim' ),
+		'description' => esc_html__( 'preferably light color', 'kadim' ),
+		'section'     => 'kadim_colors',
+		'default'     => '#c2ece7',
+
+		'output' => [
+
+			[
+			  'element'  => ':root',
+			  'property' => '--accent-color',
+			],
+	  
+		  ],
+	  
+	]
+);
+
+new \Kirki\Field\Color(
+	[
+		'settings'    => 'kadim_accent_text_color',
+		'label'       => __( 'Accent text color', 'kadim' ),
+		'description' => esc_html__( 'preferably a darker shade of the chosen accent color', 'kadim' ),
+		'section'     => 'kadim_colors',
+		'default'     => '#3e625d',
+
+		'output' => [
+
+			[
+			  'element'  => ':root',
+			  'property' => '--accent-text-color',
+			],
+	  
+		  ],
+	  
+	]
+);
+
+// =================== Logo Alternative ======================= // 
+
+
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'kadim_logo_alternative_typography',
+		'label'       => esc_html__( 'Alternative Logo Typography', 'kirki' ),
+		'section'     => 'title_tagline',
+		'priority'    => 80,
+		'transport'   => 'auto',
+		'default'     => [
+			'font-style'      => 'normal',
+			'color'           => 'var(--body-text-color)',
+			'font-size'       => '1.6rem',
+			'line-height'     => '1.618',
+			'letter-spacing'  => '0.8rem',
+			'text-transform'  => 'uppercase',
+			'text-decoration' => 'none',
+		],
+		
+    'output'      => [
+			[
+				'element' => '.logo__alternative',
+			],
+		],
+
+    'active_callback' => [
+      
+      [
+        'setting'  => 'kadim_notice_status',
+        'operator' => '==',
+        'value'    => true,
+      ]
+    
+    ],
+
+	]
+);
 
 // =================== Typography =================== // 
 

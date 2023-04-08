@@ -6,10 +6,12 @@
 @import "./components/navbar.css";
 @import "./components/searchform.css";
 @import "./components/sidebar.css";
+@import "./components/widgets.css";
 @import "./components/slider.css";
 @import "./components/post-card.css";
 @import "./components/button/color-scheme.css";
 @import "./components/button/button.css";
+@import "./components/footer.css";
 @import "./components/instagram.css";
 
 @import "./base/layout.css";

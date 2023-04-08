@@ -57,7 +57,7 @@
     &::before {
       content: "";
       height: 2px;
-      background: #c2ece7;
+      background: var(--accent-color);
       position: absolute;
       top: calc(50% - 1px);
       left: 0;

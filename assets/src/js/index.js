@@ -279,8 +279,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
 
       });
-
    
-  console.log( octo.InstagramIcon.allIcons );
 
 });

@@ -41,7 +41,7 @@
   &__excerpt {
     font-size: 1rem;
     line-height: 1.618;
-    color: var(--gray-70);
+    color: var(--gray-20);
     p {
       display: inline;
     }
@@ -90,6 +90,10 @@
     text-transform: capitalize;
     order: -1;
 
+    [color-scheme="dark"] & {
+      color: var(--accent-color);
+    }
+
     .avatar {
       border-radius: 50%;
     }
@@ -102,7 +106,7 @@
   }
 
   &__date {
-    color: var(--gray-60);
+    color: var(--gray-30);
   }
 
   &__tags {

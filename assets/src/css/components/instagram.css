@@ -12,12 +12,13 @@
   position: relative;
   display: grid;
   width: 100%;
-  overflow: hidden;
-  grid-template-columns: repeat(6, 1fr);
+  overflow: visible;
+  padding: 6px;
+  grid-template-columns: repeat(5,1fr);
   column-gap: 6px;
   margin: 90px 0 0;
-  padding: 6px;
-  height: 250px;
+  min-height: 250px;
+  padding-left: 20%;
 
   &::after {
     content: "";
@@ -27,15 +28,22 @@
     bottom: 0;
     position: absolute;
     background: var(--black);
-    opacity: 0.5;
+    opacity: 0;
   }
 
   .octo-instagram-icon {
+    height: 420px;
+    width: 420px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
+    left: 0;
+    bottom: 0;
+    mix-blend-mode: difference;
+    transform: translate(-50%,0%);
+    
+    &__outer {
+
+    }
+
   }
 
   &__image {

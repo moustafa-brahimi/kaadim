@@ -5,7 +5,7 @@
 }
 
 .kadim {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--body-font-family);
   background: var(--body-background-color);
   color: var(--body-text-color);
   &--transitioning,
@@ -13,6 +13,10 @@
     transition: background var(--long-duration) easeOutExpo,
       color var(--long-duration) easeOutExpo;
   }
+}
+
+button {
+  font-family: var(--body-font-family);
 }
 
 h1,

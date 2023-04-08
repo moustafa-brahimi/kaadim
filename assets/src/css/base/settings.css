@@ -13,12 +13,13 @@
   --gray-10: #e6e6e6;
   --gray-15: #d9d9d9;
   --gray-20: #ccc;
-  --gray-30: #ccc;
-  --gray-40: #ccc;
+  --gray-30: #b2b2b2;
+  --gray-40: #999999;
   --gray-50: #7f7f7f;
   --gray-60: #666666;
   --gray-70: #4c4c4c;
   --gray-80: #323232;
+  --gray-85: #262626;
   --gray-90: #191919;
   --gray-95: #0c0c0c;
   --gray-97p5: #060606;
@@ -28,12 +29,13 @@
   --very-short-duration: 100ms;
   --body-text-color: var(--gray-60);
   --headlines-font-family: "DM Serif Display", serif;
+  --body-font-family: "Poppins", sans-serif;
 }
 
 .kadim {
   &[color-scheme="dark"] {
-    --elements-background-color: var(--gray-90);
-    --body-text-color: var(--gray-10);
+    --elements-background-color: var(--gray-85);
+    --body-text-color: var(--gray-2p5);
     --body-background-color: var(--gray-97p5);
   }
 }

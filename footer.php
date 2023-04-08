@@ -12,7 +12,7 @@
 
     </div>
 
-    <footer>
+    <footer id="kadim-footer" class="kadim-footer">
 
       <?php $token = "IGQVJWSWxpbzg4aE01QXFrTHhaQnpWWW9HaDZAqa2VlRE5yQjZAqM29rdi1BbnFIenVXSXh1UEJMSzdCOExpdlY0RDRjejhQRzlnZAmxnclFpcWZAVVEg2ZAFNFQ1B6OEpIR3RONUFpUjZAR"; ?>
       <?php $url = "https://api.instagram.com/oauth/access_token"; ?>
@@ -28,7 +28,7 @@
 
             <?php $i = 0; ?>
   
-            <?php while( $i < 6 ): ?>
+            <?php while( $i < 5 ): ?>
 
               <?php foreach( $feed["data"] as $key => $element ): ?>
 
@@ -48,24 +48,42 @@
 
                   </div>
 
-                  <?php if( $i >= 6 ) { break; } ?>
+                  <?php if( $i >= 5 ) { break; } ?>
 
                 <?php endif; ?>
       
               <?php endforeach; ?>
 
             <?php endwhile; ?>
-    
-            <i class="octo octo-instagram-icon" size="150"></i>
+
+            <i class="octo octo-instagram-icon" size="420"></i>
 
           </div>
 
-        <?php endif;?>
-  
+          
+          <?php endif;?>
+          
+          
+        <?php endif; ?>
+          
+        
+        <div class="kadim-footer__widgets-container" color-scheme="dark">
 
-      <?php endif; ?>
 
 
+          <!-- 2/3 -->
+          <div class="container">
+              <?php if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar('kadim-footer-center-widget') ) ?>
+          </div>
+          <!-- /End 2/3 -->
+
+        </div>
+
+        <div class="kadim-footer__copyrights" >
+
+            <p><?php printf( __( "All rights reserved to kadim %s", "kadim" ), date('Y') ); ?> </p>
+
+        </div>
 
     </footer>
 

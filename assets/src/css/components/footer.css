@@ -1,0 +1,28 @@
+.kadim-footer {
+  margin-top: 210px;
+  background-color: var(--gray-90);
+  position: relative;
+
+  &__widgets-container {
+    margin-top: 100px;
+    display: flex;
+  }
+
+  &__widgets {
+    margin-top: 30px;
+    list-style: none;
+    font-family: var(--body-font-family);
+    font-size: 0.9em;
+  }
+
+  &__copyrights {
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--gray-85);
+    color: var(--gray-10);
+    font-weight: 400;
+    font-size: 0.86rem;
+  }
+}

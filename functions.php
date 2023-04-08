@@ -302,6 +302,22 @@ if( !function_exists( "kadim_widgets" ) ):
 
 		register_sidebar( $args );
 
+		register_sidebar(array(
+			'name' => __( 'Footer Center', 'kadim' ),
+			'id'   => 'kadim-footer-center-widget',
+			'description'   => __( 'Centre Footer widget position.', 'kadim' ),
+			'before_widget' => '<li id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</li>',
+			'before_title'  => '<h2 class="widget__title">',
+			'after_title'   => '</h2>',
+			'before_sidebar' => '<ul id="%1$s" class="%2$s kadim-footer__widgets">',
+			'after_sidebar' => '</ul>',
+
+		));
+	
+
+	
+
 	}
 
 	add_action("widgets_init", "kadim_widgets");

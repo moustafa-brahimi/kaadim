@@ -21,7 +21,7 @@
         ?>
 
         <?php dynamic_sidebar( 'kadim-1' ); ?>
-            &
+                
         <button type="button" class="sidebar__collapse js-btn-collapse-sidebar">
 
             <i class="fa-solid fa-xmark fa-xl"></i>
