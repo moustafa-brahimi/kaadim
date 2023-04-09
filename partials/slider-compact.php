@@ -7,8 +7,10 @@ $args     =   [
     'posts_per_page'=>  5,
     'ignore_sticky_posts'   =>  true,
     'meta_key'      =>  '_thumbnail_id',
+    'category__in' =>  get_theme_mod( 'kadim_slider_category', [ 1 ] )
 
 ];
+
 
 $query  =   new WP_Query( $args );
 
@@ -18,13 +20,29 @@ $query  =   new WP_Query( $args );
 <?php $count    =   $query->post_count; ?>
 
 
-<?php if( $query->have_posts() ): ?>
-
+<?php if( $query->have_posts() && $count == 5 ): ?>
+    
     <?php $posts_count; ?>
-
+    
     <div class="kadim-slider compact-slider js-slider-compact" id="kadim-slider">
-
+        
         <div class="container">
+
+            <h3 class="compact-slider__main-title"> 
+                
+                <?php echo esc_html( get_theme_mod( "kadim_slider_title", __( 'Featured Posts', 'kadim' ) ) ); ?>
+                <?php $separator_type=   'wave'; ?>
+                <?php $icon_path    =   get_theme_file_path( "assets/dist/img/$separator_type.svg" ); ?>
+                <?php $icon         =   file_get_contents( $icon_path ); ?>
+                
+            </h3>
+
+
+            <h1 class="compact-slider__main-title-stroke"> 
+                
+                <?php echo esc_html( get_theme_mod( "kadim_slider_title", __( 'Featured Posts', 'kadim' ) ) ); ?>
+            
+            </h1>
 
             <div class="compact-slider__container js-slider-compact-container">
 
@@ -108,8 +126,7 @@ $query  =   new WP_Query( $args );
                                             
                                     <div class='compact-slider__separator' aria-hidden="true">
                                         
-                                        <?php $separator_type=   get_theme_mod( 'evy_slider_post_meta_sperator', 'wave' ); ?>
-
+                                        <?php $separator_type=   'wave'; ?>
                                         <?php $icon_path    =   get_theme_file_path( "assets/dist/img/$separator_type.svg" ); ?>
                                         <?php $icon         =   file_get_contents( $icon_path ); ?>
                                         

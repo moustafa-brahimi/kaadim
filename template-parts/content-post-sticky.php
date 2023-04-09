@@ -1,10 +1,8 @@
 <article <?php post_class( "post-card" ); ?>>
 
-<?php if( has_post_thumbnail() ): ?>
+im stickyyy
 
-    <?php if( is_sticky() ): ?>
-        
-    <?php endif; ?>
+<?php if( has_post_thumbnail() ): ?>
 
     <a href="<?php the_permalink(); ?>">
 

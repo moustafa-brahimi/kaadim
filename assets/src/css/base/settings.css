@@ -27,7 +27,7 @@
   --long-duration: 900ms;
   --short-duration: 250ms;
   --very-short-duration: 100ms;
-  --body-text-color: var(--gray-60);
+  --body-text-color: var(--gray-70);
   --headlines-font-family: "DM Serif Display", serif;
   --body-font-family: "Poppins", sans-serif;
 }

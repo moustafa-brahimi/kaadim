@@ -41,7 +41,11 @@
   &__excerpt {
     font-size: 1rem;
     line-height: 1.618;
-    color: var(--gray-20);
+
+    [color-scheme="dark"] & {
+      color: var(--gray-20);
+    }
+
     p {
       display: inline;
     }

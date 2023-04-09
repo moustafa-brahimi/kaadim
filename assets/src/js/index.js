@@ -6,8 +6,6 @@ import MacroLoading from "./classes/macro-load";
 import ColorScheme from "./classes/color-scheme";
 import loadMore from "./classes/load-more-posts.js";
 import { stringToHTML } from "./functions.js";
-
-
 import octo from "./octo/dist/octo";
  
 
@@ -206,8 +204,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
     }
 
-
-
     const 
 
       loadMoreButtons = document.querySelectorAll( ".js-btn-loadmore" ),
@@ -282,3 +278,21 @@ document.addEventListener( 'DOMContentLoaded', () => {
    
 
 });
+
+let dynmaicMenuDisplay = () =>  {
+
+  const 
+    menuItem = document.querySelector( '.menu__item' ), 
+    menu  = document.querySelector( '.menu' );
+
+    if( menuItem?.offsetHeight != menu?.offsetHeight ){
+      menu?.classList?.add( 'hidden' );
+    } else {
+      menu?.classList?.remove( 'hidden' );
+
+    }
+
+}
+
+window.addEventListener( "load", dynmaicMenuDisplay );
+window.addEventListener( "resize", dynmaicMenuDisplay );

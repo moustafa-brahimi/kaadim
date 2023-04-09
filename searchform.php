@@ -26,7 +26,7 @@ $kadim_unique_id = wp_unique_id( 'search-form-' );
 	<label class="search-form__label" for="<?php echo esc_attr( $kadim_unique_id ); ?>"><?php _e( 'Search&hellip;', 'kadim' ); // phpcs:ignore: WordPress.Security.EscapeOutput.UnsafePrintingFunction -- core trusts translations ?></label>
   <button type="submit" class="search-form__submit">
 
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="icon fa-solid fa-magnifying-glass"></i>
 
   </button>
   

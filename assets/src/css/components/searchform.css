@@ -55,7 +55,7 @@
 
 .search-form {
   position: relative;
-  max-width: min(500px, 90%);
+  max-width: min(30rem, 90%);
   width: 100%;
 
   &__field {
@@ -67,6 +67,7 @@
     color: var(--white);
     font-weight: 600;
     transition: all 200ms linear;
+    font-size: 0.875rem;
 
     &:focus {
       outline: none;
@@ -93,6 +94,11 @@
     color: var(--white);
     cursor: pointer;
     transition: all var(--short-duration) easeOutExpo;
+
+    .icon {
+      height: 1rem;
+      width: 1rem;
+    }
 
     &:focus-visible {
       background-color: var(--accent-color);

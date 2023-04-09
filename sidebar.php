@@ -24,7 +24,7 @@
                 
         <button type="button" class="sidebar__collapse js-btn-collapse-sidebar">
 
-            <i class="fa-solid fa-xmark fa-xl"></i>
+            <i class="icon fa-solid fa-xmark fa-xl"></i>
 
         </button>
 

@@ -6,7 +6,7 @@
 
       <button type="button" class="modal-searchform__collapse js-btn-collapse-searchform">
 
-        <i class="fa-solid fa-xmark fa-lg"></i>
+        <i class="icon fa-solid fa-xmark fa-lg"></i>
 
       </button>
 
@@ -81,7 +81,15 @@
 
         <div class="kadim-footer__copyrights" >
 
-            <p><?php printf( __( "All rights reserved to kadim %s", "kadim" ), date('Y') ); ?> </p>
+            <p>
+
+                  <?php
+                  echo get_theme_mod( 
+                    "kadim_copyright_sentence",
+                    sprintf( __( "All rights reserved to kadim %s", "kadim" ), date('Y') )
+                  ); ?>
+
+            </p>
 
         </div>
 

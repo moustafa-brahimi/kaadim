@@ -214,7 +214,52 @@ if( !function_exists( "kadim_scripts_styles" ) ):
 
         wp_enqueue_style( "kadim-style", get_template_directory_uri() . "/assets/dist/css/style.css", array(), "0.0.1", "all" );
 
-        wp_enqueue_style( "albert-sans-font", "https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&display=swap", array(), false, "all" );
+		$body_typography = get_theme_mod( "kadim_body_typography", "Poppins" );
+
+		/** include typography  */
+
+		switch( $body_typography ):
+
+			default:
+				$font_src = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap";
+				break;
+
+			case 'Roboto':
+				$font_src = "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap";
+				break;
+				
+			case 'Cairo':
+				$font_src = "https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap";
+				break;
+				
+			case 'Nunito':
+				$font_src = "https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap";
+				break;
+				
+			case 'Raleway':
+				$font_src = "https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap";
+				break;
+
+			case 'Alexandria':
+				$font_src = "https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700&display=swap";
+				break;
+
+		endswitch;
+
+		wp_enqueue_style( "kadim-body-font", $font_src );
+
+		$headings_typography = get_theme_mod( "kadim_headings_typography", [ "font-family" => "DM Serif Display" ] );
+
+		if( class_exists( 'Kirki' ) ):
+			wp_add_inline_style( "kadim-style", 
+			
+				sprintf( ':root{--body-font-family:%s; --headlines-font-family:%s;}',
+					$body_typography,
+					$headings_typography["font-family"]
+				) 
+			
+			);
+		endif;
 
 		wp_localize_script( "kadim-script", "globals", array(
 
@@ -250,6 +295,9 @@ if( !function_exists( "kadim_theme_supports" ) ):
 
 		add_theme_support( 'custom-logo', $custom_logo_args );
 		add_theme_support( 'post-thumbnails' );
+
+		add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link' ) );
+
 
 	}
 

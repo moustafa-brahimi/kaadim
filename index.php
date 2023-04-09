@@ -4,10 +4,9 @@
 
 ?>
 
-
-<?php get_template_part( 'partials/slider', 'compact' ); ?>
-
-
+<?php if( get_theme_mod( 'kadim_slider_enabled', true ) ): ?>
+    <?php get_template_part( 'partials/slider', 'compact' ); ?>
+<?php endif; ?>
 
 
 <?php if( have_posts() ): ?>
@@ -21,7 +20,7 @@
                 <?php the_post(); ?>
                 
 
-                <?php get_template_part( "template-parts/content", "post" ); ?>
+                <?php get_template_part( "template-parts/content-post",  get_post_format() ); ?>
 
 
             <?php endwhile; ?>

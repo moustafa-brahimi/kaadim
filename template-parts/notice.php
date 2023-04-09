@@ -10,7 +10,7 @@
 
     <button class="notice__close btn-close-notice">
 
-      <i class="fa-solid fa-xmark"></i>
+      <i class="icon fa-solid fa-xmark"></i>
 
     </button>
 
