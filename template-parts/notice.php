@@ -8,7 +8,7 @@
       <?php echo esc_html( get_theme_mod( "kadim_notice_content", __( 'Lorem Ipsum is simply dummy text of the printing and typesetting', 'kadim' ) ) ); ?>
     </p>
 
-    <button class="notice__close btn-close-notice">
+    <button class="notice__close btn-close-notice" title="<?php esc_attr_e( "Collapse the notice", "kadim" ); ?>">
 
       <i class="icon fa-solid fa-xmark"></i>
 

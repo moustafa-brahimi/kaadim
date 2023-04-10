@@ -22,7 +22,7 @@
 
         <?php dynamic_sidebar( 'kadim-1' ); ?>
                 
-        <button type="button" class="sidebar__collapse js-btn-collapse-sidebar">
+        <button type="button" class="sidebar__collapse js-btn-collapse-sidebar"  title="<?php esc_attr_e( "Close the sidebar", "kadim" ); ?>">
 
             <i class="icon fa-solid fa-xmark fa-xl"></i>
 

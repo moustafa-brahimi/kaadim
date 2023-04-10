@@ -468,6 +468,7 @@ class CompactSlider {
                 authorAvatarLocation.forEach( ( location ) => {
                     
                     location.setAttribute( 'src', avatar );
+                    location.setAttribute( 'title', name );
                     
                 });
 

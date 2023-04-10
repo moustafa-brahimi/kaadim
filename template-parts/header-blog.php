@@ -30,13 +30,13 @@
 <div class="navbar">
 
 
-  <button class="sidemenu-btn js-btn-expand-sidebar">
+  <button class="sidemenu-btn js-btn-expand-sidebar" title="<?php esc_attr_e( "Expand side bar", "kadim" ); ?>">
 
     <i class="sidemenu-btn__icon fa-solid fa-bars"></i>
 
   </button>
 
-  <button class="search-btn js-btn-expand-searchform" >
+  <button class="search-btn js-btn-expand-searchform" title="<?php esc_attr_e( "Open search form", "kadim" ); ?>">
 
     <i class="search-btn__icon fa-solid fa-magnifying-glass"></i>
 

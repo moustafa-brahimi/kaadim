@@ -398,9 +398,9 @@ new \Kirki\Field\Text(
 		'description' => 
 		sprintf(
 			"%s <a href='%s' target='_blank'>%s</a>",
-			__( "Don't have an instagram token ?", "kadim" ),
+			esc_html__( "Don't have an instagram token ?", "kadim" ),
 			"https://spotlightwp.com/access-token-generator/",
-			__( "Generate Your's", "kadim" )
+			esc_html__( "Generate Your's", "kadim" )
 		)
 	]
 );

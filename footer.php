@@ -4,7 +4,7 @@
       <?php get_search_form(); ?>
 
 
-      <button type="button" class="modal-searchform__collapse js-btn-collapse-searchform">
+      <button type="button" class="modal-searchform__collapse js-btn-collapse-searchform"  title="<?php esc_attr_e( "Close search form", "kadim" ); ?>">
 
         <i class="icon fa-solid fa-xmark fa-lg"></i>
 
@@ -26,94 +26,118 @@
         <?php if( is_array( $feed ) && isset( $feed[ "data" ] ) && is_array( $feed[ "data" ] ) && !empty( $feed[ "data" ] ) ): ?>
 
           <div class="instagram-grid">
+          
+            <div class="instagram-grid__container" >
 
-            <?php $i = 0; ?>
-  
-            <?php while( $i < 5 ): ?>
+              <?php $i = 0; ?>
+    
+              <?php while( $i < 5 ): ?>
 
-              <?php foreach( $feed["data"] as $key => $element ): ?>
+                <?php foreach( $feed["data"] as $key => $element ): ?>
 
-                <?php $i += 1; ?>
-              
-                <?php if( $element && isset( $element[ "media_url" ] ) && !empty( $element[ "media_url" ] ) ): ?>
+                  <?php $i += 1; ?>
+                
+                  <?php if( $element && isset( $element[ "media_url" ] ) && !empty( $element[ "media_url" ] ) ): ?>
 
-                  <?php $caption = esc_attr( isset( $element["caption"] ) ? $element["caption"] : "" ); ?>
+                    <?php $caption = esc_attr( isset( $element["caption"] ) ? $element["caption"] : "" ); ?>
 
-                  <?php if( $element[ "media_type" ] == "IMAGE" ): ?>
+                    <?php if( $element[ "media_type" ] == "IMAGE" ): ?>
 
-                      <div class="instagram-grid__image" title="<?php echo $caption ?>">
+                        <div class="instagram-grid__image">
 
-                        <a href="<?php echo $element['permalink']; ?>" target="_blank">
+                          <a href="<?php echo $element['permalink']; ?>" target="_blank" title="<?php echo $caption ?>">
 
-                          <img
+                            <img
+                              
+                              alt = "<?php $caption; ?>"
+                              data-loading-method="macro"
+                              data-image="<?php esc_attr_e( $element["media_url"] ); ?>"
+                              class='image'
+                              
+                            />
+                          </a>
+
+                        </div>
+
+
+                      <?php elseif( $element[ "media_type" ] == "VIDEO" ): ?>
+
+                        <div class="instagram-grid__video">
+
+                          <a href="<?php echo $element['permalink']; ?>" target="_blank" title="<?php echo $caption ?>">
+
+
+                            <video class="video js-instagram-videos" preload="none" loop muted title="<?php echo $caption ?>">
+
+                              <?php printf( "<source src='%s' >", esc_attr( $element["media_url"] ) ); ?>
                             
-                            data-loading-method="macro"
-                            data-image="<?php esc_attr_e( $element["media_url"] ); ?>"
-                            class='image'
-                            
-                          />
-                        </a>
+                            </video>
 
-                      </div>
+                          </a>
 
+                          <button class="video__volume-control js-video-volume"  title="<?php esc_attr_e( "Mute/Unmute volume", "kadim" ); ?>">
+                              <i class="icon muted-icon fa-solid fa-volume-off"></i>
+                              <i class="icon unmuted-icon fa-solid fa-volume-high"></i>
+                            </button>
 
-                    <?php elseif( $element[ "media_type" ] == "VIDEO" ): ?>
-
-                      <div class="instagram-grid__video" title="<?php echo $caption ?>">
-
-                        <a href="<?php echo $element['permalink']; ?>" target="_blank">
-
-
-                          <video class="video js-instagram-videos" preload="none" loop muted>
-
-                            <?php printf( "<source src='%s' >", esc_attr( $element["media_url"] ) ); ?>
-                          
-                          </video>
-
-                        </a>
-
-                        <button class="video__volume-control js-video-volume">
-                            <i class="icon muted-icon fa-solid fa-volume-off"></i>
-                            <i class="icon unmuted-icon fa-solid fa-volume-high"></i>
+                          <button class="video__play-control js-video-play" title="<?php esc_attr_e( "Play/Pause video", "kadim" ); ?>">
+                            <i class="icon play-icon fa-solid fa-fw fa-play"></i>
+                            <i class="icon pause-icon fa-solid fa-fw fa-pause"></i>
                           </button>
 
-                        <button class="video__play-control js-video-play">
-                          <i class="icon play-icon fa-solid fa-fw fa-play"></i>
-                          <i class="icon pause-icon fa-solid fa-fw fa-pause"></i>
-                        </button>
+                        </div>
 
-                      </div>
+                    <?php endif; ?>
+
+                    <?php if( $i >= 5 ) { break; } ?>
 
                   <?php endif; ?>
+        
+                <?php endforeach; ?>
 
-                  <?php if( $i >= 5 ) { break; } ?>
+              <?php endwhile; ?>
 
-                <?php endif; ?>
-      
-              <?php endforeach; ?>
+            </div> <!-- container -->
 
-            <?php endwhile; ?>
-
-            <?php 
+          <a class='kadim-btn instagram-grid__follow'
+            href='<?php printf( "https://www.instagram.com/%s", esc_attr( $profile['username'] ) ); ?>' 
+            target='__blank'
+            title="<?php esc_attr_e( "Follow on instagram", "kadim" ); ?>"
+          >
             
-              printf( 
-                "<a class='instagram-grid__follow' href='https://www.instagram.com/%s' target='__blank'><span>%s</span></a>",
-                $profile['username'],
-                __( 'Follow', 'kadim' )
-              );
-              
-            ?>
+            
+
+            <div class="kadim-btn__container">
+
+
+              <span class="kadim-btn__label">
+                <i class='icon fa-solid fa-square-plus'></i>
+                <?php esc_html_e( "Follow on instagram", "kadim" ); ?>
+               </span>  
+
+              <span class="kadim-btn__label kadim-btn__label--secondary">
+                <i class='icon fa-solid fa-square-plus'></i>
+                <?php esc_html_e( "Follow on instagram", "kadim" ); ?>
+               </span>  
+
+              <span class="kadim-btn__label kadim-btn__label--placeholder">
+                <i class='icon fa-solid fa-square-plus'></i>
+                <?php esc_html_e( "Follow on instagram", "kadim" ); ?>
+               </span>  
+
+            </div>
+            
+          </a>
 
             <i class="octo octo-instagram-icon js-footer-instagram-icon" size="200"></i>
             <i class="octo octo-instagram-icon octo-instagram-icon__secondary js-footer-instagram-icon" size="200"></i>
 
-          </div>
 
+          </div> <!-- instagram grid -->
           
-          <?php endif;?>
+        <?php endif;?>
           
-          
-        <?php endif; ?>
+      <?php endif; ?>
           
         
         <div class="kadim-footer__widgets-container" color-scheme="dark">
@@ -135,7 +159,7 @@
                   <?php
                   echo get_theme_mod( 
                     "kadim_copyright_sentence",
-                    sprintf( __( "All rights reserved to kadim %s", "kadim" ), date('Y') )
+                    sprintf( esc_html__( "All rights reserved to kadim %s", "kadim" ), date('Y') )
                   ); ?>
 
             </p>

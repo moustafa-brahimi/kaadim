@@ -6,7 +6,7 @@
         
     <?php endif; ?>
 
-    <a href="<?php the_permalink(); ?>">
+    <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
 
         <?php $post_thumbnail_id    =   get_post_thumbnail_id( get_the_ID() ); ?>
 
@@ -37,7 +37,7 @@
 
 <div class="post-card__content">
 
-    <a href="<?php the_permalink(); ?>">
+    <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
 
         <h3 class="post-card__title"><?php the_title(); ?></h3>
 
@@ -69,15 +69,14 @@
 
 
 
-        <?php printf( '<a href="%1$s" class="post-card__author">', get_the_author_meta( 'user_url' ) ); ?>
+        <?php 
+            $author_id  =   get_the_author_meta( 'ID' );
+            $author_name=   get_the_author_meta( 'display_name' );
+        ?>
 
-            <?php 
-                $author_id  =   get_the_author_meta( 'ID' );
-                $author_name=   get_the_author_meta( 'display_name' );
-            ?>
+        <?php printf( '<a href="%1$s" class="post-card__author" title="%s">', get_the_author_meta( 'user_url' ), esc_attr( $author_name ) ); ?>
 
             <?php echo get_avatar( $author_id, 36, '', $author_name, [ 'class' => 'js-author-avatar' ] ); ?>
-            
             
             <span class='post__author__name'><?php echo esc_html( $author_name ); ?></span>
                 
@@ -119,7 +118,7 @@
 
     <button class="post-card__readmore-btn">
 
-        <a class="readmore post-card__readmore" href="<?php the_permalink(); ?>">
+        <a class="readmore post-card__readmore" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
 
             <?php $button_text  =   esc_html( __( 'Continue reading', 'kadim' ) ); ?>
 

@@ -19,6 +19,104 @@
   }
 }
 
+.kadim-btn {
+  color: var(--accent-text-color);
+  background: var(--accent-color);
+  box-shadow: 5px 6px var(--accent-text-color);
+  align-text: center;
+  padding: 16px 32px;
+
+  &__container {
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+  }
+
+  &__label {
+    position: absolute;
+    transform-origin: right center;
+    transition: all var(--moderate-duration) easeInOutCirc;
+
+    &--secondary {
+      transform: translateY(100%) rotate(16deg);
+      transform-origin: left center;
+    }
+
+    &--placeholder {
+      visibility: hidden;
+      position: relative;
+    }
+  }
+
+  &:hover &__label {
+    transform: translateY(-100%) rotate(15deg);
+
+    &--secondary {
+      transform: translateY(0%) rotate(0);
+    }
+  }
+
+  &:focus &__label {
+    transform: translateY(-100%) rotate(15deg);
+
+    &--secondary {
+      transform: translateY(0%) rotate(0);
+    }
+  }
+
+  &:focus-visible {
+    outline: 1px dashed;
+    outline-offset: 5px;
+  }
+}
+
+.readmore {
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 12px;
+  overflow: hidden;
+  position: relative;
+  display: block;
+
+  &__label {
+    position: absolute;
+    transform-origin: right center;
+    transition: all var(--moderate-duration) easeInOutCirc;
+
+    &--secondary {
+      transform: translateY(100%) rotate(16deg);
+      transform-origin: left center;
+    }
+
+    &--placeholder {
+      visibility: hidden;
+      position: relative;
+    }
+  }
+
+  &:hover &__label {
+    transform: translateY(-100%) rotate(15deg);
+
+    &--secondary {
+      transform: translateY(0%) rotate(0);
+    }
+  }
+
+  &:focus &__label {
+    transform: translateY(-100%) rotate(15deg);
+
+    &--secondary {
+      transform: translateY(0%) rotate(0);
+    }
+  }
+
+  &:focus-visible {
+    outline: 1px dashed;
+    outline-offset: 5px;
+  }
+}
+
 .kadim-posts {
   &__loadmore {
     margin: 0 auto;

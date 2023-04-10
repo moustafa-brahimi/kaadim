@@ -51,53 +51,6 @@ a {
   text-decoration: none;
 }
 
-.readmore {
-  text-transform: uppercase;
-  color: var(--color-accent);
-  font-weight: 600;
-  font-size: 12px;
-  overflow: hidden;
-  position: relative;
-  display: block;
-
-  &__label {
-    position: absolute;
-    transform-origin: right center;
-    transition: all var(--moderate-duration) easeInOutCirc;
-
-    &--secondary {
-      transform: translateY(100%) rotate(16deg);
-      transform-origin: left center;
-    }
-
-    &--placeholder {
-      visibility: hidden;
-      position: relative;
-    }
-  }
-
-  &:hover &__label {
-    transform: translateY(-100%) rotate(15deg);
-
-    &--secondary {
-      transform: translateY(0%) rotate(0);
-    }
-  }
-
-  &:focus &__label {
-    transform: translateY(-100%) rotate(15deg);
-
-    &--secondary {
-      transform: translateY(0%) rotate(0);
-    }
-  }
-
-  &:focus-visible {
-    outline: 1px dashed;
-    outline-offset: 5px;
-  }
-}
-
 .icon {
   height: 1rem;
   width: 1rem;

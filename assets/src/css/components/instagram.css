@@ -12,14 +12,20 @@
 
 .instagram-grid {
   position: relative;
-  display: grid;
   width: 100%;
   overflow: visible;
   padding: 6px 150px;
-  grid-template-columns: repeat(5, 1fr);
-  column-gap: 6px;
-  margin: 90px 0 0;
   min-height: 250px;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  &__container:hover &__image,
+  &__container:hover &__video {
+    transform: translateX(-10%);
+  }
 
   a {
     width: 100%;
@@ -46,15 +52,16 @@
     object-fit: cover;
     position: relative;
     transition: all var(--moderate-duration) easeOutCirc;
-    transform-origin: left;
+    transform-origin: center;
     overflow: hidden;
+    padding: 0 3px;
 
     &:hover ~ div {
-      transform: translateX(20%);
+      transform: translateX(10%) !important;
     }
 
     &:hover {
-      transform: scale(1.2);
+      transform: scale(1.2) translateY(-2.5%) !important;
       border-radius: 8px;
     }
 
@@ -178,15 +185,15 @@
 
   &__follow {
     position: absolute;
-    top: 50%;
+    top: 0%;
     left: 50%;
-    padding: 16px 40px;
-    background: var(--accent-color);
     width: auto !important;
     height: auto !important;
     transform: translate(-50%, -50%);
     font-family: var(--headlines-font-family);
-    color: var(--accent-text-color);
-    box-shadow: 5px 6px var(--accent-text-color);
+
+    .icon {
+      margin: 0 5px 0 0;
+    }
   }
 }
