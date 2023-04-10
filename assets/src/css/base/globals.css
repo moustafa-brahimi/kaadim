@@ -8,6 +8,7 @@
   font-family: var(--body-font-family);
   background: var(--body-background-color);
   color: var(--body-text-color);
+  overflow-x: hidden;
   &--transitioning,
   &--transitioning * {
     transition: background var(--long-duration) easeOutExpo,

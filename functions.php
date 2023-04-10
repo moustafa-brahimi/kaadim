@@ -264,7 +264,8 @@ if( !function_exists( "kadim_scripts_styles" ) ):
 		wp_localize_script( "kadim-script", "globals", array(
 
 			"ajaxUrl" => admin_url('admin-ajax.php'),
-			"loadMorePostsNonce" => wp_create_nonce("loadmore_posts_nonce")
+			"loadMorePostsNonce" => wp_create_nonce("loadmore_posts_nonce"),
+			"accentColor" => get_theme_mod( 'kadim_accent_color', '#c2ece7' )
 
 		) );
 

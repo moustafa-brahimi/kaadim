@@ -19,6 +19,7 @@ new \Kirki\Field\Color(
 		'description' => esc_html__( 'preferably light color', 'kadim' ),
 		'section'     => 'kadim_colors',
 		'default'     => '#c2ece7',
+		'priority'    => 10,
 
 		'output' => [
 
@@ -39,6 +40,8 @@ new \Kirki\Field\Color(
 		'description' => esc_html__( 'preferably a darker shade of the chosen accent color', 'kadim' ),
 		'section'     => 'kadim_colors',
 		'default'     => '#3e625d',
+		'priority'    => 20,
+
 
 		'output' => [
 
@@ -119,40 +122,11 @@ new \Kirki\Field\Color(
 // =================== Typography =================== // 
 
 
-new \Kirki\Field\Select(
+new \Kirki\Section(
+	'kadim_typography',
 	[
-		'settings'    => 'kadim_body_typography',
-		'label'       => esc_html__( 'Body Typography', 'kadim' ),
-		'section'     => 'kadim_typography',
-		'default'     => 'Poppins',
-		'priority'    => 80,
-		'transport'   => 'refresh',
-
-		'choices' => [ 
-			'Roboto'	=>	__( 'Roboto', 'kadim' ),
-			'Raleway'	=>	__( 'Raleway', 'kadim' ),
-			'Nunito'	=>	__( 'Nunito', 'kadim' ),
-			'Poppins'	=>	__( 'Poppins', 'kadim' ),
-			'Cairo'	=>	__( 'Cairo', 'kadim' ),
-			'Alexandria'	=>	__( 'Alexandria', 'kadim' ),
-			// 'Quicksand'	=>	__( 'Quicksand', 'kadim' ),
-			// 'Noto Serif'	=>	__( 'Noto Serif', 'kadim' ),
-			// 'Noto Sans'	=>	__( 'Noto Sans', 'kadim' ),
-		],
-	]
-);
-
-new \Kirki\Field\Typography(
-	[
-		'settings'    => 'kadim_headings_typography',
-		'label'       => esc_html__( 'Headings Typography', 'kadim' ),
-		'section'     => 'kadim_typography',
-		'priority'    => 80,
-		'transport'   => 'refresh',
-		'default'     => [
-			'font-family'	=>	'DM Serif Display',
-		],
-
+		'priority'    => 1,
+		'title'       => esc_html__( 'Typography', 'kadim' ),
 	]
 );
 
@@ -162,6 +136,7 @@ new \Kirki\Field\Slider(
 		'label'       => esc_html__( 'Font size', 'kadim' ),
 		'section'     => 'kadim_typography',
 		'default'     => 1,
+		'priority'	  => 10,
 		'choices'     => [
 			'min'  => 0.1,
 			'max'  => 2,
@@ -183,13 +158,44 @@ new \Kirki\Field\Slider(
 
 
 
-new \Kirki\Section(
-	'kadim_typography',
+new \Kirki\Field\Select(
 	[
-		'priority'    => 1,
-		'title'       => esc_html__( 'Typography', 'kadim' ),
+		'settings'    => 'kadim_body_typography',
+		'label'       => esc_html__( 'Body Typography', 'kadim' ),
+		'section'     => 'kadim_typography',
+		'default'     => 'Poppins',
+		'priority'    => 20,
+		'transport'   => 'refresh',
+
+		'choices' => [ 
+			'Roboto'	=>	__( 'Roboto', 'kadim' ),
+			'Raleway'	=>	__( 'Raleway', 'kadim' ),
+			'Nunito'	=>	__( 'Nunito', 'kadim' ),
+			'Poppins'	=>	__( 'Poppins', 'kadim' ),
+			'Cairo'	=>	__( 'Cairo', 'kadim' ),
+			'Alexandria'	=>	__( 'Alexandria', 'kadim' ),
+			// 'Quicksand'	=>	__( 'Quicksand', 'kadim' ),
+			// 'Noto Serif'	=>	__( 'Noto Serif', 'kadim' ),
+			// 'Noto Sans'	=>	__( 'Noto Sans', 'kadim' ),
+		],
 	]
 );
+
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'kadim_headings_typography',
+		'label'       => esc_html__( 'Headings Typography', 'kadim' ),
+		'section'     => 'kadim_typography',
+		'priority'    => 30,
+		'transport'   => 'refresh',
+		'default'     => [
+			'font-family'	=>	'DM Serif Display',
+		],
+
+	]
+);
+
+
 
 // =================== Slider =================== // 
 
@@ -218,7 +224,7 @@ new Kirki\Field\Select(
 		'label'       => __( 'Choose featured posts category ', 'kadim' ),
 		'section'     => 'kadim_slider',
 		'default'     => 'uncategorized',
-		'priority'    => 30,
+		'priority'    => 20,
 		'multiple'    => 10,
 		'placeholder' => __( 'Select a category', 'kadim' ),
 		'choices'     => Kirki\Util\Helper::get_terms( [ 'taxonomy' => 'category' ] ),
@@ -240,8 +246,8 @@ new Kirki\Field\Text([
 	'label'    => esc_html__( 'Title', 'kadim' ),
 	'section'  => 'kadim_slider',
 	'default'  => esc_html__( 'Featured Posts', 'kadim' ),
-	'priority' => 40,
-
+	'priority' => 30,
+	'sanitize_callback' => "trim", 
 	'active_callback'	=> [
 
 		[
@@ -285,7 +291,7 @@ new \Kirki\Field\Editor(
 		'label'    => esc_html__( 'Notice', 'kadim' ),
 		'section'  => 'kadim_notice',
 		'default'  => esc_html__( 'Lorem Ipsum is simply dummy text of the printing and typesetting', 'kadim' ),
-		'priority' => 10,
+		'priority' => 20,
 
     'active_callback' => [
       
@@ -376,20 +382,42 @@ new \Kirki\Field\Typography(
 new \Kirki\Section(
 
 	'kadim_footer',
-	  [
-		  'priority'    => 5,
-		  'title'       => esc_html__( 'Footer', 'kadim' ),
-	  ]
-  
-  );
+	[
+		'priority'    => 5,
+		'title'       => esc_html__( 'Footer', 'kadim' ),
+	]
 
-  new \Kirki\Field\Editor(
+);
+
+new \Kirki\Field\Text(
+	[
+		'settings' => 'kadim_instagram_account_token',
+		'label'    => esc_html__( 'Instagram Token', 'kadim' ),
+		'section'  => 'kadim_footer',
+		'priority' => 10,
+		'description' => 
+		sprintf(
+			"%s <a href='%s' target='_blank'>%s</a>",
+			__( "Don't have an instagram token ?", "kadim" ),
+			"https://spotlightwp.com/access-token-generator/",
+			__( "Generate Your's", "kadim" )
+		)
+	]
+);
+
+
+
+new \Kirki\Field\Editor(
 	[
 		'settings' => 'kadim_copyright_sentence',
 		'label'    => esc_html__( 'Copyrights Phrase', 'kadim' ),
 		'section'  => 'kadim_footer',
 		'default'  => esc_html__( 'All Rights Reserved 2023', 'kadim' ),
-		'priority' => 10,
+		'priority' => 20,
 
 	]
 );
+
+
+
+

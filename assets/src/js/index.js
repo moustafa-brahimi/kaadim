@@ -5,8 +5,8 @@ import "./classes/slider-compact.js";
 import MacroLoading from "./classes/macro-load";
 import ColorScheme from "./classes/color-scheme";
 import loadMore from "./classes/load-more-posts.js";
-import { stringToHTML } from "./functions.js";
-import octo from "./octo/dist/octo";
+import { stringToHTML, getParents } from "./functions.js";
+import octo from "./octo/dist/octo.js";
  
 
 document.addEventListener( 'DOMContentLoaded', () => {
@@ -16,7 +16,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
   MacroLoading.init();
 
   
-    // color scheme
+  // color scheme
 
   const        
     body        =   document.body,
@@ -153,131 +153,255 @@ document.addEventListener( 'DOMContentLoaded', () => {
   // side naviation menu   
   
 
-    // side navigation functions
+  // side navigation functions
     
-    const
+  const
 
-        sideMenu            =   document.getElementById( 'sidemenu-list' ),
-        itemsWithChilds     =   ( sideMenu ? sideMenu.querySelectorAll( '.sidemenu__item--has-children' ) : null );
-
-
-    if( itemsWithChilds ) {
-
-        sideMenu.addEventListener( 'click', function ( event ) {
-           
-
-            const { target }    =   event;
-            let 
-            link    =   target.closest( 'a' ),
-            item    =   ( link ? link.parentNode : null );
-
-            if( !item ) { return; }
-            
-            if( !item.classList.contains( 'sidemenu__item--has-children' ) ) { return; }
-
-            event.preventDefault();
-
-            if( item.getAttribute( 'expanded' ) == 'true' ) {
-
-                item.setAttribute( 'expanded', false );
-                return;
-            }
+      sideMenu            =   document.getElementById( 'sidemenu-list' ),
+      itemsWithChilds     =   ( sideMenu ? sideMenu.querySelectorAll( '.sidemenu__item--has-children' ) : null );
 
 
-            item.setAttribute( 'expanded', true );
+  if( itemsWithChilds ) {
 
+      sideMenu.addEventListener( 'click', function ( event ) {
+          
 
-            itemsWithChilds.forEach( ( otherItem ) => { 
+          const { target }    =   event;
+          let 
+          link    =   target.closest( 'a' ),
+          item    =   ( link ? link.parentNode : null );
 
-                if( otherItem.querySelector( '[expanded=true]' ) || otherItem === item ) {
-                
-                    otherItem.setAttribute( 'expanded', true );    
-                    return; 
-                }
-
-                otherItem.setAttribute( 'expanded', false );
-
-            });
-
-        }, false );
-
-
-    }
-
-    const 
-
-      loadMoreButtons = document.querySelectorAll( ".js-btn-loadmore" ),
-      postsContainer = document.getElementById( "kadim-posts" );
-
-    let paged = 1,
-        requestGoing = false;
-
-    const { ajaxUrl, loadMorePostsNonce } = globals;
-
-      loadMoreButtons.forEach(( button ) => {
-
-        let  [ loadingModifier ] = button.classList;
-        
-        loadingModifier = `${ loadingModifier }--loading`;
-        
-        button.addEventListener( "click", (event) => {
+          if( !item ) { return; }
+          
+          if( !item.classList.contains( 'sidemenu__item--has-children' ) ) { return; }
 
           event.preventDefault();
 
-          if( requestGoing ) { return; }
+          if( item.getAttribute( 'expanded' ) == 'true' ) {
 
-          paged += 1;
+              item.setAttribute( 'expanded', false );
+              return;
+          }
 
-          button.classList.add( loadingModifier );
 
-          const data = new FormData();
+          item.setAttribute( 'expanded', true );
 
-          data.append( "action", "loadmore_posts" );
-          data.append( "paged", paged );
-          data.append( "nonce", loadMorePostsNonce );
-          
-          requestGoing = true;
 
-          console.log( requestGoing );
+          itemsWithChilds.forEach( ( otherItem ) => { 
 
-          fetch( ajaxUrl, {
+              if( otherItem.querySelector( '[expanded=true]' ) || otherItem === item ) {
+              
+                  otherItem.setAttribute( 'expanded', true );    
+                  return; 
+              }
 
-            method: "POST",
-            credentials: 'same-origin',
-
-            body: data,
-
-          })
-
-          .then( ( response ) => response.text() )
-
-          .then( (html) => {
-
-            let posts = stringToHTML( html );
-
-            posts = posts?.querySelectorAll( "article" ); 
-
-            posts.forEach( post => postsContainer.append( post ) );
-
-            MacroLoading.refresh();
-
-            button.classList.remove( loadingModifier );
-
-          }).finally( () => {
-
-            requestGoing = false;
+              otherItem.setAttribute( 'expanded', false );
 
           });
 
-          
+      }, false );
 
-        });  
 
+  }
+
+  const 
+
+    loadMoreButtons = document.querySelectorAll( ".js-btn-loadmore" ),
+    postsContainer = document.getElementById( "kadim-posts" );
+
+  /** load more posts button */
+
+  let paged = 1,
+      requestGoing = false;
+
+  const { ajaxUrl, loadMorePostsNonce } = globals;
+
+    loadMoreButtons.forEach(( button ) => {
+
+      let  [ loadingModifier ] = button.classList;
+      
+      loadingModifier = `${ loadingModifier }--loading`;
+      
+      button.addEventListener( "click", (event) => {
+
+        event.preventDefault();
+
+        if( requestGoing ) { return; }
+
+        paged += 1;
+
+        button.classList.add( loadingModifier );
+
+        const data = new FormData();
+
+        data.append( "action", "loadmore_posts" );
+        data.append( "paged", paged );
+        data.append( "nonce", loadMorePostsNonce );
+        
+        requestGoing = true;
+
+        console.log( requestGoing );
+
+        fetch( ajaxUrl, {
+
+          method: "POST",
+          credentials: 'same-origin',
+
+          body: data,
+
+        })
+
+        .then( ( response ) => response.text() )
+
+        .then( (html) => {
+
+          let posts = stringToHTML( html );
+
+          posts = posts?.querySelectorAll( "article" ); 
+
+          posts.forEach( post => postsContainer.append( post ) );
+
+          MacroLoading.refresh();
+
+          button.classList.remove( loadingModifier );
+
+        }).finally( () => {
+
+          requestGoing = false;
+
+        });
+
+        
+
+      });  
+
+
+    });
+  
+  /** instagram footer videos toggle sound  */
+
+  const volumeControls = document.querySelectorAll( ".js-video-volume" ); 
+  const videos = document.querySelectorAll( '.js-instagram-videos' );
+  let initiallyMuted;
+
+  volumeControls.forEach( (control) =>  {
+
+    let [ firstClass = false ] = control.classList;
+
+    control.addEventListener( "click", (event) => {
+
+      event.preventDefault();
+
+      const associatedVideo = control?.parentNode?.querySelector( "video" );
+
+      if( !associatedVideo ) { return; }
+
+      /** saving initial state */
+      initiallyMuted = associatedVideo.muted;
+
+
+      /** muting all videos */
+      videos.forEach( (video) => video.muted = true );
+
+      /** changing all controls to mute */
+      volumeControls.forEach( (control) => {
+
+        let [ firstClass = false ] = control.classList;
+
+        firstClass && control.classList.remove( `${firstClass}--unmuted`);
 
       });
-   
+
+      /** toggle video sound */
+      associatedVideo.muted = !initiallyMuted;
+
+      
+        firstClass &&
+        ( initiallyMuted ? control.classList.add( `${firstClass}--unmuted`) : control.classList.remove( `${firstClass}--unmuted`) );
+
+    });
+
+  });
+
+  /** instagram footer videos toggle play */
+
+  const playStateControls = document.querySelectorAll( ".js-video-play" ); 
+  let initiallyPaused;
+
+  playStateControls.forEach((control) =>{
+
+    let [ firstClass = false ] = control.classList;
+
+    control.addEventListener( "click", (event) => {
+
+      event.preventDefault();
+
+      const associatedVideo = control?.parentNode?.querySelector( "video" );
+      
+      if( !associatedVideo ) { return; }
+
+      initiallyPaused = associatedVideo.paused;
+
+      ( initiallyPaused ? associatedVideo.play() : associatedVideo.pause() );
+
+      if( !firstClass ) { return; }
+
+      ( initiallyPaused ? control.classList.remove( `${firstClass}--paused` ) : control.classList.add( `${firstClass}--paused` ) );
+
+    
+    });
+
+  });
+
+  /** instagram Icon colorize */
+
+  const footerInstagramIcons = document.querySelectorAll( ".js-footer-instagram-icon" );
+  const secondaryClassRegex = /.*__secondary/i;
+  const whiteColor = "rgba(255,255,255, .7)";
+  const { accentColor } = globals;
+
+  footerInstagramIcons.forEach( (icon) => { 
+    
+    let instance = octo.InstagramIcon.getInstance( icon );
+
+    if( !instance ) { return; }
+    
+    let isSecondary = [ ...icon.classList ].some( ( cssClass ) => cssClass.match( secondaryClassRegex ) );
+
+    let properties = {
+      middleRingCirclesCount: 8,
+      middleRingAccelerationX: 0.15,
+      middleRingAccelerationY: 0.15,
+      middleRingContextProperties: {
+        strokeStyle: ( isSecondary ? whiteColor : accentColor )
+      },
+
+      upRightCircleAccelerationX: 0.1,
+      upRightCircleAccelerationY: 0.1,
+      upRightCircleCirclesCount: 8,
+      upRightCircleContextProperties : {
+        strokeStyle: whiteColor
+      },
+
+      borderCirclesCount: 200,
+      borderAccelerationX: 0.15,
+      borderAccelerationY: 0.15,
+      borderContextProperties: {
+        strokeStyle: ( isSecondary ? accentColor : whiteColor )
+      },
+
+    }
+
+    Object.assign( instance, properties );
+
+    instance.draw();
+
+  });
 
 });
+
+
+/** Hiding menu when overflows */
 
 let dynmaicMenuDisplay = () =>  {
 
@@ -296,3 +420,27 @@ let dynmaicMenuDisplay = () =>  {
 
 window.addEventListener( "load", dynmaicMenuDisplay );
 window.addEventListener( "resize", dynmaicMenuDisplay );
+
+
+  /** Load footer Instagram videos  */
+
+window.addEventListener( "load", () => {
+
+  const videos = document.querySelectorAll( '.js-instagram-videos' );
+
+  videos.forEach( (video) => {
+
+    const [ firstClass = false ] = video.classList;
+
+    video.removeAttribute( "preload" );
+    video.setAttribute( "autoplay", true );
+
+    if( firstClass ) {
+
+      video.classList.add( `${firstClass}--loaded` );
+
+    }
+
+  });
+
+});
