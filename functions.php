@@ -378,7 +378,7 @@ endif;
 if( !function_exists( 'kadim_image_sizes' ) ):
 
 	function kadim_image_sizes() {	
-        add_image_size( 'kadim-macro', 90, 90, true );
+        add_image_size( 'kadim-macro', 48, 48, true );
 
 		add_image_size( 'kadim-compact-slider-tall', 464, 600, true );
 		add_image_size( 'kadim-compact-slider-medium', 464, 350, true );
@@ -473,3 +473,17 @@ add_action( "wp_ajax_nopriv_loadmore_posts", "kadim_loadmore_ajax" );
 function request($path) {
 	return json_decode(file_get_contents($path), true); 
 }
+
+//estimated reading time
+
+if( !function_exists( "kadim_reading_time" ) ):
+
+	function kadim_reading_time() {
+		$content = get_post_field( 'post_content', get_the_ID() );
+		$word_count = str_word_count( strip_tags( $content ) );
+		$readingtime = ceil($word_count / 200);
+		
+		return sprintf( "%d %s", $readingtime, _n( "Minute", "Minutes", $readingtime, "kadim" ) );
+	}
+
+endif;

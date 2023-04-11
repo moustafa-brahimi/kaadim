@@ -1,0 +1,115 @@
+.kadim-single-post {
+  max-width: 980px;
+  margin: 30px auto;
+  padding: 40px;
+  background: var(--elements-background-color);
+  border-radius: 10px;
+
+  &__header {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 22px;
+  }
+
+  &__path {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+
+    a {
+      color: var(--accent-text-color);
+    }
+
+    span {
+      &::after {
+        content: "/";
+        margin: 0 12px;
+        color: var(--accent-color);
+      }
+    }
+
+    > span:last-of-type::after {
+      display: none;
+    }
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    padding: 9px 28px;
+    border: 2px solid var(--accent-color);
+    border-radius: 4px;
+
+    .stat {
+      display: flex;
+      column-gap: 8px;
+      align-items: center;
+
+      .icon {
+        opacity: 0.5;
+        height: 0.9rem;
+      }
+    }
+  }
+
+  &__featured {
+    overflow: hidden;
+    display: flex;
+    border-radius: 0.5rem;
+    position: relative;
+
+    .image {
+      transform: scale(1.15);
+      filter: blur(15px);
+      transition: all var(--moderate-duration) easeOutCubic;
+      &--loaded {
+        transform: scale(1);
+        filter: blur(0);
+      }
+    }
+  }
+
+  &__featured-category {
+    position: absolute;
+    top: 24px;
+    left: 28px;
+    background: var(--accent-color);
+    color: var(--accent-text-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.8rem;
+  }
+
+  &__title {
+    margin-top: 36px;
+    border-bottom: 2px solid var(--gray-5);
+    padding: 0 10px 20px 10px;
+
+    [color-scheme="dark"] & {
+      border-color: var(--gray-90);
+    }
+  }
+
+  &__content {
+    padding: 60px 0;
+    line-height: 1.618rem;
+
+    img {
+      border-radius: 4px;
+    }
+
+    a {
+      color: var(--accent-text-color);
+      text-decoration: underline;
+    }
+
+    p {
+      margin: 30px 0;
+    }
+  }
+}

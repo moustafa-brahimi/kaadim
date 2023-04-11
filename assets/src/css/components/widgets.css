@@ -426,6 +426,67 @@
   }
 }
 
+.wp-block-button {
+  margin: 24px 0;
+  &__link {
+    background: var(--accent-color);
+    color: var(--accent-text-color);
+    box-shadow: 5px 6px var(--accent-text-color);
+    font-weight: 500;
+    text-decoration: none !important;
+    transition: all var(--very-short-duration) linear;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &.is-style-outline &__link,
+  &.is-style-squared &__link {
+    border-radius: 0;
+  }
+
+  &.alignleft {
+    margin: 24px 30px 24px 0;
+  }
+
+  &.alignright {
+    margin: 24px 0px 24px 30px;
+  }
+}
+
+.wp-block-gallery {
+  &.has-nested-images {
+    figure.wp-block-image {
+      figcaption.wp-element-caption {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        min-width: 300px;
+        min-height: 70px;
+        background: var(--gray-80);
+        transform: translate(-50%);
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        justify-content: center;
+        border-radius: 4px;
+        max-height: unset;
+        height: fit-content;
+        box-shadow: 6px 7px 0px var(--gray-40);
+        color: var(--accent-color);
+        font-weight: 500;
+      }
+    }
+  }
+}
+
 .widget {
   margin: 20px 0;
 }

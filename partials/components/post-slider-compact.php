@@ -35,7 +35,6 @@
 
         <?php $post_categroies  =   get_the_category(); ?>
             
-
         <?php $first_category   =   array_pop( $post_categroies ); ?>
 
         <?php printf( '<a href="%1$s" class="js-post-category-link">', get_category_link( $first_category ) ); ?>

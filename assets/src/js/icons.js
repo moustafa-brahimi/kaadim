@@ -15,7 +15,9 @@ import {
   faPlay,
   faPause,
   faAt,
-  faSquarePlus
+  faSquarePlus,
+  faStopwatch,
+  faMessage,
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add({
@@ -32,7 +34,9 @@ library.add({
   faPlay,
   faPause,
   faAt,
-  faSquarePlus
+  faSquarePlus,
+  faStopwatch,
+  faMessage,
 
 });
 dom.i2svg()
