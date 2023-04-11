@@ -66,6 +66,7 @@
       transform: scale(1.15);
       filter: blur(15px);
       transition: all var(--moderate-duration) easeOutCubic;
+      flex-grow: 1;
       &--loaded {
         transform: scale(1);
         filter: blur(0);

@@ -304,7 +304,12 @@
       top: 20px;
       bottom: 20px;
       width: 2px;
-      background: var(--gray-80);
+      background: var(--gray-5);
+
+      [color-scheme="dark"] & {
+        background: var(--gray-85);
+      }
+
     }
     &:last-of-type {
       &::after {
@@ -463,30 +468,126 @@
 .wp-block-gallery {
   &.has-nested-images {
     figure.wp-block-image {
+
+      &:hover {
+        figcaption.wp-element-caption {
+          visibility: visible;
+          opacity: 1;
+          transform: translate(-50%, 0);
+        }
+      }
+
       figcaption.wp-element-caption {
         position: absolute;
         top: 100%;
         left: 50%;
         min-width: 300px;
         min-height: 70px;
-        background: var(--gray-80);
-        transform: translate(-50%);
+        max-height: unset;
+        background: var(--elements-background-color);
         z-index: 10;
         display: flex;
         align-items: center;
         padding: 10px;
         justify-content: center;
-        border-radius: 4px;
-        max-height: unset;
         height: fit-content;
-        box-shadow: 6px 7px 0px var(--gray-40);
-        color: var(--accent-color);
+        box-shadow: 6px 7px 0px var(--gray-10);
+        border: 2px solid var(--accent-color);
+        color: inherit;
         font-weight: 500;
+        visibility: hidden;
+        opacity: 0;
+        transform: translate(-50%, 16px);
+        transition: all var(--short-duration) easeOutCirc;
       }
     }
   }
+
+  &:not(.has-nested-images) {
+  
+    .blocks-gallery-item {
+
+      &:hover figcaption {
+        visibility: visible;
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+
+      figcaption {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        min-width: 300px;
+        min-height: 70px;
+        max-height: unset !important;
+        background: var(--elements-background-color) !important;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        justify-content: center;
+        height: fit-content;
+        box-shadow: 6px 7px 0px var(--gray-10);
+        border: 2px solid var(--accent-color) !important;
+        color: inherit;
+        font-weight: 500;
+        visibility: hidden;
+        opacity: 0;
+        transform: translate(-50%, 16px);
+        transition: all var(--short-duration) easeOutCirc;
+      }
+    }
+
+  }
+
 }
 
+.wp-block-quote {
+
+  &, &.is-style-large {
+
+    &:not(.is-style-plain) {
+
+      background: var(--accent-color);
+      color: var(--accent-text-color);
+      font-family: var(--headlines-font-family);
+      padding: 16px 28px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      &::before {
+        background-image: url(../img/quote-right-solid.svg);
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        content: "";
+        height: 128px;
+        mix-blend-mode: soft-light;
+        pointer-events: none;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transform: translate(-5%,42%);
+        width: 128px;
+        opacity: 0.6;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      cite {
+        font-family: var(--body-font-family);
+        font-weight: bold;
+      }
+
+    }
+
+  }
+  
+}
 .widget {
   margin: 20px 0;
 }
