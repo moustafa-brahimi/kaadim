@@ -396,7 +396,13 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
     instance.draw();
 
+
   });
+
+  /** */
+
+  console.log( wp );
+
 
 });
 

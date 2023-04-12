@@ -97,20 +97,229 @@
   }
 
   &__content {
-    padding: 60px 0;
+    padding: 0 22px;
     line-height: 1.618rem;
 
     img {
       border-radius: 4px;
     }
 
-    a {
+    a:not(.wp-block-button__link) {
       color: var(--accent-text-color);
       text-decoration: underline;
+
+      [color-scheme="dark"] & {
+        color: var(--accent-color);
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 2rem 0 1rem;
+    }
+
+    > div:not(.alignleft) {
+      margin: 30px 0;
+      max-width: 100%;
     }
 
     p {
-      margin: 30px 0;
+      margin: 15px 0 30px;
+      line-height: max(1.4em, 30px);
+      overflow: hidden;
+    }
+
+    ul,
+    ol {
+      &:not(.blocks-gallery-grid, .wp-block-latest-comments) {
+        list-style: none;
+        ul,
+        ol {
+          padding-left: 28px;
+          margin-left: 12px;
+          margin-top: 10px;
+          border-left: 2px solid var(--gray-5);
+
+          li {
+          }
+
+          li:last-of-type {
+            padding-bottom: 0;
+          }
+        }
+        li {
+          padding: 8px 0;
+
+          &:hover,
+          &:focus-within {
+            &::before {
+              background-color: var(--accent-text-color);
+              color: var(--accent-color);
+            }
+          }
+
+          &:before {
+            color: var(--accent-text-color);
+            content: "~";
+            font-weight: 700;
+            margin: 0 8px;
+            background-color: var(--accent-color);
+            vertical-align: middle;
+            height: 1rem;
+            width: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: all var(--short-duration) easeOutCirc;
+          }
+        }
+      }
+    }
+
+    ol:not(.blocks-gallery-grid, .wp-block-latest-comments) {
+      counter-reset: kadim-counter;
+      li {
+        counter-increment: kadim-counter;
+        &::before {
+          content: counter(kadim-counter);
+        }
+      }
+    }
+
+    blockquote {
+      padding: 16px 28px 28px;
+      margin-bottom: 48px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 4px;
+      border: 4px solid var(--accent-color);
+      position: relative;
+      overflow: visible;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        height: 38px;
+        width: 84px;
+        transform: translate(-50%, 50%);
+        pointer-events: none;
+      }
+
+      &::before {
+        background-color: var(--accent-color);
+        box-shadow: 5px 5px var(--accent-text-color);
+      }
+
+      &::after {
+        background-image: url(../img/quote-right-solid.svg);
+        background-repeat: no-repeat;
+        background-size: 34%;
+        background-position: center;
+        mix-blend-mode: soft-light;
+      }
+    }
+
+    table {
+      td {
+        padding: 12px;
+      }
+    }
+
+    dl {
+      padding: 0 16px;
+
+      dt {
+        font-weight: bold;
+        font-size: 0.95rem;
+        + dd {
+          display: flex;
+          align-items: center;
+          margin-bottom: 16px;
+
+          &::before {
+            content: "";
+            width: 48px;
+            display: block;
+            height: 2px;
+            background: var(--gray-10);
+            margin-right: 12px;
+          }
+        }
+      }
+    }
+
+    .wp-block-latest-comments {
+      background-color: transparent;
+      padding: 0;
+      row-gap: 8px;
+      max-width: 100%;
+
+      &__comment:hover .wp-block-latest-comments__comment-avatar {
+        transform: scale(1.05);
+      }
+
+      &__comment {
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+        border: none;
+        padding: 32px 38px;
+        background-color: var(--gray-2p5);
+
+        [color-scheme="dark"] & {
+          background-color: var(--gray-80);
+        }
+      }
+
+      &__comment-avatar {
+        width: 48px !important;
+        height: 48px !important;
+        position: relative;
+        transform: none;
+        border: none;
+        left: 0;
+        top: 0;
+      }
+
+      &__comment-excerpt {
+        margin: 0 0;
+      }
+      p {
+        font-size: 0.875rem;
+        line-height: 1.4em;
+        margin: 0.75em 0 0 !important;
+      }
+    }
+
+    .wp-block-calendar {
+      max-width: 330px !important;
+    }
+
+    .wp-block-tag-cloud a {
+      text-decoration: none;
+    }
+
+    .wp-block-pullquote {
+      blockquote {
+        all: unset;
+      }
+    }
+
+    .wp-block-columns {
+      column-gap: 60px;
+      .wp-block-column {
+        &::after {
+          right: -30px;
+        }
+      }
     }
   }
 }
