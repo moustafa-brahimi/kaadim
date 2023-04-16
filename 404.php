@@ -1,6 +1,7 @@
 <?php 
 /**
- * Page Template: test
+ * @package kadim
+ * @since 1.0
  */
 ?>
 

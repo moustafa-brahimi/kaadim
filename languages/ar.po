@@ -1,0 +1,481 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Kadim\n"
+"POT-Creation-Date: 2023-04-16 03:00+0100\n"
+"PO-Revision-Date: 2023-04-16 03:09+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: 404.php:21
+msgid "Oops ! page not found"
+msgstr "عذرا ! الصفحة التي تبحث عنها غير موجودة"
+
+#: 404.php:22
+msgid ""
+"Sorry, but the page you are looking for was moved, removed, renamed or might "
+"never existed..."
+msgstr ""
+"عذرا , الصفحة التي تبحث عنها نقلت, حذفت أو تم تغيير اسمها أو لم يتم إنشاءها "
+"اطلاقا"
+
+#: 404.php:24 archive.php:20 author.php:19 category.php:29 search.php:22
+#: template-parts/single/content.php:27
+msgid "Home"
+msgstr "الرئيسية"
+
+#: 404.php:25
+msgid "Go back home"
+msgstr "العودة للصفحة الرئيسية"
+
+#: archive.php:18 author.php:17 category.php:27 search.php:20
+msgid "home"
+msgstr "الرئيسية"
+
+#: archive.php:27
+msgid "Date"
+msgstr "التاريخ"
+
+#: archive.php:31
+msgid "Tag"
+msgstr ""
+
+#: author.php:23
+msgid "Author"
+msgstr "كاتب"
+
+#: category.php:35
+msgid "Category"
+msgstr "تصنيف"
+
+#: comments.php:28
+msgid "No comments yet! let's start by yours"
+msgstr "لا يوجد تعليقات ! لنبدأ بتعليق من عندك"
+
+#. translators: %s: Post title.
+#: comments.php:31
+#, php-format
+msgctxt "comments title"
+msgid "One reply on &ldquo;%s&rdquo;"
+msgstr "رد واحد على \"%s\""
+
+#: comments.php:36
+#, php-format
+msgctxt "comments title"
+msgid "%1$s reply on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s replies on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] "%s ردود على \"%\""
+msgstr[4] "%s رد على \"%s\""
+msgstr[5] ""
+
+#: comments.php:67
+msgid "Newer Comments"
+msgstr "تعليقات أحدث"
+
+#: comments.php:68
+msgid "Older Comments"
+msgstr "تعليقات أقدم"
+
+#: comments.php:81
+msgid "Comments"
+msgstr "التعليقات"
+
+#: comments.php:117
+msgid "Comments are closed"
+msgstr "التعليقات مقفلة"
+
+#: footer.php:7
+msgid "Close search form"
+msgstr "أغلق نافذة البحث"
+
+#: footer.php:38
+#, php-format
+msgid "All rights reserved to kadim %s"
+msgstr "كل الحقوق مجفوظة لقادم"
+
+#: functions.php:50
+msgid "Kirki Customizer Framework"
+msgstr ""
+
+#: functions.php:56
+msgid "Simple Author Box"
+msgstr ""
+
+#: functions.php:324
+msgid "Main Menu"
+msgstr "القائمة الرئيسية"
+
+#: functions.php:325
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:346
+msgid "Blog sidebar"
+msgstr ""
+
+#: functions.php:348
+msgid "Blog sidebar widgets"
+msgstr ""
+
+#: functions.php:361
+msgid "Footer Center"
+msgstr ""
+
+#: functions.php:363
+msgid "Centre Footer widget position."
+msgstr ""
+
+#: functions.php:492
+msgid "Minute"
+msgid_plural "Minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: functions.php:505
+msgid "Facebook"
+msgstr ""
+
+#: functions.php:510
+msgid "Instagram"
+msgstr ""
+
+#: functions.php:515
+msgid "Twitter"
+msgstr ""
+
+#: functions.php:520
+msgid "LinkedIn"
+msgstr ""
+
+#: functions.php:524
+msgid "Discord"
+msgstr ""
+
+#: functions.php:528
+msgid "Pinterest"
+msgstr ""
+
+#: functions.php:532
+msgid "Behance"
+msgstr ""
+
+#: functions.php:536
+msgid "Youtube"
+msgstr ""
+
+#: functions.php:556
+msgid "Author Socials"
+msgstr ""
+
+#: includes/customizer.php:11
+msgid "Color"
+msgstr ""
+
+#: includes/customizer.php:18
+msgid "Accent color"
+msgstr ""
+
+#: includes/customizer.php:19
+msgid "preferably light color"
+msgstr ""
+
+#: includes/customizer.php:39
+msgid "Accent text color"
+msgstr ""
+
+#: includes/customizer.php:40
+msgid "preferably a darker shade of the chosen accent color"
+msgstr ""
+
+#: includes/customizer.php:64
+msgid "Logo height"
+msgstr ""
+
+#: includes/customizer.php:90
+msgid "Dark mode Logo"
+msgstr ""
+
+#: includes/customizer.php:105
+msgid "Alternative Logo Typography"
+msgstr ""
+
+#: includes/customizer.php:139
+msgid "Alternative Logo Dark Scheme color"
+msgstr ""
+
+#: includes/customizer.php:172
+msgid "Typography"
+msgstr ""
+
+#: includes/customizer.php:179
+msgid "Font size"
+msgstr ""
+
+#: includes/customizer.php:207
+msgid "Body Typography"
+msgstr ""
+
+#: includes/customizer.php:214
+msgid "Roboto"
+msgstr ""
+
+#: includes/customizer.php:215
+msgid "Raleway"
+msgstr ""
+
+#: includes/customizer.php:216
+msgid "Nunito"
+msgstr ""
+
+#: includes/customizer.php:217
+msgid "Poppins"
+msgstr ""
+
+#: includes/customizer.php:218
+msgid "Cairo"
+msgstr ""
+
+#: includes/customizer.php:219
+msgid "Alexandria"
+msgstr ""
+
+#: includes/customizer.php:230
+msgid "Headings Typography"
+msgstr ""
+
+#: includes/customizer.php:249
+msgid "Slider"
+msgstr ""
+
+#: includes/customizer.php:256
+msgid "Slider Enabled"
+msgstr ""
+
+#: includes/customizer.php:267
+msgid "Choose featured posts category "
+msgstr ""
+
+#: includes/customizer.php:272
+msgid "Select a category"
+msgstr ""
+
+#: includes/customizer.php:289
+msgid "Title"
+msgstr ""
+
+#: includes/customizer.php:291 partials/slider-compact.php:34
+msgid "Featured Posts"
+msgstr ""
+
+#: includes/customizer.php:314 includes/customizer.php:334
+msgid "Notice"
+msgstr ""
+
+#: includes/customizer.php:323
+msgid "Show notice"
+msgstr ""
+
+#: includes/customizer.php:336 template-parts/notice.php:8
+msgid "Lorem Ipsum is simply dummy text of the printing and typesetting"
+msgstr ""
+
+#: includes/customizer.php:356
+msgid "Notice background color"
+msgstr ""
+
+#: includes/customizer.php:388
+msgid "Notice Typography"
+msgstr ""
+
+#: includes/customizer.php:430
+msgid "Footer"
+msgstr ""
+
+#: includes/customizer.php:438
+msgid "Instagram Token"
+msgstr ""
+
+#: includes/customizer.php:444
+msgid "Don't have an instagram token ?"
+msgstr ""
+
+#: includes/customizer.php:446
+msgid "Generate Your's"
+msgstr ""
+
+#: includes/customizer.php:456
+msgid "Copyrights Phrase"
+msgstr ""
+
+#: includes/customizer.php:458
+msgid "All Rights Reserved 2023"
+msgstr ""
+
+#: index.php:32
+msgid "Load more"
+msgstr ""
+
+#: partials/components/button-color-scheme.php:1
+msgid "Switch Color Scheme"
+msgstr ""
+
+#: partials/components/post-slider-compact.php:80
+#: template-parts/content-post.php:71 template-parts/single/content.php:48
+#, php-format
+msgid "%1$s ago"
+msgstr ""
+
+#: partials/slider-compact.php:150
+msgid "read more"
+msgstr ""
+
+#: search.php:27
+msgid "Search :"
+msgstr ""
+
+#: search.php:39
+#, php-format
+msgid "%d Post found for \"%s\""
+msgid_plural "%d Posts found for \"%s\""
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: search.php:46
+msgid "Search for something else ?"
+msgstr ""
+
+#: searchform.php:26
+msgid "Search&hellip;"
+msgstr ""
+
+#: searchform.php:27
+msgid "Search"
+msgstr ""
+
+#: sidebar.php:25
+msgid "Close the sidebar"
+msgstr ""
+
+#: template-parts/content-post.php:107
+msgid "Tags"
+msgstr ""
+
+#: template-parts/content-post.php:135
+msgid "Continue reading"
+msgstr ""
+
+#: template-parts/footer-instagram.php:72
+msgid "Mute/Unmute volume"
+msgstr ""
+
+#: template-parts/footer-instagram.php:77
+msgid "Play/Pause video"
+msgstr ""
+
+#: template-parts/footer-instagram.php:106
+#: template-parts/footer-instagram.php:112
+#: template-parts/footer-instagram.php:117
+#: template-parts/footer-instagram.php:122
+msgid "Follow on instagram"
+msgstr ""
+
+#: template-parts/header-blog.php:50
+msgid "Expand side bar"
+msgstr ""
+
+#: template-parts/header-blog.php:56
+msgid "Open search form"
+msgstr ""
+
+#: template-parts/notice.php:11
+msgid "Collapse the notice"
+msgstr ""
+
+#: template-parts/single/author-card.php:24
+msgid "Written By"
+msgstr ""
+
+#: template-parts/single/author-card.php:79
+#, php-format
+msgid "See %d more Posts written by %s"
+msgid_plural "See %d more Posts written by %s"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: template-parts/single/content.php:14
+msgid "This post is password protected"
+msgstr ""
+
+#: template-parts/single/content.php:65
+msgid "Comment"
+msgid_plural "Comments"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: template-parts/single/content.php:133
+msgid "Page"
+msgstr ""
+
+#: template-parts/single/content.php:135
+msgid "Page %"
+msgstr ""
+
+#: template-parts/single/related-posts.php:37
+msgid "Related Posts"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Kadim"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://wordpress.org/themes/twentytwenty/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Kadim ( قادم ) is a single page wordpress theme for coming soon websites, it "
+"comes with stylish and elegant demos"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Moustafa Brahimi"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://github.com/brahimi-mustapha"
+msgstr ""

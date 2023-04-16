@@ -463,4 +463,466 @@ new \Kirki\Field\Editor(
 
 
 
+// ========================== ads
 
+
+new \Kirki\Panel(
+	'kadim_ads_panel',
+	[
+		'priority'    => 10,
+		'title'       => esc_html__( 'Ads', 'kadim' ),
+		'description' => esc_html__( 'Add ad scripts around the website.', 'kadim' ),
+	]
+);
+
+// [ homepage ]
+
+new \Kirki\Section(
+	'kadim_ads_home',
+	[
+		'title'       => esc_html__( 'Homepage Ads', 'kadim' ),
+		'description' => esc_html__( 'Manage ads on the blog homepage', 'kadim' ),
+		'panel'       => 'kadim_ads_panel',
+		'priority'    => 10,
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_home_top_desktop',
+		'label'       => esc_html__( 'Top page desktop ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_home',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_home_top_mobile',
+		'label'       => esc_html__( 'Top page mobile ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_home',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_home_bottom_desktop',
+		'label'       => esc_html__( 'Bottom page desktop ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_home',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_home_bottom_mobile',
+		'label'       => esc_html__( 'Bottom page mobile ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_home',
+		'default'     => '',
+	]
+);
+
+// [ article ]
+
+new \Kirki\Section(
+	'kadim_ads_single',
+	[
+		'title'       => esc_html__( 'Article page', 'kadim' ),
+		'description' => esc_html__( 'Manage ads on the article page', 'kadim' ),
+		'panel'       => 'kadim_ads_panel',
+		'priority'    => 10,
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_single_top_desktop',
+		'label'       => esc_html__( 'Top page desktop ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_single',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_single_top_mobile',
+		'label'       => esc_html__( 'Top page mobile ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_single',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_single_bottom_desktop',
+		'label'       => esc_html__( 'Bottom page desktop ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_single',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_single_bottom_mobile',
+		'label'       => esc_html__( 'Bottom page mobile ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_single',
+		'default'     => '',
+	]
+);
+
+
+// [ author ]
+
+new \Kirki\Section(
+	'kadim_ads_author',
+	[
+		'title'       => esc_html__( 'Author page', 'kadim' ),
+		'description' => esc_html__( 'Manage ads on the author page', 'kadim' ),
+		'panel'       => 'kadim_ads_panel',
+		'priority'    => 10,
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_author_top_desktop',
+		'label'       => esc_html__( 'Top page desktop ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_author',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_author_top_mobile',
+		'label'       => esc_html__( 'Top page mobile ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_author',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_author_bottom_desktop',
+		'label'       => esc_html__( 'Bottom page desktop ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_author',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_author_bottom_mobile',
+		'label'       => esc_html__( 'Bottom page mobile ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_author',
+		'default'     => '',
+	]
+);
+
+
+// [ category ]
+
+new \Kirki\Section(
+	'kadim_ads_category',
+	[
+		'title'       => esc_html__( 'Category page', 'kadim' ),
+		'description' => esc_html__( 'Manage ads on the category page', 'kadim' ),
+		'panel'       => 'kadim_ads_panel',
+		'priority'    => 10,
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_category_top_desktop',
+		'label'       => esc_html__( 'Top page desktop ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_category',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_category_top_mobile',
+		'label'       => esc_html__( 'Top page mobile ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_category',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_category_bottom_desktop',
+		'label'       => esc_html__( 'Bottom page desktop ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_category',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_category_bottom_mobile',
+		'label'       => esc_html__( 'Bottom page mobile ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_category',
+		'default'     => '',
+	]
+);
+
+// [ archive ]
+
+new \Kirki\Section(
+	'kadim_ads_archive',
+	[
+		'title'       => esc_html__( 'Archive page', 'kadim' ),
+		'description' => esc_html__( 'Manage ads on the archive page', 'kadim' ),
+		'panel'       => 'kadim_ads_panel',
+		'priority'    => 10,
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_archive_top_desktop',
+		'label'       => esc_html__( 'Top page desktop ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_archive',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_archive_top_mobile',
+		'label'       => esc_html__( 'Top page mobile ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_archive',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_archive_bottom_desktop',
+		'label'       => esc_html__( 'Bottom page desktop ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_archive',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_archive_bottom_mobile',
+		'label'       => esc_html__( 'Bottom page mobile ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_archive',
+		'default'     => '',
+	]
+);
+
+
+// [ category ]
+
+new \Kirki\Section(
+	'kadim_ads_category',
+	[
+		'title'       => esc_html__( 'Category page', 'kadim' ),
+		'description' => esc_html__( 'Manage ads on the category page', 'kadim' ),
+		'panel'       => 'kadim_ads_panel',
+		'priority'    => 10,
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_category_top_desktop',
+		'label'       => esc_html__( 'Top page desktop ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_category',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_category_top_mobile',
+		'label'       => esc_html__( 'Top page mobile ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_category',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_category_bottom_desktop',
+		'label'       => esc_html__( 'Bottom page desktop ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_category',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_category_bottom_mobile',
+		'label'       => esc_html__( 'Bottom page mobile ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_category',
+		'default'     => '',
+	]
+);
+
+// [ search ]
+
+new \Kirki\Section(
+	'kadim_ads_search',
+	[
+		'title'       => esc_html__( 'Search page', 'kadim' ),
+		'description' => esc_html__( 'Manage ads on the search page', 'kadim' ),
+		'panel'       => 'kadim_ads_panel',
+		'priority'    => 10,
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_search_top_desktop',
+		'label'       => esc_html__( 'Top page desktop ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_search',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_search_top_mobile',
+		'label'       => esc_html__( 'Top page mobile ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_search',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_search_bottom_desktop',
+		'label'       => esc_html__( 'Bottom page desktop ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_search',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_search_bottom_mobile',
+		'label'       => esc_html__( 'Bottom page mobile ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_search',
+		'default'     => '',
+	]
+);
+
+
+// [ page ]
+
+new \Kirki\Section(
+	'kadim_ads_page',
+	[
+		'title'       => esc_html__( 'Pages', 'kadim' ),
+		'description' => esc_html__( 'Manage ads on the pages', 'kadim' ),
+		'panel'       => 'kadim_ads_panel',
+		'priority'    => 10,
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_page_top_desktop',
+		'label'       => esc_html__( 'Top page desktop ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_page',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_page_top_mobile',
+		'label'       => esc_html__( 'Top page mobile ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_page',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_page_bottom_desktop',
+		'label'       => esc_html__( 'Bottom page desktop ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_page',
+		'default'     => '',
+	]
+);
+
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'kadim_ads_page_bottom_mobile',
+		'label'       => esc_html__( 'Bottom page mobile ad', 'kadim' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
+		'section'     => 'kadim_ads_page',
+		'default'     => '',
+	]
+);

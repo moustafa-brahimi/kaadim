@@ -597,3 +597,11 @@ function kadim_save_extra_user_social_profiles( $user_id ) {
 	update_user_meta( $user_id, 'kadim_social_links', $_POST['kadim_social_links'] );
 
 }
+
+/** kadim text domain */
+
+add_action('after_setup_theme', 'kadim_text_domain');
+
+function kadim_text_domain(){
+    load_theme_textdomain('kadim', get_template_directory() . '/languages');
+}

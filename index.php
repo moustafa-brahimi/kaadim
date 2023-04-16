@@ -13,13 +13,19 @@
 
     <div class="container">
         
+        <?php
+        get_template_part( "template-parts/ad",  "", [
+            "desktop"   => "kadim_ads_home_top_desktop",
+            "mobile"    => "kadim_ads_home_top_mobile"
+        ] ); ?>
+
+
         <main class="kadim-posts" id="kadim-posts">
 
             <?php while( have_posts() ): ?>
 
                 <?php the_post(); ?>
                 
-
                 <?php get_template_part( "template-parts/content-post",  get_post_format() ); ?>
 
 
