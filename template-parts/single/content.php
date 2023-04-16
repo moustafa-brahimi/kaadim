@@ -2,26 +2,40 @@
 <?php $first_category   =   array_pop( $post_categroies ); ?>
 <?php $first_category_url = isset( $first_category ) ? esc_attr( get_term_link( $first_category ) ) : false; ?>
 
+
 <article <?php post_class( "kadim-single-post" ); ?>>
+
+    <?php if( post_password_required() ): ?>
+
+        <div class="kadim-single-post__notice kadim-single-post__notice--warn">
+
+            <i class="icon fa-solid fa-unlock-keyhole"></i>
+            
+            <?php esc_html_e( "This post is password protected", "kadim" ); ?>
+
+        </div>
+
+    <?php endif; ?>
+
 
 
     <header class="kadim-single-post__header">
         
-        <div class="kadim-single-post__path" >
+        <div class="kadim-path" >
 
-            <a href="<?php bloginfo( "url" ); ?>">
+            <a class="kadim-path__item" href="<?php bloginfo( "url" ); ?>">
                 <span><?php esc_html_e( "Home", "kadim" ); ?></span>
             </a>
 
             <?php if( $first_category ): ?>
 
-                <a href="<?php echo $first_category_url; ?>">
+                <a class="kadim-path__item" href="<?php echo $first_category_url; ?>">
                     <span><?php echo esc_html( $first_category->name ); ?></span>
                 </a>
 
             <?php endif; ?>
 
-            <span><?php the_title(); ?></span>
+            <span class="kadim-path__item"><?php the_title(); ?></span>
 
         </div>
 
@@ -105,19 +119,36 @@
     <?php endif; ?>
 
 
-    <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
-        <h3 class="post-title kadim-single-post__title"><?php the_title(); ?></h3>
-    </a>
+    <h3 class="post-title kadim-single-post__title"><?php the_title(); ?></h3>
 
+    <div class="kadim-single-post__container">
 
-    <div class="kadim-single-post__content">
+        <div class="kadim-single-post__content">
+            <?php the_content(); ?>
+        </div>
 
-        <?php the_content(); ?>
+        <?php 
+            wp_link_pages(
+            array(
+                'before'   => '<nav class="kadim-single-post__pagination" aria-label="' . esc_attr__( 'Page', 'kadim' ) . '">',
+                'after'    => '</nav>',
+                'pagelink' => esc_html__( 'Page %', 'query' ),
+                'separator' => '<i class="icon fa-solid fa-arrow-right"></i>'
+                
+            )
+            );
 
+        ?>
 
-    </div>
+        <?php get_template_part( "template-parts/single/author", "card" ); ?>
+        <?php get_template_part( "template-parts/single/related-posts" ); ?>
 
+        <section class="kadim-single-post__comments" >
 
+            <?php comments_template(); ?>
 
+        </section>
+
+    </div><!-- container -->
 
 </article>

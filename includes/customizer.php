@@ -58,6 +58,47 @@ new \Kirki\Field\Color(
 // =================== Logo Alternative ======================= // 
 
 
+new \Kirki\Field\Dimension(
+	[
+		'settings'    => 'kadim_logo_height',
+		'label'       => __( 'Logo height', 'kadim' ),
+		'section'     => 'title_tagline',
+		'default'     => '60',
+		'priority'    => 40,
+
+		'output' => [
+
+			[
+			  'element'  => '.logo__light, .logo__dark',
+			  'property' => 'max-height',
+			  "units"	=>	'px'
+			],
+	  
+		  ],
+	  
+		'active_callback' => function() {
+
+			return get_theme_mod( "custom_logo", null ) != null;
+
+		}
+	]
+);
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'kadim_logo_dark_mode_version',
+		'label'       => esc_html__( 'Dark mode Logo', 'kirki' ),
+		'section'     => 'title_tagline',
+		'priority'    => 30,
+		'default'     => '',
+
+		'active_callback' => function() {
+			return get_theme_mod( "custom_logo", null ) != null;
+		}
+
+	]
+);
+
 new \Kirki\Field\Typography(
 	[
 		'settings'    => 'kadim_logo_alternative_typography',
@@ -116,6 +157,8 @@ new \Kirki\Field\Color(
 		}
 	]
 );
+
+
 
 
 

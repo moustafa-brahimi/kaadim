@@ -1,0 +1,28 @@
+.kadim-archive-board {
+  border: 8px solid var(--accent-color);
+  padding: 30px 48px;
+  background: var(--elements-background-color);
+
+  &__title {
+    margin-top: 26px;
+  }
+
+  &__path {
+    justify-content: flex-start;
+  }
+
+  &__description {
+    font-weight: 500;
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 580px) {
+  .kadim-archive-board {
+    margin-bottom: 2px;
+    text-align: center;
+    &__path {
+      justify-content: center;
+    }
+  }
+}

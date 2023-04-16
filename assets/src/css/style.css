@@ -14,7 +14,14 @@
 @import "./components/button/button.css";
 @import "./components/footer.css";
 @import "./components/instagram.css";
+@import "./components/author-card.css";
+@import "./components/related-posts.css";
+@import "./components/path.css";
 
 @import "./base/layout.css";
 
 @import "./pages/single.css";
+@import "./pages/404.css";
+@import "./pages/archive.css";
+@import "./pages/author.css";
+@import "./pages/search.css";

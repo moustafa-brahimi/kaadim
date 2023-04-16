@@ -1,6 +1,7 @@
 .post-title {
   font-size: 2rem;
   transition: all var(--short-duration) ease;
+  overflow-wrap: break-word;
   &:hover {
     color: var(--accent-text-color);
   }

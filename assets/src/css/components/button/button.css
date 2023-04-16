@@ -19,12 +19,23 @@
   }
 }
 
+input[type="submit"] {
+  color: var(--accent-text-color);
+  background: var(--accent-color);
+  box-shadow: 5px 6px var(--accent-text-color);
+  align-text: center;
+  padding: 16px 32px;
+  cursor: pointer;
+  border: none;
+}
 .kadim-btn {
   color: var(--accent-text-color);
   background: var(--accent-color);
   box-shadow: 5px 6px var(--accent-text-color);
   align-text: center;
   padding: 16px 32px;
+  cursor: pointer;
+  border: none;
 
   &__container {
     overflow: hidden;
@@ -62,6 +73,10 @@
     &--secondary {
       transform: translateY(0%) rotate(0);
     }
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 
   &:focus-visible {

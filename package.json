@@ -5,7 +5,8 @@
   "main": "index.php",
   "scripts": {
     "js:build": "npx webpack watch",
-    "css:build": "postcss -w ./assets/src/css/style.css -o ./assets/dist/css/style.css"
+    "css:build": "postcss -w ./assets/src/css/style.css -o ./assets/dist/css/style.css",
+    "css:build:rtl": "postcss -w ./assets/src/css/rtl.css -o rtl.css"
   },
   "author": "Moustafa Brahimi",
   "license": "ISC",

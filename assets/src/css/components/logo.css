@@ -17,6 +17,7 @@
     text-decoration: none;
     text-align: center;
     transition: all var(--very-short-duration);
+    position: relative;
 
     &:focus-visible {
       outline: none;
@@ -33,14 +34,40 @@
   
   }
 
+  &__container {
+    margin: 0 0 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
 
-  .custom-logo {
+  &__light {
     max-height: 60px;
     width: auto;
-    padding: 0.6rem;
-    margin: 0.4rem 0.4rem 0;
     transition: all var(--short-duration);
+
+    [color-scheme="dark"] & {
+      opacity: 0;
+    }
   }
+
+  &__dark {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: auto;
+    transform: translate(-50%, 0);
+    max-height: 60px;
+    opacity: 0;
+
+    [color-scheme="dark"] & {
+      opacity: 1;
+    }
+    
+  }
+
+
 
   &__alternative {
     padding: 0.6rem;
@@ -79,5 +106,13 @@
   &__tagline {
     color: #888;
     font-size: 1rem;
+  }
+}
+
+
+@media (max-width: 580px) {
+
+  .logo {
+    padding: 30px;
   }
 }

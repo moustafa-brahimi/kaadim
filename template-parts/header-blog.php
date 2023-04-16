@@ -11,7 +11,24 @@
 
     <?php if( has_custom_logo() ): ?>
 
-      <?php the_custom_logo(); ?>
+      <?php $logo_id =  get_theme_mod( "custom_logo", false ); ?>
+      <?php $logo_data =  wp_get_attachment_image_src( $logo_id ); ?>
+      <?php $logo_src =  array_shift( $logo_data ); ?>
+      <?php $logo_width =  array_shift( $logo_data ); ?>
+      <?php $logo_height =  array_shift( $logo_data ); ?>
+      <?php $dark_mode_logo =  get_theme_mod( "kadim_logo_dark_mode_version", false ); ?>
+
+      <div class="logo__container">
+
+        <?php printf( '<img class="logo__light" src="%s" height="%s" width="%s" />', $logo_src, $logo_height, $logo_width ); ?>
+
+        <?php if( $dark_mode_logo ): ?>
+
+          <img src="<?php echo esc_attr( $dark_mode_logo ); ?>" class="logo__dark"/>
+
+        <?php endif; ?>
+
+        </div>
 
     <?php else: ?>
 

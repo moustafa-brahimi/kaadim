@@ -47,8 +47,14 @@ if( !function_exists( "kadim_register_required_plugins" ) ):
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository.
 		array(
-			'name'      => 'Kirki Customizer Framework',
+			'name'      => __( 'Kirki Customizer Framework', 'kadim'),
 			'slug'      => 'kirki',
+			'required'  => true,
+		),
+
+		array(
+			'name'      => __( 'Simple Author Box', 'kadim'),
+			'slug'      => 'simple-author-box',
 			'required'  => true,
 		),
 
@@ -487,3 +493,107 @@ if( !function_exists( "kadim_reading_time" ) ):
 	}
 
 endif;
+
+
+/** author social links */
+
+function kadim_user_profile_supported_socials() {
+
+	return apply_filters( "kadim_user_profile_supported_socials", [
+		
+		"facebook" => [ 
+			"label" => __( "Facebook", "kadim" ),
+			"faicon" => "fa-brands fa-facebook"
+		],
+
+		"instagram" => [ 
+			"label" => __( "Instagram", "kadim" ),
+			"faicon" => "fa-brands fa-instagram"
+		],
+
+		"twitter" => [ 
+			"label" => __( "Twitter", "kadim" ),
+			"faicon" => "fa-brands fa-twitter"
+		],
+		
+		"linkedin" => [ 
+			"label" => __( "LinkedIn", "kadim" ),
+			"faicon" => "fa-brands fa-linkedin"
+		],
+		"discord" => [ 
+			"label" => __( "Discord", "kadim" ),
+			"faicon" => "fa-brands fa-discord"
+		],
+		"pinterest" => [ 
+			"label" => __( "Pinterest", "kadim" ),
+			"faicon" => "fa-brands fa-pinterest"
+		],
+		"behance" => [ 
+			"label" => __( "Behance", "kadim" ),
+			"faicon" => "fa-brands fa-behance"
+		],
+		"youtube" => [ 
+			"label" => __( "Youtube", "kadim" ),
+			"faicon" => "fa-brands fa-youtube"
+		],
+
+	]);
+
+}
+
+
+add_action( 'show_user_profile', 'kadim_user_profile_socials' );
+add_action( 'edit_user_profile', 'kadim_user_profile_socials' );
+
+function kadim_user_profile_socials( $user ) { 
+	
+	$socials = kadim_user_profile_supported_socials();
+
+	$saved_values = get_user_meta( $user->ID, "kadim_social_links", true );
+	
+	wp_nonce_field( "kadim_verify_profile", "kadim_social_links_nonce" );
+
+	$html = sprintf( "<h3>%s</h3>", esc_html__("Author Socials", "kadim") ); 
+	$html .= '<table class="form-table">';
+	
+	foreach( $socials as $index => $social ):
+
+		$label = $social["label"];
+
+		$saved_value = ( isset( $saved_values[$index] ) ? $saved_values[$index] : "" );
+
+		$html .= '<tr>';
+
+		$html .= sprintf( '<th><label for="kadim-social-%s">%s</label></th>', esc_attr($index), esc_html($label) );
+		$html .= sprintf( 
+			'<td><input type="url" id="kadim-social-%s" name="kadim_social_links[%s]" placeholder="%s" value="%s" /></td>',
+			esc_attr($index),
+			esc_attr($index),
+			esc_attr($label),
+			esc_attr($saved_value)
+		);
+
+		$html .= '</tr>';
+	
+
+	endforeach; 
+	
+	$html .= '</table>';
+
+	echo $html;
+
+}
+
+add_action( 'personal_options_update', 'kadim_save_extra_user_social_profiles' );
+add_action( 'edit_user_profile_update', 'kadim_save_extra_user_social_profiles' );
+
+function kadim_save_extra_user_social_profiles( $user_id ) {
+
+	if( !isset( $_POST[ "kadim_social_links_nonce" ] ) || !is_string( $_POST[ "kadim_social_links_nonce" ] ) ) { return; }
+
+	if( !wp_verify_nonce( $_POST[ "kadim_social_links_nonce" ], "kadim_verify_profile" ) ) { return; }
+
+	if ( !current_user_can( 'edit_user', $user_id ) ) { return false; }
+	update_user_meta( $user_id, 'kadim_social_links', $_POST['kadim_social_links'] );
+
+}

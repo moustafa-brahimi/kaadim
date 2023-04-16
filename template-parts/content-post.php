@@ -11,8 +11,9 @@
         <?php $post_thumbnail_id    =   get_post_thumbnail_id( get_the_ID() ); ?>
 
         <?php $macro                =   get_the_post_thumbnail_url( get_the_ID(), 'kadim-macro' ); ?>
-
         <?php $full_thumbnail       =   get_the_post_thumbnail_url( get_the_ID(), "kadim-full-width-post-thumbnail" ); ?>
+
+        <?php $meta_data            =   wp_get_attachment_metadata( $post_thumbnail_id ); ?>
 
         <?php $thumbnail            =   wp_get_attachment_image( $post_thumbnail_id, "kadim-macro", false, [
 
@@ -21,13 +22,23 @@
             "src"                   =>  esc_url( $macro ),
             "data-image"            =>  esc_url( $full_thumbnail ),
             "class"                 =>  'image',
-            'srcset'                =>  '',
 
         ] ); ?>
 
         <div class="post-card__thumbnail">                        
 
-            <?php echo $thumbnail; ?>
+
+            <img 
+
+                width = "<?php echo esc_attr( $meta_data[ "width" ] ); ?>"
+                height = "<?php echo esc_attr( $meta_data[ "height" ] ); ?>"
+                data-loading-method="<?php echo "macro"; ?>"
+                data-image-macro="<?php echo esc_attr( $macro ); ?>"
+                src="<?php echo esc_attr( $macro ); ?>"
+                data-image="<?php echo esc_attr( $full_thumbnail ); ?>"
+                class="<?php echo 'image'; ?>"
+
+            />
 
         </div>
 
@@ -75,7 +86,7 @@
             $author_name=   get_the_author_meta( 'display_name' );
         ?>
 
-        <?php printf( '<a href="%1$s" class="post-card__author" title="%s">', get_the_author_meta( 'user_url' ), esc_attr( $author_name ) ); ?>
+        <?php printf( '<a href="%1$s" class="post-card__author" title="%s">', get_author_posts_url( $author_id ), esc_attr( $author_name ) ); ?>
 
             <?php echo get_avatar( $author_id, 36, '', $author_name, [ 'class' => 'js-author-avatar' ] ); ?>
             

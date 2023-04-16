@@ -275,6 +275,10 @@
     opacity: 0.8;
   }
 
+  &--category &__category {
+    display: none;
+  }
+
   .compact-post {
     transition: all var(--long-duration) easeOutQuint;
     margin-bottom: 2px;
@@ -662,10 +666,13 @@
 
 @media (max-width: 580px) {
   .compact-slider {
-    margin: 0;
 
     &__container {
       border-radius: 0;
+    }
+
+    &__main-title-stroke {
+      display:none;
     }
 
     &__content {

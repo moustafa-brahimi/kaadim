@@ -1,0 +1,27 @@
+.kadim-archive-board {
+  .search-form {
+    margin-top: 16px;
+    &__field {
+      background: var(--gray-2p5);
+      border-color: var(--gray-30);
+      color: var(--gray-70);
+      [color-scheme="dark"] & {
+        background: var(--gray-80);
+        border-color: var(--gray-60);
+        color: var(--gray-30);
+      }
+    }
+
+    &__submit {
+      color: var(--gray-70);
+    }
+  }
+
+  .something-else {
+    margin-top: 42px;
+    font-weight: 500;
+    color: var(--accent-text-color);
+    padding-top: 32px;
+    border-top: 2px solid var(--gray-5);
+  }
+}

@@ -5,41 +5,6 @@
     border-radius: 4px;
   }
 
-  blockquote {
-    position: relative;
-    color: var(--gray-90);
-
-    cite {
-      [color-scheme="dark"] & {
-        color: var(--gray-30);
-      }
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      height: 20px;
-      width: 20px;
-      background-image: url(../img/quote-right-solid.svg);
-      right: 8px;
-      top: 8px;
-      width: 20px;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: bottom center;
-      pointer-events: none;
-      mix-blend-mode: soft-light;
-    }
-
-    p {
-      border-left: 2px solid var(--accent-text-color);
-      margin-bottom: 12px;
-      padding: 1.125rem 1rem 1.125rem 1.25rem;
-      background-color: var(--accent-color);
-      border-radius: 0 0.25rem 0.25rem 0;
-    }
-  }
-
   > ul,
   ol {
     &:not(
@@ -375,7 +340,7 @@
     display: inline-flex;
     align-items: center;
     [color-scheme="dark"] & {
-      color: var(--gray-10);
+      color: var(--gray-2p5);
     }
 
     &::before {
@@ -422,7 +387,7 @@
       transition: all var(--very-short-duration) easeOutCubic;
 
       [color-scheme="dark"] & {
-        color: var(--gray-30);
+        color: var(--gray-2p5);
       }
 
       &:hover,
@@ -462,10 +427,15 @@
     }
 
     &.has-child {
-      .submenu-container {
+      .wp-block-navigation__submenu-container, .submenu-container {
         padding-left: 20px;
         border-left: 2px solid var(--gray-5);
         margin: 4px 4px 5px 15px;
+
+        [color-scheme="dark"] & {
+          border-left: 2px solid var(--gray-80);
+        }
+
       }
     }
   }
@@ -483,7 +453,7 @@
       transition: all var(--very-short-duration) easeOutCubic;
 
       [color-scheme="dark"] & {
-        color: var(--gray-30);
+        color: var(--gray-2p5);
       }
 
       &:hover,
@@ -526,6 +496,8 @@
 
 .wp-block-button {
   margin: 24px 0;
+  padding: 8px;
+  overflow:visible;
   &__link {
     background: var(--accent-color);
     color: var(--accent-text-color);
@@ -650,6 +622,11 @@
       border: 4px solid var(--accent-color);
       position: relative;
       overflow: visible;
+
+      [color-scheme="dark"] & {
+        color: var(--gray-2p5);
+      }
+
       &::before,
       &::after {
         content: "";

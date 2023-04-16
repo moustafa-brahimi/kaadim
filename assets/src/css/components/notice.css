@@ -127,3 +127,10 @@
     }
   }
 }
+
+
+@media screen and (max-width: 580px) {
+  .notice {
+    text-align: center;
+  }
+}

@@ -1,6 +1,6 @@
 <?php 
 /**
- * @package evy
+ * @package kadim
  * @since 1.0.0
  * The Parallax Slider Post Template
  */
@@ -13,22 +13,22 @@
 <article <?php post_class( "compact-post js-slider-item compact-post--$height" ); ?>>
 
     <?php $post_thumbnail_id    =   get_post_thumbnail_id( $post ); ?>
-
     <?php $macro                =   get_the_post_thumbnail_url( get_the_ID(), 'kadim-macro' ); ?>
+    <?php $meta_data            =   wp_get_attachment_metadata( $post_thumbnail_id ); ?>
 
     <?php $full_thumbnail       =   get_the_post_thumbnail_url( get_the_ID(), "kadim-compact-slider-$height" ); ?>
 
-    <?php $thumbnail            =   wp_get_attachment_image( $post_thumbnail_id, "kadim-compact-slider-$height", false, [
+    <img 
 
-        "data-loading-method"   =>  "macro",
-        "data-image-macro"      =>  esc_url( $macro ),
-        "data-image"            =>  esc_url( $full_thumbnail ),
-        "class"                 =>  'compact-post__image image',
-        'srcset'                =>  '',
+        width = "<?php echo esc_attr( $meta_data[ "width" ] ); ?>"
+        height = "<?php echo esc_attr( $meta_data[ "height" ] ); ?>"
+        data-loading-method="<?php echo "macro"; ?>"
+        data-image-macro="<?php echo esc_attr( $macro ); ?>"
+        src="<?php echo esc_attr( $macro ); ?>"
+        data-image="<?php echo esc_attr( $full_thumbnail ); ?>"
+        class="<?php echo 'image'; ?>"
 
-    ] ); ?>
-
-    <?php echo $thumbnail; ?>
+    />
 
     <div class="compact-post__content">
 
@@ -52,7 +52,7 @@
         </a>
 
                             
-            <?php printf( '<a href="%1$s" class="compact-post__author-link js-author-link">', get_the_author_meta( 'user_url' ) ); ?>
+            <?php printf( '<a href="%1$s" class="compact-post__author-link js-author-link">', get_author_posts_url( get_the_author_meta( "ID" ) ) ); ?>
                 
                     
                     <?php 

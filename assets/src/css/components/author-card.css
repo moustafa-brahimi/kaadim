@@ -1,0 +1,128 @@
+.author-card {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 22px;
+    margin-top: 22px;
+    padding: 30px;
+    border: 4px solid var(--gray-2p5);
+
+    [color-scheme="dark"] & {
+      border-color: var(--gray-80);
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+
+    .icon {
+      padding: 6px;
+      background: var(--accent-color);
+      color: var(--accent-text-color);
+      border-radius: 6px;
+    }
+
+    &::after {
+      content: "";
+      flex-grow: 1;
+      background: var(--accent-text-color);
+      height: 2px;
+      margin: 0 0 0 16px;
+      box-shadow: 0 0px 0 6px var(--accent-color);
+    }
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+  }
+
+  &__avatar {
+    border-radius: 50%;
+  }
+
+  &__name {
+    margin-bottom: 12px;
+    font-weight: bold;
+    display: block;
+    color: var(--accent-text-color);
+    [color-scheme="dark"] & {
+      color: var(--accent-color);
+    }
+  }
+
+  &__links {
+    display: flex;
+    column-gap: 16px;
+  }
+
+  &__link {
+    padding: 6px 8px;
+    background: var(--accent-color);
+    color: var(--accent-text-color);
+    box-shadow: 5px 4px;
+  }
+
+  &__description {
+    font-weight: 500;
+    color: var(--gray-70);
+    padding: 0 20px;
+    font-size: 0.9rem;
+
+    [color-scheme="dark"] & {
+      color: var(--gray-20);
+    }
+  }
+
+  &__more {
+    font-weight: bold;
+    color: var(--accent-text-color);
+    text-decoration: underline;
+    text-align: right;
+    font-size: 0.825rem;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 768px ) {
+
+  .author-card {
+    &__meta {
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+      row-gap: 16px;
+    }
+
+    &__container {
+      row-gap: 32px;
+    }
+
+    &__links {
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 16px;
+    }
+
+    &__description {
+      text-align: center;
+      padding: 0;
+    }
+
+    &__more {
+      text-align: center;
+    }
+
+    &__title {
+      justify-content: center;
+      &::after {
+        display:none;
+      }
+    }
+
+  }
+
+}

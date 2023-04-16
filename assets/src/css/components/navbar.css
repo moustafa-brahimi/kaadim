@@ -274,7 +274,27 @@
 }
 
 @media screen and (max-width: 1020px) {
-  .menu {
-    display: none;
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 78px;
+
+    .sidemenu-btn, .search-btn, .btn-scheme {
+      position: relative;
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    &__container, .menu {
+      display: none;
+    }
+  }
+}
+
+
+@media (max-width: 580px) {
+  .kadim-posts {
+    row-gap: 5px;
   }
 }

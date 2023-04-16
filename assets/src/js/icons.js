@@ -1,7 +1,16 @@
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
 // import { faBell } from '@fortawesome/free-regular-svg-icons'
 
-import { faInstagram, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
+import { 
+  faFacebook,
+  faInstagram,
+  faTwitter,
+  faLinkedin,
+  faDiscord,
+  faPinterest,
+  faBehance,
+  faYoutube,
+ } from '@fortawesome/free-brands-svg-icons';
 import {
   faXmark,
   faBell,
@@ -18,6 +27,10 @@ import {
   faSquarePlus,
   faStopwatch,
   faMessage,
+  faUnlockKeyhole,
+  faArrowRight,
+  faPen,
+  faFire,
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add({
@@ -37,7 +50,18 @@ library.add({
   faSquarePlus,
   faStopwatch,
   faMessage,
-
+  faUnlockKeyhole,
+  faArrowRight,
+  faFacebook,
+  faInstagram,
+  faTwitter,
+  faLinkedin,
+  faDiscord,
+  faPinterest,
+  faBehance,
+  faYoutube,
+  faPen,
+  faFire,
 });
 dom.i2svg()
 

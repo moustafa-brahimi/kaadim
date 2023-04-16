@@ -1,14 +1,15 @@
 <?php 
 
-$args     =   [
 
+$current_cat = get_queried_object();
+
+$args = [
     'post_type'     =>  'post',
     'post_status'   =>  'publish',
     'posts_per_page'=>  5,
     'ignore_sticky_posts'   =>  true,
     'meta_key'      =>  '_thumbnail_id',
-    'category__in' =>  get_theme_mod( 'kadim_slider_category', [ 1 ] )
-
+    'category__in' =>  ( is_category() ? get_queried_object_id()  : get_theme_mod( 'kadim_slider_category', [ 1 ] ) )
 ];
 
 
@@ -24,13 +25,15 @@ $query  =   new WP_Query( $args );
     
     <?php $posts_count; ?>
     
-    <div class="kadim-slider compact-slider js-slider-compact" id="kadim-slider">
+    <div class="kadim-slider compact-slider <?php if( is_category() ) { echo esc_attr( "compact-slider--category" ); } ?> js-slider-compact" id="kadim-slider">
         
         <div class="container">
 
             <h3 class="compact-slider__main-title"> 
+
+                <?php $title = esc_html( is_category() ? $current_cat->cat_name : get_theme_mod( "kadim_slider_title", __( 'Featured Posts', 'kadim' ) ) ); ?>
                 
-                <?php echo esc_html( get_theme_mod( "kadim_slider_title", __( 'Featured Posts', 'kadim' ) ) ); ?>
+                <?php echo $title ?>
                 <?php $separator_type=   'wave'; ?>
                 <?php $icon_path    =   get_theme_file_path( "assets/dist/img/$separator_type.svg" ); ?>
                 <?php $icon         =   file_get_contents( $icon_path ); ?>
@@ -40,7 +43,7 @@ $query  =   new WP_Query( $args );
 
             <h1 class="compact-slider__main-title-stroke"> 
                 
-                <?php echo esc_html( get_theme_mod( "kadim_slider_title", __( 'Featured Posts', 'kadim' ) ) ); ?>
+                <?php echo $title; ?>
             
             </h1>
 

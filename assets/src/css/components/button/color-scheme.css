@@ -12,35 +12,7 @@
     box-shadow: 0 0 4px 1px var(--black);
   }
 }
-/* 
-@mixin lightsky_gradient {
-  --sky-top: #3c83ff;
-  --sky-bottom: #38b7fd;
-  $sky_bottom: #38b7fd;
-  $sky_top: #3c83ff;
-  background: var(--sky-bottom);
-  background: -moz-linear-gradient(
-    0deg,
-    var(--sky-bottom) 0%,
-    var(--sky-top) 100%
-  );
-  background: -webkit-linear-gradient(
-    0deg,
-    var(--sky-bottom) 0%,
-    var(--sky-top) 100%
-  );
-  background: linear-gradient(0deg, var(--sky-bottom) 0%, var(--sky-top) 100%);
-} */
 
-/* @mixin darksky_gradient {
-  $sky_top: #c2fdff;
-  $sky_bottom: #cee0ff;
-  background: $sky_bottom;
-  background: -moz-linear-gradient(0deg, $sky_bottom -30%, $sky_top 100%);
-  background: -webkit-linear-gradient(0deg, $sky_bottom -30%, $sky_top 100%);
-  background: linear-gradient(0deg, $sky_bottom -30%, $sky_top 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#{$sky_bottom}",endColorstr="#{$sky_top}",GradientType=1);
-} */
 
 .btn-scheme {
   position: relative;
@@ -55,6 +27,7 @@
   border: none;
   cursor: pointer;
   transform-origin: bottom;
+  direction: ltr;
 
   &__slider {
     height: 1.125rem;

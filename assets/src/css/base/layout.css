@@ -22,7 +22,7 @@ img {
 
 @media (min-width: 576px) {
   .container {
-    max-width: 528px;
+    max-width: 648px;
   }
 }
 
@@ -45,104 +45,16 @@ img {
 }
 
 @media (max-width: 768px) {
-  /* .compact-slider {
-    &__content {
-      padding: 0;
-    }
 
-    &__category {
-      margin: 25px 30px;
-    }
-
-    &__permalink {
-      background-color: transparentize($color_black, 0.4);
-      margin-bottom: 1px;
-      text-align: center;
-      justify-content: center;
-      padding: 35px 40px;
-    }
-
-    &__title {
-      padding: 35px 0;
-    }
-
-    &__footer {
-      width: 100%;
-      border-radius: 0;
-      background-color: transparentize($color_black, 0.4);
-      &__container {
-        padding: 22px 15px;
-        justify-content: center;
-        background-color: transparent;
-      }
-    }
-
-    &__author {
-      &__avatar {
-        width: 20px;
-        height: 20px;
-      }
-    }
-  }*/
-
-  .post-card {
-    &__header {
-      max-width: 100%;
-    }
-
-    &__readmore-btn {
-      position: relative;
-      box-shadow: 5px 6px var(--accent-text-color);
-      transform: none;
-    }
-  }
 }
 
 @media (max-width: 580px) {
-  /*  .compact-slider {
-    margin: 0;
-
-    &__container {
-      border-radius: 0;
-    }
-
-    &__content {
-      top: 0;
-      align-content: flex-end;
-    }
-
-    &__category {
-      position: absolute;
-      top: 0;
-      left: 0;
-      margin: 30px;
-    }
-
-    &__footer {
-      &__container {
-        padding: 18px 30px;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        row-gap: 16px;
-      }
-    }
-
-    &__meta {
-      column-gap: 25px;
-      margin: 0 auto;
-      &::after {
-        display: none;
-      }
-    }
-
-    .readmore {
-      margin: 0 auto;
-    }
-  }
-
-  */
-
   .kadim-posts {
-    row-gap: 5px;
+    row-gap: 2px;
+    background-color: var(--accent-text-color);
   }
 }
+
+@media (max-width: 420px) {
+}
+

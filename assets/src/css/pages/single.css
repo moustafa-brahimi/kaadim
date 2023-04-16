@@ -5,6 +5,24 @@
   background: var(--elements-background-color);
   border-radius: 10px;
 
+  &__notice {
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    background-color: var(--green);
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+
+    &--warn {
+      background-color: var(--yellow);
+      color: var(--gray-90);
+    }
+  }
+
   &__header {
     margin-bottom: 18px;
     display: flex;
@@ -21,18 +39,6 @@
 
     a {
       color: var(--accent-text-color);
-    }
-
-    span {
-      &::after {
-        content: "/";
-        margin: 0 12px;
-        color: var(--accent-color);
-      }
-    }
-
-    > span:last-of-type::after {
-      display: none;
     }
   }
 
@@ -90,15 +96,30 @@
     margin-top: 36px;
     border-bottom: 2px solid var(--gray-5);
     padding: 0 10px 20px 10px;
+    overflow-wrap: break-word;
+    font-size: 1.6rem;
 
     [color-scheme="dark"] & {
-      border-color: var(--gray-90);
+      border-color: var(--gray-70);
     }
   }
 
-  &__content {
-    padding: 0 22px;
+  &__container {
+    padding: 28px 22px 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 36px;
+  }
+
+  &__content,
+  &__comments {
+
+    * {
+      overflow-wrap: break-word;
+    }
+
     line-height: 1.618rem;
+    overflow: auto;
 
     img {
       border-radius: 4px;
@@ -131,6 +152,14 @@
       margin: 15px 0 30px;
       line-height: max(1.4em, 30px);
       overflow: hidden;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
     }
 
     ul,
@@ -143,6 +172,10 @@
           margin-left: 12px;
           margin-top: 10px;
           border-left: 2px solid var(--gray-5);
+
+          [color-scheme="dark"] & {
+            border-color: var(--gray-70);
+          }
 
           li {
           }
@@ -321,5 +354,335 @@
         }
       }
     }
+
+    .post-password-form {
+      p {
+        margin-bottom: 6px;
+
+        &:has(label) {
+          height: 60px;
+          display: flex;
+          align-items: stretch;
+          overflow: visible;
+          column-gap: 12px;
+
+          label {
+            min-width: 360px;
+            display: flex;
+            align-items: center;
+            column-gap: 6px;
+
+            input {
+              height: 100%;
+              border: 2px solid var(--gray-10);
+              min-width: 120px;
+              flex-grow: 1;
+              padding: 12px;
+              &:focus {
+                outline: none;
+                border-color: var(--accent-text-color);
+              }
+
+              [color-scheme="dark"] & {
+                border: 2px solid var(--gray-70);
+                background: var(--gray-80);
+                color: var(--gray-10);
+                &:focus {
+                  border-color: var(--accent-color);
+                }
+              }
+            }
+          }
+
+          input {
+            &[type="submit"] {
+              align-self: center;
+            }
+          }
+        }
+      }
+    }
   }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 0 25px;
+
+    .icon {
+      color: var(--accent-color);
+    }
+
+    .post-page-numbers {
+      color: var(--accent-text-color);
+
+      &.current {
+        color: inherit;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__comments-title,
+  .related-posts__title {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    width: 100%;
+
+    .icon {
+      padding: 6px;
+      background: var(--accent-color);
+      color: var(--accent-text-color);
+      border-radius: 6px;
+    }
+
+    &::after {
+      content: "";
+      flex-grow: 1;
+      background: var(--accent-text-color);
+      height: 2px;
+      margin: 0 0 0 16px;
+      box-shadow: 0 0px 0 6px var(--accent-color);
+    }
+  }
+
+  &__comments-list {
+    margin: 30px 0;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    font-size: 0.9rem;
+
+    .comment {
+      background-color: var(--gray-2p5);
+      position: relative;
+      padding: 28px 60px;
+      border-radius: 4px;
+      overflow: hidden;
+      transition: all var(--short-duration) easeOutCirc;
+
+      [color-scheme="dark"] & {
+        background-color: var(--gray-85);
+      }
+
+      &:hover {
+        filter: brightness(0.98);
+      }
+
+      p {
+        margin: 2px 0;
+        font-size: 0.825rem;
+        font-weight: 500;
+      }
+
+      .reply {
+        text-align: right;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+
+      &.parent {
+        .comment {
+          padding-right: 0;
+          margin-left: 20px;
+          border-left: 2px solid var(--gray-5);
+        }
+      }
+    }
+
+    .comment-author {
+      display: flex;
+      align-items: center;
+      column-gap: 12px;
+      border-bottom: 2px solid var(--gray-5);
+      padding-bottom: 16px;
+      margin: 0 -16px 20px;
+      transition: all var(--short-duration) linear;
+
+      .avatar {
+        border-radius: 50%;
+      }
+
+      .fn {
+        font-weight: bold;
+        font-family: var(--headlines-font-family);
+        a {
+          text-decoration: none;
+        }
+      }
+
+      .says {
+        display: none;
+      }
+    }
+
+    .comment-meta {
+      text-align: right;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      position: absolute;
+      top: 24px;
+      right: 36px;
+      opacity: 0.8;
+
+      a:not(.comment-edit-link) {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__comment-form {
+    padding: 6px 48px 48px;
+    display: flex;
+    border: 8px solid var(--accent-text-color);
+    flex-direction: column;
+
+    .logged-in-as,
+    .comment-notes {
+      margin: 40px 0 0;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .comment-form-comment,
+    .comment-form-author,
+    .comment-form-email,
+    .comment-form-url {
+      display: flex;
+      flex-direction: column;
+
+      &:focus-within {
+        label {
+          color: var(--text-accent-color);
+        }
+      }
+
+      label {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+      }
+
+      textarea,
+      input {
+        border: 2px solid var(--gray-30);
+        width: 100%;
+        border-radius: 4px;
+        background-color: var(--gray-2p5);
+        padding: 1rem;
+        transition: all var(--short-duration) linear;
+
+        [color-scheme="dark"] & {
+          border-color: var(--gray-60);
+          background-color: var(--gray-80);
+        }
+
+        &:focus {
+          border-color: var(--accent-text-color);
+          outline: none;
+        }
+      }
+
+      textarea {
+        height: 140px;
+      }
+    }
+
+    .form-submit {
+      overflow: visible;
+      .submit {
+        font-weight: 600;
+        font-family: var(--headlines-font-family);
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .kadim-single-post {
+
+    &__comments-title,
+    .related-posts__title {
+      justify-content: center;
+      font-family: 1.4rem;
+      &::after {
+        display: none;
+      }
+    }
+
+    &__comments-list {
+
+      .comment {
+        padding: 12px 20px;
+
+        .comment-author {
+          margin: 0 0 10px;
+          padding: 0 0 8px;
+        }
+
+      }
+
+      .comment-meta {
+        position: relative;
+        top: 0;
+        right: 0;
+        text-align: initial;
+        margin-bottom: 16px;
+      }
+
+    }
+
+    &__comment-form {
+      padding: 26px 24px;
+      .form-submit {
+        text-align: center;
+      }
+    }
+
+    &__comments-reply-title {
+      margin-top: 0 !important;
+      font-size: 1.4rem;
+      text-align: center;
+    }
+
+  }
+}
+
+@media (max-width: 580px) {
+
+  .kadim-single-post {
+    padding: 40px 20px;
+
+    &__container {
+      padding: 28px 8px 0;
+    }
+
+    &__content {
+      margin-bottom: 56px;
+    }
+
+    .kadim-path, &__stats {
+      font-size: 0.8rem;
+    }
+
+    &__title {
+      text-align: center;
+    }
+    &__stats {
+      padding: 8px 0;
+      border: 0;
+      border-top: 2px solid var(--gray-2p5);
+      margin-bottom: 34px;
+    }
+
+  }
+
 }
