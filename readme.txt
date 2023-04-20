@@ -1,6 +1,6 @@
 rouh ( روح ) is a creative wordpress theme for personal blogs, it comes with stylish and elegant design
 
-theme documentation: https://github.com/juliangarnier/anime/blob/master/LICENSE.md
+theme documentation: https://github.com/brahimi-mustapha/rouh-documentation/blob/main/README.md
 
 # assets licenses
 
