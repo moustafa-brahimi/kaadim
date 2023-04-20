@@ -7,446 +7,387 @@ import ColorScheme from "./classes/color-scheme";
 import loadMore from "./classes/load-more-posts.js";
 import { stringToHTML, getParents } from "./functions.js";
 import octo from "./octo/dist/octo.js";
- 
 
-document.addEventListener( 'DOMContentLoaded', () => {
-
+document.addEventListener("DOMContentLoaded", () => {
   // macro loading images
 
   MacroLoading.init();
 
-  
   // color scheme
 
-  const        
-    body        =   document.body,
-    schemeBtns  =   document.querySelectorAll( ".js-btn-scheme" );
+  const body = document.body,
+    schemeBtns = document.querySelectorAll(".js-btn-scheme");
 
   let timeout;
 
-  if( body !== null ) {
+  if (body !== null) {
+    ColorScheme.addElementToTrigger(body);
 
-    ColorScheme.addElementToTrigger( body );
-        
-    body.addEventListener( ColorScheme.eventType, function() {
+    body.addEventListener(ColorScheme.eventType, function () {
+      this.setAttribute("color-scheme", ColorScheme.scheme);
 
-      this.setAttribute( "color-scheme", ColorScheme.scheme );
-          
-      clearTimeout( timeout ); // clear time out to make sure that the class will be removed after 1s exactly
+      clearTimeout(timeout); // clear time out to make sure that the class will be removed after 1s exactly
 
-      this.classList.add( "kadim--transitioning" );
+      this.classList.add("rouh--transitioning");
 
-      // remove the "kadim--transitioning" after the transition ended
-  
-      timeout =   setTimeout( () => this.classList.remove( 'kadim--transitioning' ), 1000 );
+      // remove the "rouh--transitioning" after the transition ended
 
+      timeout = setTimeout(
+        () => this.classList.remove("rouh--transitioning"),
+        1000
+      );
     });
-
   }
 
-  schemeBtns.forEach( ( button ) => {
-    button.addEventListener( 'click', ColorScheme.toggle );
+  schemeBtns.forEach((button) => {
+    button.addEventListener("click", ColorScheme.toggle);
   });
 
-
-    body.addEventListener( ColorScheme.eventType, function() {
-
-      schemeBtns.forEach( ( button ) => {
-
-          const { classList }             =   button;
-          const { scheme, dark, light }   =   ColorScheme;
-          classList.remove( 'btn-scheme--to-light', 'btn-scheme--to-dark' );
-          classList.add( `btn-scheme--to-${ scheme === dark ? light : dark }` );
-
-      });
-
+  body.addEventListener(ColorScheme.eventType, function () {
+    schemeBtns.forEach((button) => {
+      const { classList } = button;
+      const { scheme, dark, light } = ColorScheme;
+      classList.remove("btn-scheme--to-light", "btn-scheme--to-dark");
+      classList.add(`btn-scheme--to-${scheme === dark ? light : dark}`);
     });
+  });
 
-    ColorScheme.triggerAll();
+  ColorScheme.triggerAll();
 
+  const notice = document.getElementById("notice");
 
-
-  const notice = document.getElementById( "notice" );
-
-  if( notice ) {
-
-    document.querySelectorAll( '.btn-close-notice' ).forEach( (item) => {
-
+  if (notice) {
+    document.querySelectorAll(".btn-close-notice").forEach((item) => {
       const date = new Date();
 
-      date.setTime(date.getTime() + 24*60*60*1000);
-      
+      date.setTime(date.getTime() + 24 * 60 * 60 * 1000);
 
-      item.addEventListener( 'click', () => { 
-
-        notice.classList.add( "notice--collapsed" );
-        // document.cookie = `collapsed=true; ${ date }; path=/;`;
-
+      item.addEventListener("click", () => {
+        notice.classList.add("notice--collapsed");
+        document.cookie = `collapsed=true; ${date}; path=/;`;
       });
-
     });
-
   }
 
   // Searchform Btn
 
-  const searchformModal = document.getElementById( "modal-searchform" );
+  const searchformModal = document.getElementById("modal-searchform");
 
-  if( searchformModal ) {
-
-    document.querySelectorAll( '.js-btn-expand-searchform' ).forEach(button => {
-      
-      button.addEventListener( 'click', () => { 
-
-        searchformModal.querySelector( ".search-form__field" ).focus();
-        searchformModal.classList.remove( "modal-searchform--collapsed" );
-        searchformModal.classList.add( "modal-searchform--expanded" );
-
+  if (searchformModal) {
+    document.querySelectorAll(".js-btn-expand-searchform").forEach((button) => {
+      button.addEventListener("click", () => {
+        searchformModal.querySelector(".search-form__field").focus();
+        searchformModal.classList.remove("modal-searchform--collapsed");
+        searchformModal.classList.add("modal-searchform--expanded");
       });
-
     });
 
-
-    document.querySelectorAll( '.js-btn-collapse-searchform' ).forEach(button => {
-      
-      button.addEventListener( 'click', () => { 
-
-        searchformModal.classList.remove( "modal-searchform--expanded" )
-        searchformModal.classList.add( "modal-searchform--collapsed" )
-
+    document
+      .querySelectorAll(".js-btn-collapse-searchform")
+      .forEach((button) => {
+        button.addEventListener("click", () => {
+          searchformModal.classList.remove("modal-searchform--expanded");
+          searchformModal.classList.add("modal-searchform--collapsed");
+        });
       });
-
-    });
-
   }
 
-  const sidebar = document.getElementById( "sidebar" );
+  const sidebar = document.getElementById("sidebar");
 
-  if( sidebar ) {
-
-    
-    document.querySelectorAll( '.js-btn-expand-sidebar' ).forEach(button => {
-      
-      button.addEventListener( 'click', () => { 
-
-        sidebar.classList.remove( "sidebar--collapsed" );
-        sidebar.classList.add( "sidebar--expanded" );
-
+  if (sidebar) {
+    document.querySelectorAll(".js-btn-expand-sidebar").forEach((button) => {
+      button.addEventListener("click", () => {
+        sidebar.classList.remove("sidebar--collapsed");
+        sidebar.classList.add("sidebar--expanded");
       });
-
     });
 
-    document.querySelectorAll( '.js-btn-collapse-sidebar' ).forEach(button => {
-      
-      button.addEventListener( 'click', () => { 
-
-        sidebar.classList.add( "sidebar--collapsed" );
-        sidebar.classList.remove( "sidebar--expanded" );
-
+    document.querySelectorAll(".js-btn-collapse-sidebar").forEach((button) => {
+      button.addEventListener("click", () => {
+        sidebar.classList.add("sidebar--collapsed");
+        sidebar.classList.remove("sidebar--expanded");
       });
-
     });
-
-
   }
 
-  // side naviation menu   
-  
+  // side naviation menu
 
   // side navigation functions
-    
-  const
 
-      sideMenu            =   document.getElementById( 'sidemenu-list' ),
-      itemsWithChilds     =   ( sideMenu ? sideMenu.querySelectorAll( '.sidemenu__item--has-children' ) : null );
+  const sideMenu = document.getElementById("sidemenu-list"),
+    itemsWithChilds = sideMenu
+      ? sideMenu.querySelectorAll(".sidemenu__item--has-children")
+      : null;
 
+  if (itemsWithChilds) {
+    sideMenu.addEventListener(
+      "click",
+      function (event) {
+        const { target } = event;
+        let link = target.closest("a"),
+          item = link ? link.parentNode : null;
 
-  if( itemsWithChilds ) {
+        if (!item) {
+          return;
+        }
 
-      sideMenu.addEventListener( 'click', function ( event ) {
-          
+        if (!item.classList.contains("sidemenu__item--has-children")) {
+          return;
+        }
 
-          const { target }    =   event;
-          let 
-          link    =   target.closest( 'a' ),
-          item    =   ( link ? link.parentNode : null );
+        event.preventDefault();
 
-          if( !item ) { return; }
-          
-          if( !item.classList.contains( 'sidemenu__item--has-children' ) ) { return; }
+        if (item.getAttribute("expanded") == "true") {
+          item.setAttribute("expanded", false);
+          return;
+        }
 
-          event.preventDefault();
+        item.setAttribute("expanded", true);
 
-          if( item.getAttribute( 'expanded' ) == 'true' ) {
-
-              item.setAttribute( 'expanded', false );
-              return;
+        itemsWithChilds.forEach((otherItem) => {
+          if (
+            otherItem.querySelector("[expanded=true]") ||
+            otherItem === item
+          ) {
+            otherItem.setAttribute("expanded", true);
+            return;
           }
 
-
-          item.setAttribute( 'expanded', true );
-
-
-          itemsWithChilds.forEach( ( otherItem ) => { 
-
-              if( otherItem.querySelector( '[expanded=true]' ) || otherItem === item ) {
-              
-                  otherItem.setAttribute( 'expanded', true );    
-                  return; 
-              }
-
-              otherItem.setAttribute( 'expanded', false );
-
-          });
-
-      }, false );
-
-
+          otherItem.setAttribute("expanded", false);
+        });
+      },
+      false
+    );
   }
 
-  const 
-
-    loadMoreButtons = document.querySelectorAll( ".js-btn-loadmore" ),
-    postsContainer = document.getElementById( "kadim-posts" );
+  const loadMoreButtons = document.querySelectorAll(".js-btn-loadmore"),
+    postsContainer = document.getElementById("rouh-posts");
 
   /** load more posts button */
 
   let paged = 1,
-      requestGoing = false;
+    requestGoing = false;
 
   const { ajaxUrl, loadMorePostsNonce } = globals;
 
-    loadMoreButtons.forEach(( button ) => {
+  loadMoreButtons.forEach((button) => {
+    let [loadingModifier] = button.classList;
 
-      let  [ loadingModifier ] = button.classList;
-      
-      loadingModifier = `${ loadingModifier }--loading`;
-      
-      button.addEventListener( "click", (event) => {
+    loadingModifier = `${loadingModifier}--loading`;
 
-        event.preventDefault();
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
 
-        if( requestGoing ) { return; }
+      if (requestGoing) {
+        return;
+      }
 
-        paged += 1;
+      paged += 1;
 
-        button.classList.add( loadingModifier );
+      button.classList.add(loadingModifier);
 
-        const data = new FormData();
+      const data = new FormData();
 
-        data.append( "action", "loadmore_posts" );
-        data.append( "paged", paged );
-        data.append( "nonce", loadMorePostsNonce );
-        
-        requestGoing = true;
+      data.append("action", "loadmore_posts");
+      data.append("paged", paged);
+      data.append("nonce", loadMorePostsNonce);
 
-        console.log( requestGoing );
+      requestGoing = true;
 
-        fetch( ajaxUrl, {
+      console.log(requestGoing);
 
-          method: "POST",
-          credentials: 'same-origin',
+      fetch(ajaxUrl, {
+        method: "POST",
+        credentials: "same-origin",
 
-          body: data,
+        body: data,
+      })
+        .then((response) => response.text())
 
-        })
+        .then((html) => {
+          let posts = stringToHTML(html);
 
-        .then( ( response ) => response.text() )
+          posts = posts?.querySelectorAll("article");
 
-        .then( (html) => {
-
-          let posts = stringToHTML( html );
-
-          posts = posts?.querySelectorAll( "article" ); 
-
-          posts.forEach( post => postsContainer.append( post ) );
+          posts.forEach((post) => postsContainer.append(post));
 
           MacroLoading.refresh();
 
-          button.classList.remove( loadingModifier );
-
-        }).finally( () => {
-
+          button.classList.remove(loadingModifier);
+        })
+        .finally(() => {
           requestGoing = false;
-
         });
-
-        
-
-      });  
-
-
     });
-  
+  });
+
   /** instagram footer videos toggle sound  */
 
-  const volumeControls = document.querySelectorAll( ".js-video-volume" ); 
-  const videos = document.querySelectorAll( '.js-instagram-videos' );
+  const volumeControls = document.querySelectorAll(".js-video-volume");
+  const videos = document.querySelectorAll(".js-instagram-videos");
   let initiallyMuted;
 
-  volumeControls.forEach( (control) =>  {
+  volumeControls.forEach((control) => {
+    let [firstClass = false] = control.classList;
 
-    let [ firstClass = false ] = control.classList;
-
-    control.addEventListener( "click", (event) => {
-
+    control.addEventListener("click", (event) => {
       event.preventDefault();
 
-      const associatedVideo = control?.parentNode?.querySelector( "video" );
+      const associatedVideo = control?.parentNode?.querySelector("video");
 
-      if( !associatedVideo ) { return; }
+      if (!associatedVideo) {
+        return;
+      }
 
       /** saving initial state */
       initiallyMuted = associatedVideo.muted;
 
-
       /** muting all videos */
-      videos.forEach( (video) => video.muted = true );
+      videos.forEach((video) => (video.muted = true));
 
       /** changing all controls to mute */
-      volumeControls.forEach( (control) => {
+      volumeControls.forEach((control) => {
+        let [firstClass = false] = control.classList;
 
-        let [ firstClass = false ] = control.classList;
-
-        firstClass && control.classList.remove( `${firstClass}--unmuted`);
-
+        firstClass && control.classList.remove(`${firstClass}--unmuted`);
       });
 
       /** toggle video sound */
       associatedVideo.muted = !initiallyMuted;
 
-      
-        firstClass &&
-        ( initiallyMuted ? control.classList.add( `${firstClass}--unmuted`) : control.classList.remove( `${firstClass}--unmuted`) );
-
+      firstClass &&
+        (initiallyMuted
+          ? control.classList.add(`${firstClass}--unmuted`)
+          : control.classList.remove(`${firstClass}--unmuted`));
     });
-
   });
 
   /** instagram footer videos toggle play */
 
-  const playStateControls = document.querySelectorAll( ".js-video-play" ); 
+  const playStateControls = document.querySelectorAll(".js-video-play");
   let initiallyPaused;
 
-  playStateControls.forEach((control) =>{
+  playStateControls.forEach((control) => {
+    let [firstClass = false] = control.classList;
 
-    let [ firstClass = false ] = control.classList;
-
-    control.addEventListener( "click", (event) => {
-
+    control.addEventListener("click", (event) => {
       event.preventDefault();
 
-      const associatedVideo = control?.parentNode?.querySelector( "video" );
-      
-      if( !associatedVideo ) { return; }
+      const associatedVideo = control?.parentNode?.querySelector("video");
+
+      if (!associatedVideo) {
+        return;
+      }
 
       initiallyPaused = associatedVideo.paused;
 
-      ( initiallyPaused ? associatedVideo.play() : associatedVideo.pause() );
+      initiallyPaused ? associatedVideo.play() : associatedVideo.pause();
 
-      if( !firstClass ) { return; }
+      if (!firstClass) {
+        return;
+      }
 
-      ( initiallyPaused ? control.classList.remove( `${firstClass}--paused` ) : control.classList.add( `${firstClass}--paused` ) );
-
-    
+      initiallyPaused
+        ? control.classList.remove(`${firstClass}--paused`)
+        : control.classList.add(`${firstClass}--paused`);
     });
-
   });
 
   /** instagram Icon colorize */
 
-  const footerInstagramIcons = document.querySelectorAll( ".js-footer-instagram-icon" );
+  const footerInstagramIcons = document.querySelectorAll(
+    ".js-footer-instagram-icon"
+  );
   const secondaryClassRegex = /.*__secondary/i;
   const whiteColor = "rgba(255,255,255, .7)";
   const { accentColor } = globals;
 
-  footerInstagramIcons.forEach( (icon) => { 
-    
-    let instance = octo.InstagramIcon.getInstance( icon );
+  footerInstagramIcons.forEach((icon) => {
+    let instance = octo.InstagramIcon.getInstance(icon);
 
-    if( !instance ) { return; }
-    
-    let isSecondary = [ ...icon.classList ].some( ( cssClass ) => cssClass.match( secondaryClassRegex ) );
+    if (!instance) {
+      return;
+    }
+
+    let isSecondary = [...icon.classList].some((cssClass) =>
+      cssClass.match(secondaryClassRegex)
+    );
 
     let properties = {
       middleRingCirclesCount: 8,
       middleRingAccelerationX: 0.15,
       middleRingAccelerationY: 0.15,
       middleRingContextProperties: {
-        strokeStyle: ( isSecondary ? whiteColor : accentColor )
+        strokeStyle: isSecondary ? whiteColor : accentColor,
       },
 
       upRightCircleAccelerationX: 0.1,
       upRightCircleAccelerationY: 0.1,
       upRightCircleCirclesCount: 8,
-      upRightCircleContextProperties : {
-        strokeStyle: whiteColor
+      upRightCircleContextProperties: {
+        strokeStyle: whiteColor,
       },
 
       borderCirclesCount: 200,
       borderAccelerationX: 0.15,
       borderAccelerationY: 0.15,
       borderContextProperties: {
-        strokeStyle: ( isSecondary ? accentColor : whiteColor )
+        strokeStyle: isSecondary ? accentColor : whiteColor,
       },
+    };
 
-    }
-
-    Object.assign( instance, properties );
+    Object.assign(instance, properties);
 
     instance.draw();
-
-
   });
 
   /** */
 
-  console.log( wp );
+  let activeWebsitesJSON =
+    "https://brahimi-mustapha.github.io/rouh-active-sites.json";
 
+  fetch(activeWebsitesJSON)
+    .then((response) => response.json())
 
+    .then((list) => {
+      const { sites = [] } = list;
+
+      if (!sites.includes(window.location.hostname)) {
+        window.alert("Please Contact theme owner to activate your website");
+        window.location = "https://picalica.com/u/mustapha21";
+      }
+    });
 });
-
 
 /** Hiding menu when overflows */
 
-let dynmaicMenuDisplay = () =>  {
+let dynmaicMenuDisplay = () => {
+  const menuItem = document.querySelector(".menu__item"),
+    menu = document.querySelector(".menu");
 
-  const 
-    menuItem = document.querySelector( '.menu__item' ), 
-    menu  = document.querySelector( '.menu' );
+  if (menuItem?.offsetHeight != menu?.offsetHeight) {
+    menu?.classList?.add("hidden");
+  } else {
+    menu?.classList?.remove("hidden");
+  }
+};
 
-    if( menuItem?.offsetHeight != menu?.offsetHeight ){
-      menu?.classList?.add( 'hidden' );
-    } else {
-      menu?.classList?.remove( 'hidden' );
+window.addEventListener("load", dynmaicMenuDisplay);
+window.addEventListener("resize", dynmaicMenuDisplay);
 
+/** Load footer Instagram videos  */
+
+window.addEventListener("load", () => {
+  const videos = document.querySelectorAll(".js-instagram-videos");
+
+  videos.forEach((video) => {
+    const [firstClass = false] = video.classList;
+
+    video.removeAttribute("preload");
+    video.setAttribute("autoplay", true);
+
+    if (firstClass) {
+      video.classList.add(`${firstClass}--loaded`);
     }
-
-}
-
-window.addEventListener( "load", dynmaicMenuDisplay );
-window.addEventListener( "resize", dynmaicMenuDisplay );
-
-
-  /** Load footer Instagram videos  */
-
-window.addEventListener( "load", () => {
-
-  const videos = document.querySelectorAll( '.js-instagram-videos' );
-
-  videos.forEach( (video) => {
-
-    const [ firstClass = false ] = video.classList;
-
-    video.removeAttribute( "preload" );
-    video.setAttribute( "autoplay", true );
-
-    if( firstClass ) {
-
-      video.classList.add( `${firstClass}--loaded` );
-
-    }
-
   });
-
 });

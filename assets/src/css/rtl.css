@@ -1,14 +1,10 @@
-@import "./base/settings.css";
-
-
 .notice {
   padding: 1rem 2rem 1rem 4rem;
-  
+
   &__close {
     left: 1rem;
     right: unset;
   }
-
 }
 
 .sidemenu-btn {
@@ -29,18 +25,16 @@
   padding: 0 6rem 0 3.25rem;
 
   &__item {
-    
     &--has-children {
       padding-left: 10px;
       padding-right: 0;
     }
-
   }
 
-  &__item--has-children > a &__dropdown-icon {  
+  &__item--has-children > a &__dropdown-icon {
     left: 5px;
     right: unset;
-    transform: translateX(-.625rem); 
+    transform: translateX(-0.625rem);
   }
 
   &__item--has-children:hover > a &__dropdown-icon,
@@ -54,20 +48,18 @@
   }
 
   &__sub-menu &__item {
-
     a {
-      padding: 1.375rem 1.375rem 1.375rem .625rem;
+      padding: 1.375rem 1.375rem 1.375rem 0.625rem;
     }
 
-    &:hover, &:focus-within {
-      padding-right: 4px; 
+    &:hover,
+    &:focus-within {
+      padding-right: 4px;
     }
-
-
   }
 
-  &__sub-menu &__item:hover, &__sub-menu &__item:focus-within {
-
+  &__sub-menu &__item:hover,
+  &__sub-menu &__item:focus-within {
   }
 
   &__sub-menu &__sub-menu {
@@ -81,17 +73,14 @@
     transform: rotate(90deg);
     right: unset;
   }
-
 }
 
 .navbar {
-
   .btn-scheme {
     margin-left: 68px;
     left: 0;
     right: unset;
   }
-
 }
 
 .sidebar {
@@ -107,12 +96,11 @@
 
 .sidemenu {
   &__dropdown-icon {
-    transform: scale(.75) translate(-10px);
+    transform: scale(0.75) translate(-10px);
   }
-  &__item--has-children[expanded=true]> a &__dropdown-icon {
-    transform: scale(.75) translate(-10px) rotate(180deg);
+  &__item--has-children[expanded="true"] > a &__dropdown-icon {
+    transform: scale(0.75) translate(-10px) rotate(180deg);
   }
-
 }
 
 .search-form {
@@ -129,7 +117,7 @@
 
 .compact-slider {
   &__footer__container {
-    padding: .625rem 1.25rem .625rem 2.5rem;
+    padding: 0.625rem 1.25rem 0.625rem 2.5rem;
   }
   &__author__avatar {
     margin-left: 8px;
@@ -137,22 +125,29 @@
   }
 }
 
-
 .post-card {
   &__readmore-btn {
     right: unset;
     left: 0;
-    box-shadow: -5px 6px var(--accent-text-color),-20px 30px 0 50px var(--body-background-color);
+    box-shadow: -5px 6px var(--accent-text-color),
+      -20px 30px 0 50px var(--body-background-color);
   }
 }
 
-.kadim-btn, input[type=submit] {
+.rouh-btn,
+input[type="submit"] {
   box-shadow: -5px 6px var(--accent-text-color);
+}
+
+.rouh-posts {
+  &__loadmore {
+    transform: scaleX(-1);
+  }
 }
 
 /* ==== single === */
 
-.kadim-single-post {
+.rouh-single-post {
   &__comments-title,
   .related-posts__title {
     &::after {
@@ -160,8 +155,7 @@
     }
   }
 
-  &__comments-list { 
-    
+  &__comments-list {
     .comment-meta {
       right: unset;
       left: 32px;
@@ -175,23 +169,20 @@
       padding-right: 37px;
       border-right: 2px solid var(--gray-5);
     }
-    
 
     .comment {
       .reply {
         text-align: left;
       }
     }
-
   }
 
   &__content {
-
-    dl dt+dd::before {
+    dl dt + dd::before {
       margin-left: 12px;
       margin-right: 0;
     }
-    
+
     .wp-block-columns .wp-block-column:after {
       left: -30px;
       right: unset;
@@ -211,15 +202,12 @@
           border-right: 2px solid var(--gray-5);
         }
       }
-
     }
-
   }
 
   &__pagination .icon {
     transform: scaleX(-1);
   }
-
 }
 
 .author-card {
@@ -228,46 +216,47 @@
       margin: 0 16px 0 0;
     }
   }
-  
+
   &__more {
     text-align: left;
   }
-
 }
 
 /* gutenberg */
 
 .wp-block-image {
-
   .alignleft {
     margin-left: 0;
     margin-right: 1rem;
   }
 
-  
   .alignright {
     margin-left: 1rem;
     margin-right: 0;
   }
-
 }
 
 .wp-block-button {
   &__link {
-    box-shadow: -5px 6px var(--accent-text-color)
+    box-shadow: -5px 6px var(--accent-text-color);
   }
 }
 
-.wp-block-gallery.has-nested-images figure.wp-block-image figcaption.wp-element-caption {
-  transform: translate(50%, 16px) ;  
+.wp-block-gallery.has-nested-images
+  figure.wp-block-image
+  figcaption.wp-element-caption {
+  transform: translate(50%, 16px);
   right: 50%;
 }
 
-.wp-block-gallery.has-nested-images figure.wp-block-image:hover figcaption.wp-element-caption {
+.wp-block-gallery.has-nested-images
+  figure.wp-block-image:hover
+  figcaption.wp-element-caption {
   transform: translate(50%);
 }
 
-.wp-block-latest-comments .avatar, .wp-block-latest-comments__comment-avatar {
+.wp-block-latest-comments .avatar,
+.wp-block-latest-comments__comment-avatar {
   margin-left: 0;
 }
 
@@ -280,29 +269,33 @@
   }
 }
 
-.wp-block-archives li a:focus, .wp-block-archives li a:hover {
+.wp-block-archives li a:focus,
+.wp-block-archives li a:hover {
   transform: translate(-5px) scale(1.05);
 }
 
-.wp-block-latest-comments{ 
-
+.wp-block-latest-comments {
   &__comment {
     transform-origin: right;
   }
 
   &__comment:hover &__comment-avatar {
-    transform: scale(1.1) translate(30%,-35%);
+    transform: scale(1.1) translate(30%, -35%);
   }
 
   &__comment-avatar {
-    transform: translate(30%,-35%);
+    transform: translate(30%, -35%);
     right: 0;
     left: unset;
   }
-  
 }
 
-.has-avatars .wp-block-latest-comments__comment .wp-block-latest-comments__comment-excerpt, .has-avatars .wp-block-latest-comments__comment .wp-block-latest-comments__comment-meta {
+.has-avatars
+  .wp-block-latest-comments__comment
+  .wp-block-latest-comments__comment-excerpt,
+.has-avatars
+  .wp-block-latest-comments__comment
+  .wp-block-latest-comments__comment-meta {
   margin-right: 0;
 }
 
@@ -310,20 +303,18 @@
   margin: 0 0 0 6px;
 }
 
-.wp-block-pages-list { 
-  &__item{ 
-
+.wp-block-pages-list {
+  &__item {
     &.has-child {
-      .submenu-container, .wp-block-navigation__submenu-container {
+      .submenu-container,
+      .wp-block-navigation__submenu-container {
         border-right: 2px solid var(--gray-5);
         border-left: 0 !important;
         margin: 4px 15px 5px 4px;
         padding-right: 20px;
         padding-left: 0;
-        
-      } 
+      }
     }
-
   }
 }
 /**/
@@ -331,7 +322,7 @@
 .instagram-grid {
   direction: ltr;
   &__container {
-    transform: scaleX(-1)
+    transform: scaleX(-1);
   }
   &__image {
     .image {
@@ -341,6 +332,31 @@
   &__video {
     .video {
       transform: scaleX(-1);
+    }
+  }
+}
+
+.navigation {
+  &__older,
+  &__newer {
+    &:hover {
+      .icon {
+        transform: translate(0) scaleX(-1);
+      }
+    }
+  }
+
+  &__older {
+    transform: translate(1rem);
+    .icon {
+      transform: translate(-1rem) scaleX(-1);
+    }
+  }
+
+  &__newer {
+    transform: translate(-1rem);
+    .icon {
+      transform: translate(1rem) scaleX(-1);
     }
   }
 }

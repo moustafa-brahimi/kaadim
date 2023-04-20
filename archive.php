@@ -5,45 +5,50 @@
 <?php if( have_posts() ): ?>
 
     <div class="container">
-        
-        <main class="kadim-posts" id="kadim-posts">
 
-            <div class="kadim-archive-board">
+        <main class="rouh-posts" id="rouh-posts">
 
+            <div class="rouh-archive-board">
 
-                <div class="kadim-archive-board__path kadim-path">
+                <div class="rouh-archive-board__path rouh-path">
 
-                    <a class="kadim-path__item" 
+                    <a class="rouh-path__item" 
                         href="<?php echo esc_attr( home_url() ); ?>"
-                        title="<?php esc_attr_e( "home", "kadim" ); ?>"
+                        title="<?php esc_attr_e( "home", "rouh" ); ?>"
                     >
-                        <?php esc_html_e( "Home", "kadim" ); ?>
+                        <?php esc_html_e( "Home", "rouh" ); ?>
                     </a>
 
-                    <span class="kadim-path__item">
+                    <span class="rouh-path__item">
 
                         <?php if( is_date() ): ?>
 
-                            <?php esc_html_e( "Date", "kadim" ); ?>
+                            <?php esc_html_e( "Date", "rouh" ); ?>
                             
                         <?php elseif( is_tag() ): ?>
 
-                            <?php esc_html_e( "Tag", "kadim" ); ?>
+                            <?php esc_html_e( "Tag", "rouh" ); ?>
 
                         <?php endif; ?>
 
                     </span>
 
-                    <span class="kadim-path__item">
+                    <span class="rouh-path__item">
                         <?php wp_title( "" ); ?>
                     </span>
 
                 </div>
 
-                <h1 class="kadim-archive-board__title"><?php wp_title( "" ); ?></h1>
-
+                <h1 class="rouh-archive-board__title"><?php wp_title( "" ); ?></h1>
 
             </div>
+
+            <?php
+                get_template_part( "template-parts/ad",  "", [
+                    "desktop"   => "rouh_ads_archive_top_desktop",
+                    "mobile"    => "rouh_ads_archive_top_mobile"
+                ] ); 
+            ?>
 
             <?php while( have_posts() ): ?>
 
@@ -55,8 +60,19 @@
 
             <?php endwhile; ?>
 
+            <?php
+            get_template_part( "template-parts/ad",  "", [
+                "desktop"   => "rouh_ads_archive_bottom_desktop",
+                "mobile"    => "rouh_ads_archive_bottom_mobile"
+            ] ); 
+            ?>
+
+
+            <?php get_template_part( "template-parts/posts", "navigation-links" ); ?>
             
         </main>
+
+
 
         
     </div>

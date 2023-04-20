@@ -1,4 +1,4 @@
-.kadim-path {
+.rouh-path {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 0.9rem;
@@ -7,8 +7,6 @@
   a {
     color: var(--accent-text-color);
   }
-
-
 
   &__item {
     max-width: 100%;
@@ -24,7 +22,7 @@
     }
   }
 
-  &__item:last-child { 
+  &__item:last-child {
     flex-shrink: 1;
     &::after {
       display: none;

@@ -152,46 +152,37 @@
 
     &__readmore-btn {
       position: relative;
-      box-shadow: 5px 6px var(--accent-text-color);
+      box-shadow: 5px 6px var(--accent-text-color) !important;
       transform: none;
       margin: 10px auto;
       max-width: 300px;
       width: 100%;
-      
-    } 
+    }
 
     &__thumbnail {
       aspect-ratio: 4/3;
     }
-
   }
 }
 
 @media (max-width: 580px) {
-
   .post-card {
-
     &__readmore-btn {
-      box-shadow: none;
+      box-shadow: none !important;
       background-color: transparent;
       padding: 0;
       font-family: inherit;
 
       .readmore {
-
         &__label {
           text-decoration: underline;
           font-weight: 700;
         }
-
       }
-
     }
-
 
     &__title {
       margin-bottom: 4px;
-
     }
 
     .post-title {
@@ -210,19 +201,17 @@
       justify-content: center;
       font-size: 0.8rem;
     }
-    
+
     &__author {
       font-size: 0.8rem;
     }
 
     &__tags {
-      display:none;
+      display: none;
     }
 
     &__thumbnail {
       aspect-ratio: 1/1;
     }
-
   }
-
 }

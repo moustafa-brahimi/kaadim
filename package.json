@@ -1,12 +1,13 @@
 {
-  "name": "kadim",
+  "name": "rouh",
   "version": "0.0.1",
   "description": "Wordpress Theme",
   "main": "index.php",
   "scripts": {
     "js:build": "npx webpack watch",
     "css:build": "postcss -w ./assets/src/css/style.css -o ./assets/dist/css/style.css",
-    "css:build:rtl": "postcss -w ./assets/src/css/rtl.css -o rtl.css"
+    "css:build:rtl": "postcss -w ./assets/src/css/rtl.css -o rtl.css",
+    "css:build:editor": "postcss -w ./assets/src/css/gutenberg.css -o editor-style.css"
   },
   "author": "Moustafa Brahimi",
   "license": "ISC",
@@ -33,5 +34,8 @@
     "postcss-random": "^1.0.9",
     "webpack": "^5.73.0",
     "webpack-cli": "^4.10.0"
+  },
+  "devDependencies": {
+    "postcss-inline-svg": "^6.0.0"
   }
 }

@@ -6,7 +6,6 @@
 @import "./components/navbar.css";
 @import "./components/searchform.css";
 @import "./components/sidebar.css";
-@import "./components/widgets.css";
 @import "./components/slider.css";
 @import "./components/post-card.css";
 @import "./components/post-title.css";
@@ -18,6 +17,7 @@
 @import "./components/related-posts.css";
 @import "./components/path.css";
 @import "./components/ad.css";
+@import "./components/navigation.css";
 
 @import "./base/layout.css";
 
@@ -26,3 +26,5 @@
 @import "./pages/archive.css";
 @import "./pages/author.css";
 @import "./pages/search.css";
+
+@import "./gutenberg.css";

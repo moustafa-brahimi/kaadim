@@ -2,8 +2,8 @@
 /**
  * The template file for displaying the comments and comment form for the
  *
- * @package kadim
- * @since kadim 1.0
+ * @package rouh
+ * @since rouh 1.0
  */
 
 if ( post_password_required() ) {
@@ -17,18 +17,18 @@ if ( $comments ): ?>
 		$comments_number = absint( get_comments_number() );
 		?>
 
-		<div class="kadim-single-post__comments-header">
+		<div class="rouh-single-post__comments-header">
 
 			
-			<h2 class="kadim-single-post__comments-title">
+			<h2 class="rouh-single-post__comments-title">
 
 			<i class="icon fa-solid fa-message"></i>
 			<?php
 			if ( ! have_comments() ) {
-				_e( 'No comments yet! let\'s start by yours', 'kadim' );
+				_e( 'No comments yet! let\'s start by yours', 'rouh' );
 			} elseif ( 1 === $comments_number ) {
 				/* translators: %s: Post title. */
-				printf( _x( 'One reply on &ldquo;%s&rdquo;', 'comments title', 'kadim' ), get_the_title() );
+				printf( _x( 'One reply on &ldquo;%s&rdquo;', 'comments title', 'rouh' ), get_the_title() );
 			} else {
 				printf(
 					/* translators: 1: Number of comments, 2: Post title. */
@@ -37,7 +37,7 @@ if ( $comments ): ?>
 						'%1$s replies on &ldquo;%2$s&rdquo;',
 						$comments_number,
 						'comments title',
-						'twentytwenty'
+						'rouh'
 					),
 					number_format_i18n( $comments_number ),
 					get_the_title()
@@ -49,7 +49,7 @@ if ( $comments ): ?>
 
 		</div><!-- .comments-header -->
 
-		<div class="kadim-single-post__comments-list">
+		<div class="rouh-single-post__comments-list">
 
 			<?php
 			wp_list_comments(
@@ -64,8 +64,8 @@ if ( $comments ): ?>
 					'echo'      => false,
 					'end_size'  => 0,
 					'mid_size'  => 0,
-					'next_text' => __( 'Newer Comments', 'kadim' ) . ' <span aria-hidden="true">&rarr;</span>',
-					'prev_text' => '<span aria-hidden="true">&larr;</span> ' . __( 'Older Comments', 'kadim' ),
+					'next_text' => __( 'Newer Comments', 'rouh' ) . ' <span aria-hidden="true">&rarr;</span>',
+					'prev_text' => '<span aria-hidden="true">&larr;</span> ' . __( 'Older Comments', 'rouh' ),
 				)
 			);
 
@@ -78,7 +78,7 @@ if ( $comments ): ?>
 				}
 				?>
 
-				<nav class="comments-pagination pagination<?php echo $pagination_classes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>" aria-label="<?php esc_attr_e( 'Comments', 'kadim' ); ?>">
+				<nav class="comments-pagination pagination<?php echo $pagination_classes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>" aria-label="<?php esc_attr_e( 'Comments', 'rouh' ); ?>">
 					<?php echo wp_kses_post( $comment_pagination ); ?>
 				</nav>
 
@@ -98,8 +98,8 @@ if ( $comments ): ?>
 
 		comment_form(
 			array(
-				'class_container'    => 'kadim-single-post__comment-form',
-				'title_reply_before' => '<h2 id="reply-title" class="kadim-single-post__comments-reply-title">',
+				'class_container'    => 'rouh-single-post__comment-form',
+				'title_reply_before' => '<h2 id="reply-title" class="rouh-single-post__comments-reply-title">',
 				'title_reply_after'  => '</h2>',
 			)
 		);
@@ -108,13 +108,13 @@ if ( $comments ): ?>
 
 <?php elseif ( is_single() ): ?>
 
-	<div class="kadim-single-post__comments-form" id="respond">
+	<div class="rouh-single-post__comments-form" id="respond">
 
-		<div class="kadim-single-post__notice kadim-single-post__notice--warn">
+		<div class="rouh-single-post__notice rouh-single-post__notice--warn">
 
 			<i class="icon fa-solid fa-unlock-keyhole"></i>
 
-			<?php esc_html_e( "Comments are closed", "kadim" ); ?>
+			<?php esc_html_e( "Comments are closed", "rouh" ); ?>
 
 		</div>
 	

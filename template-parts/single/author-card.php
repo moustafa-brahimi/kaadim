@@ -1,7 +1,7 @@
 <?php 
 
 /**
- * @package kadim
+ * @package rouh
  * @since 1.0
  * author card element to show the post author 
  */
@@ -11,7 +11,7 @@
 <section class="author-card">
 
     <?php $author_id = get_the_author_meta( 'ID' ); ?>
-    <?php $author_social_links = get_the_author_meta( "kadim_social_links", $author_id ); ?>
+    <?php $author_social_links = get_the_author_meta( "rouh_social_links", $author_id ); ?>
     <?php $author_social_links = is_array($author_social_links) ? $author_social_links: []; ?>
     <?php $author_posts_link = get_author_posts_url( $author_id ); ?>
     <?php $author_name = get_the_author_meta( "display_name", $author_id ); ?>
@@ -21,7 +21,7 @@
 
         <h2 class="author-card__title">
             <i class="icon fa-solid fa-pen"></i>    
-            <?php esc_attr_e( "Written By", "kadim" ); ?>
+            <?php esc_attr_e( "Written By", "rouh" ); ?>
         </h2>
 
     <?php endif; ?>
@@ -38,7 +38,7 @@
 
                 <nav class="author-card__links">
 
-                    <?php $links_defaults = kadim_user_profile_supported_socials(); ?>
+                    <?php $links_defaults = rouh_user_profile_supported_socials(); ?>
 
                     <?php foreach( $author_social_links as $index => $link ): ?>
 
@@ -76,7 +76,7 @@
                 <?php 
                     echo esc_html( 
                         sprintf( 
-                            _n( "See %d more Posts written by %s", "See %d more Posts written by %s", $author_count, "kadim" ),
+                            _n( "See %d more Posts written by %s", "See %d more Posts written by %s", $author_count, "rouh" ),
                             $author_count,
                             $author_name
                         )

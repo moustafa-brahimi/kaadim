@@ -31,6 +31,8 @@ import {
   faArrowRight,
   faPen,
   faFire,
+  faRightLong,
+  faLeftLong,
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add({
@@ -62,6 +64,8 @@ library.add({
   faYoutube,
   faPen,
   faFire,
+  faRightLong,
+  faLeftLong,
 });
 dom.i2svg()
 

@@ -1,89 +1,39 @@
 <?php
 
+/** rouh text domain */
+
+add_action('after_setup_theme', 'rouh_text_domain');
+
+function rouh_text_domain(){
+    load_theme_textdomain('rouh', get_template_directory() . '/languages');
+}
+
 //  ============== TGM ================ // 
 
 require_once get_template_directory() . "/includes/tgm/class-tgm-plugin-activation.php";
 
-if( !function_exists( "kadim_register_required_plugins" ) ):
+if( !function_exists( "rouh_register_required_plugins" ) ):
 
-    function kadim_register_required_plugins() {
+    function rouh_register_required_plugins() {
 
-        	/*
-	 * Array of plugin arrays. Required keys are name and slug.
-	 * If the source is NOT from the .org repo, then source is also required.
-	 */
+ 
 	$plugins = array(
 
-		// // This is an example of how to include a plugin bundled with a theme.
-		// array(
-		// 	'name'               => 'TGM Example Plugin', // The plugin name.
-		// 	'slug'               => 'tgm-example-plugin', // The plugin slug (typically the folder name).
-		// 	'source'             => get_template_directory() . '/lib/plugins/tgm-example-plugin.zip', // The plugin source.
-		// 	'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-		// 	'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-		// 	'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-		// 	'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-		// 	'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-		// 	'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
-		// ),
-
-		// This is an example of how to include a plugin from an arbitrary external source in your theme.
-		// array(
-		// 	'name'         => 'TGM New Media Plugin', // The plugin name.
-		// 	'slug'         => 'tgm-new-media-plugin', // The plugin slug (typically the folder name).
-		// 	'source'       => 'https://s3.amazonaws.com/tgm/tgm-new-media-plugin.zip', // The plugin source.
-		// 	'required'     => true, // If false, the plugin is only 'recommended' instead of required.
-		// 	'external_url' => 'https://github.com/thomasgriffin/New-Media-Image-Uploader', // If set, overrides default API URL and points to an external URL.
-		// ),
-
-		// This is an example of how to include a plugin from a GitHub repository in your theme.
-		// This presumes that the plugin code is based in the root of the GitHub repository
-		// and not in a subdirectory ('/src') of the repository.
-		// array(
-		// 	'name'      => 'Adminbar Link Comments to Pending',
-		// 	'slug'      => 'adminbar-link-comments-to-pending',
-		// 	'source'    => 'https://github.com/jrfnl/WP-adminbar-comments-to-pending/archive/master.zip',
-		// ),
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository.
 		array(
-			'name'      => __( 'Kirki Customizer Framework', 'kadim'),
+			'name'      => __( 'Kirki Customizer Framework', 'rouh'),
 			'slug'      => 'kirki',
 			'required'  => true,
 		),
 
-		array(
-			'name'      => __( 'Simple Author Box', 'kadim'),
-			'slug'      => 'simple-author-box',
-			'required'  => true,
-		),
-
-		// This is an example of the use of 'is_callable' functionality. A user could - for instance -
-		// have WPSEO installed *or* WPSEO Premium. The slug would in that last case be different, i.e.
-		// 'wordpress-seo-premium'.
-		// By setting 'is_callable' to either a function from that plugin or a class method
-		// `array( 'class', 'method' )` similar to how you hook in to actions and filters, TGMPA can still
-		// recognize the plugin as being installed.
-		// array(
-		// 	'name'        => 'WordPress SEO by Yoast',
-		// 	'slug'        => 'wordpress-seo',
-		// 	'is_callable' => 'wpseo_init',
-		// ),
 
 	);
 
-	/*
-	 * Array of configuration settings. Amend each line as needed.
-	 *
-	 * TGMPA will start providing localized text strings soon. If you already have translations of our standard
-	 * strings available, please help us make TGMPA even better by giving us access to these translations or by
-	 * sending in a pull-request with .po file(s) with the translations.
-	 *
-	 * Only uncomment the strings in the config array if you want to customize the strings.
-	 */
+
 	$config = array(
 
-		'id'           => 'kadim',                 // Unique ID for hashing notices for multiple instances of TGMPA.
+		'id'           => 'rouh',                 // Unique ID for hashing notices for multiple instances of TGMPA.
 		'default_path' => '',                      // Default absolute path to bundled plugins.
 		'menu'         => 'tgmpa-install-plugins', // Menu slug.
 		'parent_slug'  => 'themes.php',            // Parent menu slug.
@@ -94,82 +44,7 @@ if( !function_exists( "kadim_register_required_plugins" ) ):
 		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
 		'message'      => '',                      // Message to output right before the plugins table.
 
-		/*
-		'strings'      => array(
-			'page_title'                      => __( 'Install Required Plugins', 'kadim' ),
-			'menu_title'                      => __( 'Install Plugins', 'kadim' ),
-			/* translators: %s: plugin name. * /
-			'installing'                      => __( 'Installing Plugin: %s', 'kadim' ),
-			/* translators: %s: plugin name. * /
-			'updating'                        => __( 'Updating Plugin: %s', 'kadim' ),
-			'oops'                            => __( 'Something went wrong with the plugin API.', 'kadim' ),
-			'notice_can_install_required'     => _n_noop(
-				/* translators: 1: plugin name(s). * /
-				'This theme requires the following plugin: %1$s.',
-				'This theme requires the following plugins: %1$s.',
-				'kadim'
-			),
-			'notice_can_install_recommended'  => _n_noop(
-				/* translators: 1: plugin name(s). * /
-				'This theme recommends the following plugin: %1$s.',
-				'This theme recommends the following plugins: %1$s.',
-				'kadim'
-			),
-			'notice_ask_to_update'            => _n_noop(
-				/* translators: 1: plugin name(s). * /
-				'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.',
-				'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.',
-				'kadim'
-			),
-			'notice_ask_to_update_maybe'      => _n_noop(
-				/* translators: 1: plugin name(s). * /
-				'There is an update available for: %1$s.',
-				'There are updates available for the following plugins: %1$s.',
-				'kadim'
-			),
-			'notice_can_activate_required'    => _n_noop(
-				/* translators: 1: plugin name(s). * /
-				'The following required plugin is currently inactive: %1$s.',
-				'The following required plugins are currently inactive: %1$s.',
-				'kadim'
-			),
-			'notice_can_activate_recommended' => _n_noop(
-				/* translators: 1: plugin name(s). * /
-				'The following recommended plugin is currently inactive: %1$s.',
-				'The following recommended plugins are currently inactive: %1$s.',
-				'kadim'
-			),
-			'install_link'                    => _n_noop(
-				'Begin installing plugin',
-				'Begin installing plugins',
-				'kadim'
-			),
-			'update_link' 					  => _n_noop(
-				'Begin updating plugin',
-				'Begin updating plugins',
-				'kadim'
-			),
-			'activate_link'                   => _n_noop(
-				'Begin activating plugin',
-				'Begin activating plugins',
-				'kadim'
-			),
-			'return'                          => __( 'Return to Required Plugins Installer', 'kadim' ),
-			'plugin_activated'                => __( 'Plugin activated successfully.', 'kadim' ),
-			'activated_successfully'          => __( 'The following plugin was activated successfully:', 'kadim' ),
-			/* translators: 1: plugin name. * /
-			'plugin_already_active'           => __( 'No action taken. Plugin %1$s was already active.', 'kadim' ),
-			/* translators: 1: plugin name. * /
-			'plugin_needs_higher_version'     => __( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'kadim' ),
-			/* translators: 1: dashboard link. * /
-			'complete'                        => __( 'All plugins installed and activated successfully. %1$s', 'kadim' ),
-			'dismiss'                         => __( 'Dismiss this notice', 'kadim' ),
-			'notice_cannot_install_activate'  => __( 'There are one or more required or recommended plugins to install, update or activate.', 'kadim' ),
-			'contact_admin'                   => __( 'Please contact the administrator of this site for help.', 'kadim' ),
 
-			'nag_type'                        => '', // Determines admin notice type - can only be one of the typical WP notice classes, such as 'updated', 'update-nag', 'notice-warning', 'notice-info' or 'error'. Some of which may not work as expected in older WP versions.
-		),
-		*/
 	    );
 
 	    tgmpa( $plugins, $config );
@@ -179,13 +54,18 @@ if( !function_exists( "kadim_register_required_plugins" ) ):
 endif;
 
 
-add_action( 'tgmpa_register', 'kadim_register_required_plugins' );
+add_action( 'tgmpa_register', 'rouh_register_required_plugins' );
 
 //  ============== Customizer ================ // 
  
 
 if( class_exists( 'Kirki' ) ):
-    require_once get_template_directory() . "/includes/customizer.php";
+
+	function rouh_customizer_controls() {
+    	require_once get_template_directory() . "/includes/customizer.php";
+	}
+
+	add_action( 'after_setup_theme', "rouh_customizer_controls" );
 endif;
 
 //  ============== Menu Walker ================ // 
@@ -208,56 +88,117 @@ if( !function_exists( "is_true" ) ):
 
 endif;
 
- 
+/** supported body fonts */
+
+function rouh_supported_body_fonts() {
+
+	return apply_filters( "rouh_supported_body_fonts_filter",
+
+		[
+			"poppins"	=>	[
+				"label"	=>	__( "Poppins", "rouh" ),
+				"src"	=>	"https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap",
+			],
+
+			"roboto"	=>	[
+				"label"	=>	__( "Roboto", "rouh" ),
+				"src"	=>	"https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap",
+			],
+
+			"cairo"	=>	[
+				"label"	=>	__( "Cairo", "rouh" ),
+				"src"	=>	"https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap",
+			],
+
+			"nunito"	=>	[
+				"label"	=>	__( "Nunito", "rouh" ),
+				"src"	=>	"https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap",
+			],
+
+			"raleway"	=>	[
+				"label"	=>	__( "Raleway", "rouh" ),
+				"src"	=>	"https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap",
+			],
+
+			"alexandria"	=>	[
+				"label"	=>	__( "Alexandria", "rouh" ),
+				"src"	=>	"https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700&display=swap",
+			],
+
+			"tajawal"	=>	[
+				"label"	=>	__( "Tajawal", "rouh" ),
+				"src"	=>	"https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap",
+			],
+
+			"Noto Sans Arabic"	=>	[
+				"label"	=>	__( "Noto Sans Arabic", "rouh" ),
+				"src"	=>	"https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap",
+			],
+
+			"changa"	=>	[
+				"label"	=>	__( "Changa", "rouh" ),
+				"src"	=>	"https://fonts.googleapis.com/css2?family=Changa:wght@400;500;600;700&display=swap",
+			],
+
+			"Noto Kufi Arabic"	=>	[
+				"label"	=>	__( "Noto Kufi Arabic", "rouh" ),
+				"src"	=>	"https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap",
+			],
+
+			"El Messiri"	=>	[
+				"label"	=>	__( "El Messiri", "rouh" ),
+				"src"	=>	"https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap",
+			],
+
+			"Readex Pro"	=>	[
+				"label"	=>	__( "Readex Pro", "rouh" ),
+				"src"	=>	"https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap",
+			],
+
+			"Noto Naskh Arabic"	=>	[
+				"label"	=>	__( "Noto Naskh Arabic", "rouh" ),
+				"src"	=>	"https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap",
+			],
+
+			"kufam"	=>	[
+				"label"	=>	__( "Kufam", "rouh" ),
+				"src"	=>	"https://fonts.googleapis.com/css2?family=Kufam:wght@400;500;600;700&display=swap",
+			],
+
+			"vazirmatn"	=>	[
+				"label"	=>	__( "Vazirmatn", "rouh" ),
+				"src"	=>	"https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap",
+			],
+
+		]
+
+	);
+
+}
+
+
+
 //  ==============  // 
 
 
-if( !function_exists( "kadim_scripts_styles" ) ):
+if( !function_exists( "rouh_scripts_styles" ) ):
 
-    function kadim_scripts_styles() {
+    function rouh_scripts_styles() {
 
-        wp_enqueue_script( "kadim-script", get_template_directory_uri() . "/assets/dist/js/bundle.js", array(), "0.0.1", true );
+        wp_enqueue_script( "rouh-script", get_template_directory_uri() . "/assets/dist/js/bundle.js", array(), "0.0.1", true );
 
-        wp_enqueue_style( "kadim-style", get_template_directory_uri() . "/assets/dist/css/style.css", array(), "0.0.1", "all" );
+        wp_enqueue_style( "rouh-style", get_template_directory_uri() . "/assets/dist/css/style.css", array(), "0.0.1", "all" );
 
-		$body_typography = get_theme_mod( "kadim_body_typography", "Poppins" );
+		$supported_fonts = rouh_supported_body_fonts();
+		$body_typography = get_theme_mod( "rouh_body_typography", "poppins" );
+		$font_src = $supported_fonts[$body_typography]["src"];
 
-		/** include typography  */
+		wp_enqueue_style( "rouh-body-font", $font_src );
 
-		switch( $body_typography ):
-
-			default:
-				$font_src = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap";
-				break;
-
-			case 'Roboto':
-				$font_src = "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap";
-				break;
-				
-			case 'Cairo':
-				$font_src = "https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap";
-				break;
-				
-			case 'Nunito':
-				$font_src = "https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap";
-				break;
-				
-			case 'Raleway':
-				$font_src = "https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap";
-				break;
-
-			case 'Alexandria':
-				$font_src = "https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700&display=swap";
-				break;
-
-		endswitch;
-
-		wp_enqueue_style( "kadim-body-font", $font_src );
-
-		$headings_typography = get_theme_mod( "kadim_headings_typography", [ "font-family" => "DM Serif Display" ] );
+		$headings_typography = get_theme_mod( "rouh_headings_typography", [ "font-family" => "DM Serif Display" ] );
 
 		if( class_exists( 'Kirki' ) ):
-			wp_add_inline_style( "kadim-style", 
+			wp_add_inline_style( "rouh-style", 
 			
 				sprintf( ':root{--body-font-family:%s; --headlines-font-family:%s;}',
 					$body_typography,
@@ -267,28 +208,30 @@ if( !function_exists( "kadim_scripts_styles" ) ):
 			);
 		endif;
 
-		wp_localize_script( "kadim-script", "globals", array(
+		wp_localize_script( "rouh-script", "globals", array(
 
 			"ajaxUrl" => admin_url('admin-ajax.php'),
 			"loadMorePostsNonce" => wp_create_nonce("loadmore_posts_nonce"),
-			"accentColor" => get_theme_mod( 'kadim_accent_color', '#c2ece7' )
+			"accentColor" => get_theme_mod( 'rouh_accent_color', '#c2ece7' )
 
 		) );
+
+		wp_enqueue_script( "comment-reply" );
 
     }
 
     
 endif;
 
-add_action( "wp_enqueue_scripts", "kadim_scripts_styles" );
+add_action( "wp_enqueue_scripts", "rouh_scripts_styles" );
 
 
 //  ==============  // 
 
 
-if( !function_exists( "kadim_theme_supports" ) ):
+if( !function_exists( "rouh_theme_supports" ) ):
 
-	function kadim_theme_supports() {
+	function rouh_theme_supports() {
 
 		$custom_logo_args = array(
 			'height'               => 65,
@@ -302,50 +245,61 @@ if( !function_exists( "kadim_theme_supports" ) ):
 
 		add_theme_support( 'custom-logo', $custom_logo_args );
 		add_theme_support( 'post-thumbnails' );
+		add_theme_support( "title-tag" );
+		add_theme_support( 'automatic-feed-links' );
+		add_theme_support( 'wp-block-styles' );
+		add_theme_support( 'responsive-embeds' );
+		add_theme_support( 'html5', array(
+			// Any or all of these.
+			// 'comment-list', 
+			'comment-form',
+			'search-form',
+			'gallery',
+			'caption',
+		) );
+		# add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link' ) );
 
-		add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link' ) );
-
-
+		add_theme_support( "title-tag" );
+		add_theme_support( 'editor-styles' );
+		add_editor_style();
+		
 	}
 
 	
 endif;
 
-add_action( "after_setup_theme", "kadim_theme_supports" );
+add_action( "after_setup_theme", "rouh_theme_supports" );
 
 //  ==============  //
 
-if( !function_exists( "kadim_nav_menus" ) ):
+if( !function_exists( "rouh_nav_menus" ) ):
 
-	function kadim_nav_menus() {
+	function rouh_nav_menus() {
 
 		$menus = [
-
-			'navbar' => __( 'Main Menu', 'kadim' ),
-			'footer' => __( 'Footer Menu', 'kadim' ),
-
+			'navbar' => __( 'Main Menu', 'rouh' ),
 		];
 
 		register_nav_menus( $menus );
 
 	}
 
-	add_action( "after_setup_theme", "kadim_nav_menus" );
+	add_action( "after_setup_theme", "rouh_nav_menus" );
 	
 
 endif;
 
 
 
-if( !function_exists( "kadim_widgets" ) ):
+if( !function_exists( "rouh_widgets" ) ):
 
-	function kadim_widgets() {
+	function rouh_widgets() {
 
 		$args = [
 
-			'name' => __( 'Blog sidebar', 'kadim' ),
-			'id' => 'kadim-1',
-			'description' => __( 'Blog sidebar widgets' ),
+			'name' => __( 'Blog sidebar', 'rouh' ),
+			'id' => 'rouh-1',
+			'description' => __( 'Blog sidebar widgets', 'rouh' ),
 			'before_widget' => '<li id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</li>',
 			'before_title'  => '<h2 class="widget__title">',
@@ -358,14 +312,14 @@ if( !function_exists( "kadim_widgets" ) ):
 		register_sidebar( $args );
 
 		register_sidebar(array(
-			'name' => __( 'Footer Center', 'kadim' ),
-			'id'   => 'kadim-footer-center-widget',
-			'description'   => __( 'Centre Footer widget position.', 'kadim' ),
+			'name' => __( 'Footer Center', 'rouh' ),
+			'id'   => 'rouh-footer-center-widget',
+			'description'   => __( 'Centre Footer widget position.', 'rouh' ),
 			'before_widget' => '<li id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</li>',
 			'before_title'  => '<h2 class="widget__title">',
 			'after_title'   => '</h2>',
-			'before_sidebar' => '<ul id="%1$s" class="%2$s kadim-footer__widgets">',
+			'before_sidebar' => '<ul id="%1$s" class="%2$s rouh-footer__widgets">',
 			'after_sidebar' => '</ul>',
 
 		));
@@ -375,52 +329,52 @@ if( !function_exists( "kadim_widgets" ) ):
 
 	}
 
-	add_action("widgets_init", "kadim_widgets");
+	add_action("widgets_init", "rouh_widgets");
 
 
 endif;
 
 
-if( !function_exists( 'kadim_image_sizes' ) ):
+if( !function_exists( 'rouh_image_sizes' ) ):
 
-	function kadim_image_sizes() {	
-        add_image_size( 'kadim-macro', 48, 48, true );
+	function rouh_image_sizes() {	
+        add_image_size( 'rouh-macro', 48, 48, true );
 
-		add_image_size( 'kadim-compact-slider-tall', 464, 600, true );
-		add_image_size( 'kadim-compact-slider-medium', 464, 350, true );
-		add_image_size( 'kadim-compact-slider-short', 464, 250, true );
+		add_image_size( 'rouh-compact-slider-tall', 464, 600, true );
+		add_image_size( 'rouh-compact-slider-medium', 464, 350, true );
+		add_image_size( 'rouh-compact-slider-short', 464, 250, true );
 
-		add_image_size( 'kadim-full-width-post-thumbnail', 980, 490, true );
+		add_image_size( 'rouh-full-width-post-thumbnail', 980, 490, true );
 	}
 	
-    add_action( 'after_setup_theme','kadim_image_sizes' );
+    add_action( 'after_setup_theme','rouh_image_sizes' );
 
 
 endif;
 
 
-if( !function_exists( 'kadim_excerpt_length' ) ):
+if( !function_exists( 'rouh_excerpt_length' ) ):
 
-	function kadim_excerpt_length( $num ) {
+	function rouh_excerpt_length( $num ) {
 
 		return 30;
 
 	}
 
-	add_filter( 'excerpt_length', 'kadim_excerpt_length' );
+	add_filter( 'excerpt_length', 'rouh_excerpt_length' );
 
 
 endif;
 
-if( !function_exists( 'kadim_excerpt_more' ) ):
+if( !function_exists( 'rouh_excerpt_more' ) ):
 
-	function kadim_excerpt_more() {
+	function rouh_excerpt_more() {
 
 		return " &#8230;";
 
 	}
 
-	add_filter( 'excerpt_more', 'kadim_excerpt_more' );
+	add_filter( 'excerpt_more', 'rouh_excerpt_more' );
 
 
 endif;
@@ -428,7 +382,7 @@ endif;
 
 // ajax load more
 
-function kadim_loadmore_ajax() {
+function rouh_loadmore_ajax() {
 
 	if( !isset( $_POST[ 'nonce' ] ) || !isset( $_POST[ 'paged' ] ) ) { die(); } 
 
@@ -449,7 +403,7 @@ function kadim_loadmore_ajax() {
 
 		"post_type"	=> "post",
 		"post_status"	=>	"publish",
-		"posts_per_page"=>	get_option( "posts_per_rss", 10 ),
+		"posts_per_page"=>	get_option( "posts_per_page", 10 ),
 		"paged" => $paged
 	);
 
@@ -471,8 +425,8 @@ function kadim_loadmore_ajax() {
 
 }
 
-add_action( "wp_ajax_loadmore_posts", "kadim_loadmore_ajax" );
-add_action( "wp_ajax_nopriv_loadmore_posts", "kadim_loadmore_ajax" );
+add_action( "wp_ajax_loadmore_posts", "rouh_loadmore_ajax" );
+add_action( "wp_ajax_nopriv_loadmore_posts", "rouh_loadmore_ajax" );
 
 /**  */
 
@@ -482,14 +436,14 @@ function request($path) {
 
 //estimated reading time
 
-if( !function_exists( "kadim_reading_time" ) ):
+if( !function_exists( "rouh_reading_time" ) ):
 
-	function kadim_reading_time() {
+	function rouh_reading_time() {
 		$content = get_post_field( 'post_content', get_the_ID() );
 		$word_count = str_word_count( strip_tags( $content ) );
 		$readingtime = ceil($word_count / 200);
 		
-		return sprintf( "%d %s", $readingtime, _n( "Minute", "Minutes", $readingtime, "kadim" ) );
+		return sprintf( "%d %s", $readingtime, _n( "Minute", "Minutes", $readingtime, "rouh" ) );
 	}
 
 endif;
@@ -497,43 +451,43 @@ endif;
 
 /** author social links */
 
-function kadim_user_profile_supported_socials() {
+function rouh_user_profile_supported_socials() {
 
-	return apply_filters( "kadim_user_profile_supported_socials", [
+	return apply_filters( "rouh_user_profile_supported_socials", [
 		
 		"facebook" => [ 
-			"label" => __( "Facebook", "kadim" ),
+			"label" => __( "Facebook", "rouh" ),
 			"faicon" => "fa-brands fa-facebook"
 		],
 
 		"instagram" => [ 
-			"label" => __( "Instagram", "kadim" ),
+			"label" => __( "Instagram", "rouh" ),
 			"faicon" => "fa-brands fa-instagram"
 		],
 
 		"twitter" => [ 
-			"label" => __( "Twitter", "kadim" ),
+			"label" => __( "Twitter", "rouh" ),
 			"faicon" => "fa-brands fa-twitter"
 		],
 		
 		"linkedin" => [ 
-			"label" => __( "LinkedIn", "kadim" ),
+			"label" => __( "LinkedIn", "rouh" ),
 			"faicon" => "fa-brands fa-linkedin"
 		],
 		"discord" => [ 
-			"label" => __( "Discord", "kadim" ),
+			"label" => __( "Discord", "rouh" ),
 			"faicon" => "fa-brands fa-discord"
 		],
 		"pinterest" => [ 
-			"label" => __( "Pinterest", "kadim" ),
+			"label" => __( "Pinterest", "rouh" ),
 			"faicon" => "fa-brands fa-pinterest"
 		],
 		"behance" => [ 
-			"label" => __( "Behance", "kadim" ),
+			"label" => __( "Behance", "rouh" ),
 			"faicon" => "fa-brands fa-behance"
 		],
 		"youtube" => [ 
-			"label" => __( "Youtube", "kadim" ),
+			"label" => __( "Youtube", "rouh" ),
 			"faicon" => "fa-brands fa-youtube"
 		],
 
@@ -542,18 +496,18 @@ function kadim_user_profile_supported_socials() {
 }
 
 
-add_action( 'show_user_profile', 'kadim_user_profile_socials' );
-add_action( 'edit_user_profile', 'kadim_user_profile_socials' );
+add_action( 'show_user_profile', 'rouh_user_profile_socials' );
+add_action( 'edit_user_profile', 'rouh_user_profile_socials' );
 
-function kadim_user_profile_socials( $user ) { 
+function rouh_user_profile_socials( $user ) { 
 	
-	$socials = kadim_user_profile_supported_socials();
+	$socials = rouh_user_profile_supported_socials();
 
-	$saved_values = get_user_meta( $user->ID, "kadim_social_links", true );
+	$saved_values = get_user_meta( $user->ID, "rouh_social_links", true );
 	
-	wp_nonce_field( "kadim_verify_profile", "kadim_social_links_nonce" );
+	wp_nonce_field( "rouh_verify_profile", "rouh_social_links_nonce" );
 
-	$html = sprintf( "<h3>%s</h3>", esc_html__("Author Socials", "kadim") ); 
+	$html = sprintf( "<h3>%s</h3>", esc_html__("Author Socials", "rouh") ); 
 	$html .= '<table class="form-table">';
 	
 	foreach( $socials as $index => $social ):
@@ -564,9 +518,9 @@ function kadim_user_profile_socials( $user ) {
 
 		$html .= '<tr>';
 
-		$html .= sprintf( '<th><label for="kadim-social-%s">%s</label></th>', esc_attr($index), esc_html($label) );
+		$html .= sprintf( '<th><label for="rouh-social-%s">%s</label></th>', esc_attr($index), esc_html($label) );
 		$html .= sprintf( 
-			'<td><input type="url" id="kadim-social-%s" name="kadim_social_links[%s]" placeholder="%s" value="%s" /></td>',
+			'<td><input type="url" id="rouh-social-%s" name="rouh_social_links[%s]" placeholder="%s" value="%s" /></td>',
 			esc_attr($index),
 			esc_attr($index),
 			esc_attr($label),
@@ -584,24 +538,17 @@ function kadim_user_profile_socials( $user ) {
 
 }
 
-add_action( 'personal_options_update', 'kadim_save_extra_user_social_profiles' );
-add_action( 'edit_user_profile_update', 'kadim_save_extra_user_social_profiles' );
+add_action( 'personal_options_update', 'rouh_save_extra_user_social_profiles' );
+add_action( 'edit_user_profile_update', 'rouh_save_extra_user_social_profiles' );
 
-function kadim_save_extra_user_social_profiles( $user_id ) {
+function rouh_save_extra_user_social_profiles( $user_id ) {
 
-	if( !isset( $_POST[ "kadim_social_links_nonce" ] ) || !is_string( $_POST[ "kadim_social_links_nonce" ] ) ) { return; }
+	if( !isset( $_POST[ "rouh_social_links_nonce" ] ) || !is_string( $_POST[ "rouh_social_links_nonce" ] ) ) { return; }
 
-	if( !wp_verify_nonce( $_POST[ "kadim_social_links_nonce" ], "kadim_verify_profile" ) ) { return; }
+	if( !wp_verify_nonce( $_POST[ "rouh_social_links_nonce" ], "rouh_verify_profile" ) ) { return; }
 
 	if ( !current_user_can( 'edit_user', $user_id ) ) { return false; }
-	update_user_meta( $user_id, 'kadim_social_links', $_POST['kadim_social_links'] );
+	update_user_meta( $user_id, 'rouh_social_links', $_POST['rouh_social_links'] );
 
 }
 
-/** kadim text domain */
-
-add_action('after_setup_theme', 'kadim_text_domain');
-
-function kadim_text_domain(){
-    load_theme_textdomain('kadim', get_template_directory() . '/languages');
-}

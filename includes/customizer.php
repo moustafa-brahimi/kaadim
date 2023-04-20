@@ -5,19 +5,19 @@
 // ========================= Colors ========================= //
 
 new \Kirki\Section(
-	'kadim_colors',
+	'rouh_colors',
 	[
 		'priority'    => 0,
-		'title'       => esc_html__( 'Color', 'kadim' ),
+		'title'       => esc_html__( 'Color', 'rouh' ),
 	]
 );
 
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'kadim_accent_color',
-		'label'       => __( 'Accent color', 'kadim' ),
-		'description' => esc_html__( 'preferably light color', 'kadim' ),
-		'section'     => 'kadim_colors',
+		'settings'    => 'rouh_accent_color',
+		'label'       => __( 'Accent color', 'rouh' ),
+		'description' => esc_html__( 'preferably light color', 'rouh' ),
+		'section'     => 'rouh_colors',
 		'default'     => '#c2ece7',
 		'priority'    => 10,
 
@@ -35,10 +35,10 @@ new \Kirki\Field\Color(
 
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'kadim_accent_text_color',
-		'label'       => __( 'Accent text color', 'kadim' ),
-		'description' => esc_html__( 'preferably a darker shade of the chosen accent color', 'kadim' ),
-		'section'     => 'kadim_colors',
+		'settings'    => 'rouh_accent_text_color',
+		'label'       => __( 'Accent text color', 'rouh' ),
+		'description' => esc_html__( 'preferably a darker shade of the chosen accent color', 'rouh' ),
+		'section'     => 'rouh_colors',
 		'default'     => '#3e625d',
 		'priority'    => 20,
 
@@ -60,8 +60,8 @@ new \Kirki\Field\Color(
 
 new \Kirki\Field\Dimension(
 	[
-		'settings'    => 'kadim_logo_height',
-		'label'       => __( 'Logo height', 'kadim' ),
+		'settings'    => 'rouh_logo_height',
+		'label'       => __( 'Logo height', 'rouh' ),
 		'section'     => 'title_tagline',
 		'default'     => '60',
 		'priority'    => 40,
@@ -86,7 +86,7 @@ new \Kirki\Field\Dimension(
 
 new \Kirki\Field\Image(
 	[
-		'settings'    => 'kadim_logo_dark_mode_version',
+		'settings'    => 'rouh_logo_dark_mode_version',
 		'label'       => esc_html__( 'Dark mode Logo', 'kirki' ),
 		'section'     => 'title_tagline',
 		'priority'    => 30,
@@ -101,7 +101,7 @@ new \Kirki\Field\Image(
 
 new \Kirki\Field\Typography(
 	[
-		'settings'    => 'kadim_logo_alternative_typography',
+		'settings'    => 'rouh_logo_alternative_typography',
 		'label'       => esc_html__( 'Alternative Logo Typography', 'kirki' ),
 		'section'     => 'title_tagline',
 		'priority'    => 80,
@@ -135,8 +135,8 @@ new \Kirki\Field\Typography(
 
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'kadim_logo_alternative_darkmode_color',
-		'label'       => __( 'Alternative Logo Dark Scheme color', 'kadim' ),
+		'settings'    => 'rouh_logo_alternative_darkmode_color',
+		'label'       => __( 'Alternative Logo Dark Scheme color', 'rouh' ),
 		'section'     => 'title_tagline',
 		'default'     => '#ffffff',
 		'priority'    => 90,
@@ -166,18 +166,18 @@ new \Kirki\Field\Color(
 
 
 new \Kirki\Section(
-	'kadim_typography',
+	'rouh_typography',
 	[
 		'priority'    => 1,
-		'title'       => esc_html__( 'Typography', 'kadim' ),
+		'title'       => esc_html__( 'Typography', 'rouh' ),
 	]
 );
 
 new \Kirki\Field\Slider(
 	[
-		'settings'    => 'kadim_root_fontsize',
-		'label'       => esc_html__( 'Font size', 'kadim' ),
-		'section'     => 'kadim_typography',
+		'settings'    => 'rouh_root_fontsize',
+		'label'       => esc_html__( 'Font size', 'rouh' ),
+		'section'     => 'rouh_typography',
 		'default'     => 1,
 		'priority'	  => 10,
 		'choices'     => [
@@ -199,40 +199,35 @@ new \Kirki\Field\Slider(
 	]
 );
 
+$font_choices = rouh_supported_body_fonts();
+$choices = [];
 
+foreach($font_choices as $key => $font_data):
+	$choices[$key] = $font_data["label"];
+endforeach;
 
 new \Kirki\Field\Select(
 	[
-		'settings'    => 'kadim_body_typography',
-		'label'       => esc_html__( 'Body Typography', 'kadim' ),
-		'section'     => 'kadim_typography',
-		'default'     => 'Poppins',
-		'priority'    => 20,
-		'transport'   => 'refresh',
+		'settings'    	=> 'rouh_body_typography',
+		'label'       	=> esc_html__( 'Body Typography', 'rouh' ),
+		'section'     	=> 'rouh_typography',
+		'default'     	=> ( is_rtl() ? 'alexandaria' : 'poppins' ),
+		'priority'    	=> 20,
+		'transport'   	=> 'refresh',
+		'choices' 		=> $choices
 
-		'choices' => [ 
-			'Roboto'	=>	__( 'Roboto', 'kadim' ),
-			'Raleway'	=>	__( 'Raleway', 'kadim' ),
-			'Nunito'	=>	__( 'Nunito', 'kadim' ),
-			'Poppins'	=>	__( 'Poppins', 'kadim' ),
-			'Cairo'	=>	__( 'Cairo', 'kadim' ),
-			'Alexandria'	=>	__( 'Alexandria', 'kadim' ),
-			// 'Quicksand'	=>	__( 'Quicksand', 'kadim' ),
-			// 'Noto Serif'	=>	__( 'Noto Serif', 'kadim' ),
-			// 'Noto Sans'	=>	__( 'Noto Sans', 'kadim' ),
-		],
 	]
 );
 
 new \Kirki\Field\Typography(
 	[
-		'settings'    => 'kadim_headings_typography',
-		'label'       => esc_html__( 'Headings Typography', 'kadim' ),
-		'section'     => 'kadim_typography',
+		'settings'    => 'rouh_headings_typography',
+		'label'       => esc_html__( 'Headings Typography', 'rouh' ),
+		'section'     => 'rouh_typography',
 		'priority'    => 30,
 		'transport'   => 'refresh',
 		'default'     => [
-			'font-family'	=>	'DM Serif Display',
+			'font-family'	=>	( is_rtl() ? 'Amiri' : 'DM Serif Display' ),
 		],
 
 	]
@@ -243,18 +238,18 @@ new \Kirki\Field\Typography(
 // =================== Slider =================== // 
 
 new \Kirki\Section(
-	'kadim_slider',
+	'rouh_slider',
 	[
 		'priority'    => 3,
-		'title'       => esc_html__( 'Slider', 'kadim' ),
+		'title'       => esc_html__( 'Slider', 'rouh' ),
 	]
 );
 
 new \Kirki\Field\Toggle([
 
-	'settings'	=>	'kadim_slider_enabled',
-	'label'	=>	esc_html__( 'Slider Enabled', 'kadim' ),
-	'section' => 'kadim_slider',
+	'settings'	=>	'rouh_slider_enabled',
+	'label'	=>	esc_html__( 'Slider Enabled', 'rouh' ),
+	'section' => 'rouh_slider',
 	'default' => '1',
 	'priority' => 10
 
@@ -263,18 +258,18 @@ new \Kirki\Field\Toggle([
 
 new Kirki\Field\Select(
 	[
-		'settings'    => 'kadim_slider_category',
-		'label'       => __( 'Choose featured posts category ', 'kadim' ),
-		'section'     => 'kadim_slider',
-		'default'     => 'uncategorized',
+		'settings'    => 'rouh_slider_category',
+		'label'       => __( 'Choose featured posts category ', 'rouh' ),
+		'section'     => 'rouh_slider',
+		'default'     => [ 1 ],
 		'priority'    => 20,
 		'multiple'    => 10,
-		'placeholder' => __( 'Select a category', 'kadim' ),
+		'placeholder' => __( 'Select a category', 'rouh' ),
 		'choices'     => Kirki\Util\Helper::get_terms( [ 'taxonomy' => 'category' ] ),
 		'active_callback'	=> [
 
 			[
-				'setting'	=> 'kadim_slider_enabled',
+				'setting'	=> 'rouh_slider_enabled',
 				'operator' => '==',
 				'value'	=>	true
 			],
@@ -285,16 +280,16 @@ new Kirki\Field\Select(
 
 new Kirki\Field\Text([
 
-	'settings'	=>	'kadim_slider_title',
-	'label'    => esc_html__( 'Title', 'kadim' ),
-	'section'  => 'kadim_slider',
-	'default'  => esc_html__( 'Featured Posts', 'kadim' ),
+	'settings'	=>	'rouh_slider_title',
+	'label'    => esc_html__( 'Title', 'rouh' ),
+	'section'  => 'rouh_slider',
+	'default'  => esc_html__( 'Featured Posts', 'rouh' ),
 	'priority' => 30,
 	'sanitize_callback' => "trim", 
 	'active_callback'	=> [
 
 		[
-			'setting'	=> 'kadim_slider_enabled',
+			'setting'	=> 'rouh_slider_enabled',
 			'operator' => '==',
 			'value'	=>	true
 		],
@@ -308,10 +303,10 @@ new Kirki\Field\Text([
 
 new \Kirki\Section(
 
-	'kadim_notice',
+	'rouh_notice',
 	  [
 		  'priority'    => 2,
-		  'title'       => esc_html__( 'Notice', 'kadim' ),
+		  'title'       => esc_html__( 'Notice', 'rouh' ),
 	  ]
   
   );
@@ -319,9 +314,9 @@ new \Kirki\Section(
 
 new \Kirki\Field\Toggle(
 	[
-		'settings'    => 'kadim_notice_status',
-		'label'       => esc_html__( 'Show notice', 'kadim' ),
-		'section'     => 'kadim_notice',
+		'settings'    => 'rouh_notice_status',
+		'label'       => esc_html__( 'Show notice', 'rouh' ),
+		'section'     => 'rouh_notice',
 		'default'     => '1',
 		'priority'    => 10,
 	]
@@ -330,16 +325,16 @@ new \Kirki\Field\Toggle(
 
 new \Kirki\Field\Editor(
 	[
-		'settings' => 'kadim_notice_content',
-		'label'    => esc_html__( 'Notice', 'kadim' ),
-		'section'  => 'kadim_notice',
-		'default'  => esc_html__( 'Lorem Ipsum is simply dummy text of the printing and typesetting', 'kadim' ),
+		'settings' => 'rouh_notice_content',
+		'label'    => esc_html__( 'Notice', 'rouh' ),
+		'section'  => 'rouh_notice',
+		'default'  => esc_html__( 'Lorem Ipsum is simply dummy text of the printing and typesetting', 'rouh' ),
 		'priority' => 20,
 
     'active_callback' => [
       
       [
-        'setting'  => 'kadim_notice_status',
+        'setting'  => 'rouh_notice_status',
         'operator' => '==',
         'value'    => true,
       ]
@@ -353,15 +348,15 @@ new \Kirki\Field\Editor(
 new \Kirki\Field\Color(
 	[
 		'settings'    => 'notice_background_color',
-		'label'       => __( 'Notice background color', 'kadim' ),
-		'section'     => 'kadim_notice',
+		'label'       => __( 'Notice background color', 'rouh' ),
+		'section'     => 'rouh_notice',
 		'default'     => '#c2ece7',
 		'priority'    => 30,
     
     'active_callback' => [
       
       [
-        'setting'  => 'kadim_notice_status',
+        'setting'  => 'rouh_notice_status',
         'operator' => '==',
         'value'    => true,
       ]
@@ -384,9 +379,9 @@ new \Kirki\Field\Color(
 
 new \Kirki\Field\Typography(
 	[
-		'settings'    => 'kadim_notice_typography',
-		'label'       => esc_html__( 'Notice Typography', 'kirki' ),
-		'section'     => 'kadim_notice',
+		'settings'    => 'rouh_notice_typography',
+		'label'       => esc_html__( 'Notice Typography', 'rouh' ),
+		'section'     => 'rouh_notice',
 		'priority'    => 40,
 		'transport'   => 'auto',
 		'default'     => [
@@ -408,7 +403,7 @@ new \Kirki\Field\Typography(
     'active_callback' => [
       
       [
-        'setting'  => 'kadim_notice_status',
+        'setting'  => 'rouh_notice_status',
         'operator' => '==',
         'value'    => true,
       ]
@@ -424,26 +419,26 @@ new \Kirki\Field\Typography(
 
 new \Kirki\Section(
 
-	'kadim_footer',
+	'rouh_footer',
 	[
 		'priority'    => 5,
-		'title'       => esc_html__( 'Footer', 'kadim' ),
+		'title'       => esc_html__( 'Footer', 'rouh' ),
 	]
 
 );
 
 new \Kirki\Field\Text(
 	[
-		'settings' => 'kadim_instagram_account_token',
-		'label'    => esc_html__( 'Instagram Token', 'kadim' ),
-		'section'  => 'kadim_footer',
+		'settings' => 'rouh_instagram_account_token',
+		'label'    => esc_html__( 'Instagram Token', 'rouh' ),
+		'section'  => 'rouh_footer',
 		'priority' => 10,
 		'description' => 
 		sprintf(
 			"%s <a href='%s' target='_blank'>%s</a>",
-			esc_html__( "Don't have an instagram token ?", "kadim" ),
+			esc_html__( "Don't have an instagram token ?", "rouh" ),
 			"https://spotlightwp.com/access-token-generator/",
-			esc_html__( "Generate Your's", "kadim" )
+			esc_html__( "Generate Your's", "rouh" )
 		)
 	]
 );
@@ -452,10 +447,10 @@ new \Kirki\Field\Text(
 
 new \Kirki\Field\Editor(
 	[
-		'settings' => 'kadim_copyright_sentence',
-		'label'    => esc_html__( 'Copyrights Phrase', 'kadim' ),
-		'section'  => 'kadim_footer',
-		'default'  => esc_html__( 'All Rights Reserved 2023', 'kadim' ),
+		'settings' => 'rouh_copyright_sentence',
+		'label'    => esc_html__( 'Copyrights Phrase', 'rouh' ),
+		'section'  => 'rouh_footer',
+		'default'  => esc_html__( 'All Rights Reserved 2023', 'rouh' ),
 		'priority' => 20,
 
 	]
@@ -467,123 +462,150 @@ new \Kirki\Field\Editor(
 
 
 new \Kirki\Panel(
-	'kadim_ads_panel',
+	'rouh_ads_panel',
 	[
 		'priority'    => 10,
-		'title'       => esc_html__( 'Ads', 'kadim' ),
-		'description' => esc_html__( 'Add ad scripts around the website.', 'kadim' ),
+		'title'       => esc_html__( 'Ads', 'rouh' ),
+		'description' => esc_html__( 'Add ad scripts around the website.', 'rouh' ),
 	]
 );
 
 // [ homepage ]
 
 new \Kirki\Section(
-	'kadim_ads_home',
+	'rouh_ads_home',
 	[
-		'title'       => esc_html__( 'Homepage Ads', 'kadim' ),
-		'description' => esc_html__( 'Manage ads on the blog homepage', 'kadim' ),
-		'panel'       => 'kadim_ads_panel',
+		'title'       => esc_html__( 'Homepage Ads', 'rouh' ),
+		'description' => esc_html__( 'Manage ads on the blog homepage', 'rouh' ),
+		'panel'       => 'rouh_ads_panel',
 		'priority'    => 10,
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_home_top_desktop',
-		'label'       => esc_html__( 'Top page desktop ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_home',
+		'settings'    => 'rouh_ads_home_top_desktop',
+		'label'       => esc_html__( 'Top page desktop ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_home',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_home_top_mobile',
-		'label'       => esc_html__( 'Top page mobile ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_home',
+		'settings'    => 'rouh_ads_home_top_mobile',
+		'label'       => esc_html__( 'Top page mobile ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_home',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_home_bottom_desktop',
-		'label'       => esc_html__( 'Bottom page desktop ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_home',
+		'settings'    => 'rouh_ads_home_bottom_desktop',
+		'label'       => esc_html__( 'Bottom page desktop ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_home',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_home_bottom_mobile',
-		'label'       => esc_html__( 'Bottom page mobile ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_home',
+		'settings'    => 'rouh_ads_home_bottom_mobile',
+		'label'       => esc_html__( 'Bottom page mobile ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_home',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 // [ article ]
 
 new \Kirki\Section(
-	'kadim_ads_single',
+	'rouh_ads_single',
 	[
-		'title'       => esc_html__( 'Article page', 'kadim' ),
-		'description' => esc_html__( 'Manage ads on the article page', 'kadim' ),
-		'panel'       => 'kadim_ads_panel',
+		'title'       => esc_html__( 'Article page', 'rouh' ),
+		'description' => esc_html__( 'Manage ads on the article page', 'rouh' ),
+		'panel'       => 'rouh_ads_panel',
 		'priority'    => 10,
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_single_top_desktop',
-		'label'       => esc_html__( 'Top page desktop ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_single',
+		'settings'    => 'rouh_ads_single_top_desktop',
+		'label'       => esc_html__( 'Top page desktop ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_single',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_single_top_mobile',
-		'label'       => esc_html__( 'Top page mobile ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_single',
+		'settings'    => 'rouh_ads_single_top_mobile',
+		'label'       => esc_html__( 'Top page mobile ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_single',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_single_bottom_desktop',
-		'label'       => esc_html__( 'Bottom page desktop ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_single',
+		'settings'    => 'rouh_ads_single_bottom_desktop',
+		'label'       => esc_html__( 'Bottom page desktop ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_single',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_single_bottom_mobile',
-		'label'       => esc_html__( 'Bottom page mobile ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_single',
+		'settings'    => 'rouh_ads_single_bottom_mobile',
+		'label'       => esc_html__( 'Bottom page mobile ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_single',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
@@ -591,56 +613,69 @@ new \Kirki\Field\Editor(
 // [ author ]
 
 new \Kirki\Section(
-	'kadim_ads_author',
+	'rouh_ads_author',
 	[
-		'title'       => esc_html__( 'Author page', 'kadim' ),
-		'description' => esc_html__( 'Manage ads on the author page', 'kadim' ),
-		'panel'       => 'kadim_ads_panel',
+		'title'       => esc_html__( 'Author page', 'rouh' ),
+		'description' => esc_html__( 'Manage ads on the author page', 'rouh' ),
+		'panel'       => 'rouh_ads_panel',
 		'priority'    => 10,
+		
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_author_top_desktop',
-		'label'       => esc_html__( 'Top page desktop ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_author',
+		'settings'    => 'rouh_ads_author_top_desktop',
+		'label'       => esc_html__( 'Top page desktop ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_author',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_author_top_mobile',
-		'label'       => esc_html__( 'Top page mobile ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_author',
+		'settings'    => 'rouh_ads_author_top_mobile',
+		'label'       => esc_html__( 'Top page mobile ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_author',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_author_bottom_desktop',
-		'label'       => esc_html__( 'Bottom page desktop ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_author',
+		'settings'    => 'rouh_ads_author_bottom_desktop',
+		'label'       => esc_html__( 'Bottom page desktop ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_author',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_author_bottom_mobile',
-		'label'       => esc_html__( 'Bottom page mobile ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_author',
+		'settings'    => 'rouh_ads_author_bottom_mobile',
+		'label'       => esc_html__( 'Bottom page mobile ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_author',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
@@ -648,112 +683,139 @@ new \Kirki\Field\Editor(
 // [ category ]
 
 new \Kirki\Section(
-	'kadim_ads_category',
+	'rouh_ads_category',
 	[
-		'title'       => esc_html__( 'Category page', 'kadim' ),
-		'description' => esc_html__( 'Manage ads on the category page', 'kadim' ),
-		'panel'       => 'kadim_ads_panel',
+		'title'       => esc_html__( 'Category page', 'rouh' ),
+		'description' => esc_html__( 'Manage ads on the category page', 'rouh' ),
+		'panel'       => 'rouh_ads_panel',
 		'priority'    => 10,
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_category_top_desktop',
-		'label'       => esc_html__( 'Top page desktop ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_category',
+		'settings'    => 'rouh_ads_category_top_desktop',
+		'label'       => esc_html__( 'Top page desktop ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_category',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_category_top_mobile',
-		'label'       => esc_html__( 'Top page mobile ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_category',
+		'settings'    => 'rouh_ads_category_top_mobile',
+		'label'       => esc_html__( 'Top page mobile ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_category',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_category_bottom_desktop',
-		'label'       => esc_html__( 'Bottom page desktop ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_category',
+		'settings'    => 'rouh_ads_category_bottom_desktop',
+		'label'       => esc_html__( 'Bottom page desktop ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_category',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_category_bottom_mobile',
-		'label'       => esc_html__( 'Bottom page mobile ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_category',
+		'settings'    => 'rouh_ads_category_bottom_mobile',
+		'label'       => esc_html__( 'Bottom page mobile ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_category',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 // [ archive ]
 
 new \Kirki\Section(
-	'kadim_ads_archive',
+	'rouh_ads_archive',
 	[
-		'title'       => esc_html__( 'Archive page', 'kadim' ),
-		'description' => esc_html__( 'Manage ads on the archive page', 'kadim' ),
-		'panel'       => 'kadim_ads_panel',
+		'title'       => esc_html__( 'Archive page', 'rouh' ),
+		'description' => esc_html__( 'Manage ads on the archive page', 'rouh' ),
+		'panel'       => 'rouh_ads_panel',
 		'priority'    => 10,
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_archive_top_desktop',
-		'label'       => esc_html__( 'Top page desktop ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_archive',
+		'settings'    => 'rouh_ads_archive_top_desktop',
+		'label'       => esc_html__( 'Top page desktop ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_archive',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_archive_top_mobile',
-		'label'       => esc_html__( 'Top page mobile ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_archive',
+		'settings'    => 'rouh_ads_archive_top_mobile',
+		'label'       => esc_html__( 'Top page mobile ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_archive',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_archive_bottom_desktop',
-		'label'       => esc_html__( 'Bottom page desktop ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_archive',
+		'settings'    => 'rouh_ads_archive_bottom_desktop',
+		'label'       => esc_html__( 'Bottom page desktop ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_archive',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_archive_bottom_mobile',
-		'label'       => esc_html__( 'Bottom page mobile ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_archive',
+		'settings'    => 'rouh_ads_archive_bottom_mobile',
+		'label'       => esc_html__( 'Bottom page mobile ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_archive',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
@@ -761,112 +823,139 @@ new \Kirki\Field\Editor(
 // [ category ]
 
 new \Kirki\Section(
-	'kadim_ads_category',
+	'rouh_ads_category',
 	[
-		'title'       => esc_html__( 'Category page', 'kadim' ),
-		'description' => esc_html__( 'Manage ads on the category page', 'kadim' ),
-		'panel'       => 'kadim_ads_panel',
+		'title'       => esc_html__( 'Category page', 'rouh' ),
+		'description' => esc_html__( 'Manage ads on the category page', 'rouh' ),
+		'panel'       => 'rouh_ads_panel',
 		'priority'    => 10,
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_category_top_desktop',
-		'label'       => esc_html__( 'Top page desktop ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_category',
+		'settings'    => 'rouh_ads_category_top_desktop',
+		'label'       => esc_html__( 'Top page desktop ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_category',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_category_top_mobile',
-		'label'       => esc_html__( 'Top page mobile ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_category',
+		'settings'    => 'rouh_ads_category_top_mobile',
+		'label'       => esc_html__( 'Top page mobile ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_category',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
+		
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_category_bottom_desktop',
-		'label'       => esc_html__( 'Bottom page desktop ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_category',
+		'settings'    => 'rouh_ads_category_bottom_desktop',
+		'label'       => esc_html__( 'Bottom page desktop ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_category',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
+		
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_category_bottom_mobile',
-		'label'       => esc_html__( 'Bottom page mobile ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_category',
+		'settings'    => 'rouh_ads_category_bottom_mobile',
+		'label'       => esc_html__( 'Bottom page mobile ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_category',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
+		
 	]
 );
 
 // [ search ]
 
 new \Kirki\Section(
-	'kadim_ads_search',
+	'rouh_ads_search',
 	[
-		'title'       => esc_html__( 'Search page', 'kadim' ),
-		'description' => esc_html__( 'Manage ads on the search page', 'kadim' ),
-		'panel'       => 'kadim_ads_panel',
+		'title'       => esc_html__( 'Search page', 'rouh' ),
+		'description' => esc_html__( 'Manage ads on the search page', 'rouh' ),
+		'panel'       => 'rouh_ads_panel',
 		'priority'    => 10,
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_search_top_desktop',
-		'label'       => esc_html__( 'Top page desktop ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_search',
+		'settings'    => 'rouh_ads_search_top_desktop',
+		'label'       => esc_html__( 'Top page desktop ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_search',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_search_top_mobile',
-		'label'       => esc_html__( 'Top page mobile ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_search',
+		'settings'    => 'rouh_ads_search_top_mobile',
+		'label'       => esc_html__( 'Top page mobile ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_search',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_search_bottom_desktop',
-		'label'       => esc_html__( 'Bottom page desktop ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_search',
+		'settings'    => 'rouh_ads_search_bottom_desktop',
+		'label'       => esc_html__( 'Bottom page desktop ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_search',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_search_bottom_mobile',
-		'label'       => esc_html__( 'Bottom page mobile ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_search',
+		'settings'    => 'rouh_ads_search_bottom_mobile',
+		'label'       => esc_html__( 'Bottom page mobile ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_search',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
@@ -874,55 +963,67 @@ new \Kirki\Field\Editor(
 // [ page ]
 
 new \Kirki\Section(
-	'kadim_ads_page',
+	'rouh_ads_page',
 	[
-		'title'       => esc_html__( 'Pages', 'kadim' ),
-		'description' => esc_html__( 'Manage ads on the pages', 'kadim' ),
-		'panel'       => 'kadim_ads_panel',
+		'title'       => esc_html__( 'Pages', 'rouh' ),
+		'description' => esc_html__( 'Manage ads on the pages', 'rouh' ),
+		'panel'       => 'rouh_ads_panel',
 		'priority'    => 10,
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_page_top_desktop',
-		'label'       => esc_html__( 'Top page desktop ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_page',
+		'settings'    => 'rouh_ads_page_top_desktop',
+		'label'       => esc_html__( 'Top page desktop ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_page',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_page_top_mobile',
-		'label'       => esc_html__( 'Top page mobile ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_page',
+		'settings'    => 'rouh_ads_page_top_mobile',
+		'label'       => esc_html__( 'Top page mobile ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_page',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_page_bottom_desktop',
-		'label'       => esc_html__( 'Bottom page desktop ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_page',
+		'settings'    => 'rouh_ads_page_bottom_desktop',
+		'label'       => esc_html__( 'Bottom page desktop ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_page',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );
 
 
-new \Kirki\Field\Editor(
+new \Kirki\Field\Code(
 	[
-		'settings'    => 'kadim_ads_page_bottom_mobile',
-		'label'       => esc_html__( 'Bottom page mobile ad', 'kadim' ),
-		'description' => esc_html__( 'insert the code for the ad.', 'kadim' ),
-		'section'     => 'kadim_ads_page',
+		'settings'    => 'rouh_ads_page_bottom_mobile',
+		'label'       => esc_html__( 'Bottom page mobile ad', 'rouh' ),
+		'description' => esc_html__( 'insert the code for the ad.', 'rouh' ),
+		'section'     => 'rouh_ads_page',
 		'default'     => '',
+		'choices'     => [
+			'language' => 'html',
+		],
 	]
 );

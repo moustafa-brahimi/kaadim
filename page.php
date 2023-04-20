@@ -8,7 +8,15 @@
 <?php if( have_posts() ): ?>
 
     <div class="container">
-        
+
+    <?php
+        get_template_part( "template-parts/ad",  "", [
+            "desktop"   => "rouh_ads_page_top_desktop",
+            "mobile"    => "rouh_ads_page_top_mobile",
+            "class"     =>  "single__top"
+        ] ); 
+    ?>
+
     <?php while( have_posts() ): ?>
 
         <?php the_post(); ?>
@@ -19,7 +27,19 @@
     <?php endwhile; ?>
 
         
+    
+    <?php
+        get_template_part( "template-parts/ad",  "", [
+            "desktop"   => "rouh_ads_page_bottom_desktop",
+            "mobile"    => "rouh_ads_page_bottom_mobile",
+            "class"     =>  "single__bottom"
+
+        ] ); 
+    ?>
+
     </div>
+
+    
 
 <?php endif; ?>
 

@@ -1,5 +1,5 @@
-.kadim-footer {
-  margin-top: 210px;
+.rouh-footer {
+  margin-top: 80px;
   background-color: var(--gray-90);
   position: relative;
   width: 100%;
@@ -29,6 +29,3 @@
     font-size: 0.86rem;
   }
 }
-
-
-

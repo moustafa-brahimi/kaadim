@@ -10,20 +10,11 @@
 
         <?php $post_thumbnail_id    =   get_post_thumbnail_id( get_the_ID() ); ?>
 
-        <?php $macro                =   get_the_post_thumbnail_url( get_the_ID(), 'kadim-macro' ); ?>
-        <?php $full_thumbnail       =   get_the_post_thumbnail_url( get_the_ID(), "kadim-full-width-post-thumbnail" ); ?>
+        <?php $macro                =   get_the_post_thumbnail_url( get_the_ID(), 'rouh-macro' ); ?>
+        <?php $full_thumbnail       =   get_the_post_thumbnail_url( get_the_ID(), "rouh-full-width-post-thumbnail" ); ?>
 
         <?php $meta_data            =   wp_get_attachment_metadata( $post_thumbnail_id ); ?>
 
-        <?php $thumbnail            =   wp_get_attachment_image( $post_thumbnail_id, "kadim-macro", false, [
-
-            "data-loading-method"   =>  "macro",
-            "data-image-macro"      =>  esc_url( $macro ),
-            "src"                   =>  esc_url( $macro ),
-            "data-image"            =>  esc_url( $full_thumbnail ),
-            "class"                 =>  'image',
-
-        ] ); ?>
 
         <div class="post-card__thumbnail">                        
 
@@ -37,6 +28,8 @@
                 src="<?php echo esc_attr( $macro ); ?>"
                 data-image="<?php echo esc_attr( $full_thumbnail ); ?>"
                 class="<?php echo 'image'; ?>"
+                alt="<?php echo $meta_data[ "image_meta" ][ "title" ]; ?>" 
+
 
             />
 
@@ -68,7 +61,7 @@
 
             $current_time       =   time();
             $post_published     =   get_the_date('U');  
-            $date               =   sprintf( esc_html__( '%1$s ago', 'evy' ), human_time_diff( $post_published, $current_time ) );
+            $date               =   sprintf( esc_html__( '%1$s ago', 'rouh' ), human_time_diff( $post_published, $current_time ) );
 
         ?>
 
@@ -104,7 +97,7 @@
                 <span> 
 
                     <i class="fa-solid fa-tags post-card__tags__icon"></i>
-                    <?php _e( 'Tags', 'kadim' ); ?>
+                    <?php _e( 'Tags', 'rouh' ); ?>
                 
                 </span>
 
@@ -132,7 +125,7 @@
 
         <a class="readmore post-card__readmore" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
 
-            <?php $button_text  =   esc_html( __( 'Continue reading', 'kadim' ) ); ?>
+            <?php $button_text  =   esc_html( __( 'Continue reading', 'rouh' ) ); ?>
 
             <span class="readmore__label"> <?php echo $button_text; ?> </span>
             <span aria-hidden="true" class="readmore__label readmore__label--secondary"> <?php echo $button_text; ?> </span>

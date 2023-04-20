@@ -51,9 +51,18 @@
     opacity: 0;
     z-index: 1;
 
+    &--sun {
+
+      background: svg-load('../../../img/sun.svg');
+      background-size: cover;
+
+    }
+
     &--moon {
       fill: var(--black);
       transform: translateX(-2px);
+      background: svg-load('../../../img/moon.svg');
+      background-size: cover;
     }
 
     .btn-scheme--to-light &--sun {
@@ -121,6 +130,20 @@
     transition: all var(--short-duration) easeOutQuart;
     transition-delay: 0;
     transform: translateX(-100%);
+
+    &--style-1 {
+      background: svg-load('../../../img/cloud1.svg');
+      background-size: cover;
+      width: 18px;
+      height: 10px;
+    }
+
+    &--style-2 {
+      background: svg-load('../../../img/cloud2.svg');
+      background-size: cover;
+      width: 12px;
+      height: 8px;
+    }
 
     &:nth-of-type(2) {
       bottom: 0;

@@ -28,7 +28,7 @@ input[type="submit"] {
   cursor: pointer;
   border: none;
 }
-.kadim-btn {
+.rouh-btn {
   color: var(--accent-text-color);
   background: var(--accent-color);
   box-shadow: 5px 6px var(--accent-text-color);
@@ -132,9 +132,9 @@ input[type="submit"] {
   }
 }
 
-.kadim-posts {
+.rouh-posts {
   &__loadmore {
-    margin: 0 auto;
+    margin: 0 auto 50px;
     display: block;
     padding: 1rem 2rem;
     text-transform: uppercase;

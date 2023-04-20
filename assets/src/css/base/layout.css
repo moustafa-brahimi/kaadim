@@ -6,7 +6,7 @@
   margin-left: auto;
 }
 
-.kadim-posts {
+.rouh-posts {
   display: flex;
   flex-direction: column;
   row-gap: 36px;
@@ -45,11 +45,10 @@ img {
 }
 
 @media (max-width: 768px) {
-
 }
 
 @media (max-width: 580px) {
-  .kadim-posts {
+  .rouh-posts {
     row-gap: 2px;
     background-color: var(--accent-text-color);
   }
@@ -57,4 +56,3 @@ img {
 
 @media (max-width: 420px) {
 }
-

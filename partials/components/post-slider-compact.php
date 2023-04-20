@@ -1,6 +1,6 @@
 <?php 
 /**
- * @package kadim
+ * @package rouh
  * @since 1.0.0
  * The Parallax Slider Post Template
  */
@@ -13,10 +13,10 @@
 <article <?php post_class( "compact-post js-slider-item compact-post--$height" ); ?>>
 
     <?php $post_thumbnail_id    =   get_post_thumbnail_id( $post ); ?>
-    <?php $macro                =   get_the_post_thumbnail_url( get_the_ID(), 'kadim-macro' ); ?>
+    <?php $macro                =   get_the_post_thumbnail_url( get_the_ID(), 'rouh-macro' ); ?>
     <?php $meta_data            =   wp_get_attachment_metadata( $post_thumbnail_id ); ?>
 
-    <?php $full_thumbnail       =   get_the_post_thumbnail_url( get_the_ID(), "kadim-compact-slider-$height" ); ?>
+    <?php $full_thumbnail       =   get_the_post_thumbnail_url( get_the_ID(), "rouh-compact-slider-$height" ); ?>
 
     <img 
 
@@ -27,6 +27,7 @@
         src="<?php echo esc_attr( $macro ); ?>"
         data-image="<?php echo esc_attr( $full_thumbnail ); ?>"
         class="<?php echo 'image'; ?>"
+        alt="<?php echo $meta_data[ "image_meta" ][ "title" ]; ?>" 
 
     />
 
@@ -47,7 +48,7 @@
 
         <a class="compact-post__permalink js-post-permalink" href="<?php the_permalink(); ?>" >
 
-            <h3 class="compact-post__title js-post-title"><?php the_title(); ?></h3>
+            <h1 class="compact-post__title js-post-title"><?php the_title(); ?></h1>
 
         </a>
 
@@ -68,29 +69,12 @@
             </a>
 
             
-            <?php $format   =   get_theme_mod( "evy_slider_post_date_format", 'diffrence' ); ?>
 
             <?php 
             
-            switch( $format ): 
-
-                case 'diffrence':
-                    $current_time       =   time();
-                    $post_published     =   get_the_date('U');  
-                    $date               =   sprintf( esc_html__( '%1$s ago', 'evy' ), human_time_diff( $post_published, $current_time ) );
-                break;
-                
-                case 'custom':
-                    $custom_format  =   get_theme_mod( 'evy_slider_post_date_custom_format' );
-                    $date           =   get_the_date( $custom_format );
-
-                break;
-
-                default:
-                    $date   =   get_the_date( $format );
-                break;
-
-            endswitch;
+                $current_time       =   time();
+                $post_published     =   get_the_date('U');  
+                $date               =   sprintf( esc_html__( '%1$s ago', 'rouh' ), human_time_diff( $post_published, $current_time ) );
 
             ?>
             

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Kadim\n"
-"POT-Creation-Date: 2023-04-16 03:00+0100\n"
-"PO-Revision-Date: 2023-04-16 03:09+0100\n"
+"Project-Id-Version: rouh\n"
+"POT-Creation-Date: 2023-04-17 00:49+0100\n"
+"PO-Revision-Date: 2023-04-17 03:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -22,50 +22,50 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: 404.php:21
-msgid "Oops ! page not found"
-msgstr "عذرا ! الصفحة التي تبحث عنها غير موجودة"
-
 #: 404.php:22
+msgid "Oops ! page not found"
+msgstr "عذرا ! الصفحة غير موجودة"
+
+#: 404.php:23
 msgid ""
 "Sorry, but the page you are looking for was moved, removed, renamed or might "
 "never existed..."
 msgstr ""
-"عذرا , الصفحة التي تبحث عنها نقلت, حذفت أو تم تغيير اسمها أو لم يتم إنشاءها "
-"اطلاقا"
+"عذرا, لاكن الصفحة التي تبحث عنها تم نقلها, حذفها. أعادة تسميتها أو لم تنشأ "
+"من الأساس..."
 
-#: 404.php:24 archive.php:20 author.php:19 category.php:29 search.php:22
+#: 404.php:25 archive.php:19 author.php:20 category.php:28 search.php:21
 #: template-parts/single/content.php:27
 msgid "Home"
 msgstr "الرئيسية"
 
-#: 404.php:25
+#: 404.php:26
 msgid "Go back home"
-msgstr "العودة للصفحة الرئيسية"
+msgstr "عودة للصفحة الرئيسية"
 
-#: archive.php:18 author.php:17 category.php:27 search.php:20
+#: archive.php:17 author.php:18 category.php:26 search.php:19
 msgid "home"
 msgstr "الرئيسية"
 
-#: archive.php:27
+#: archive.php:26
 msgid "Date"
 msgstr "التاريخ"
 
-#: archive.php:31
+#: archive.php:30
 msgid "Tag"
-msgstr ""
+msgstr "وسم"
 
-#: author.php:23
+#: author.php:24
 msgid "Author"
 msgstr "كاتب"
 
-#: category.php:35
+#: category.php:34
 msgid "Category"
 msgstr "تصنيف"
 
 #: comments.php:28
 msgid "No comments yet! let's start by yours"
-msgstr "لا يوجد تعليقات ! لنبدأ بتعليق من عندك"
+msgstr ""
 
 #. translators: %s: Post title.
 #: comments.php:31
@@ -79,10 +79,10 @@ msgstr "رد واحد على \"%s\""
 msgctxt "comments title"
 msgid "%1$s reply on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s replies on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
+msgstr[0] "%1$s رد على \"%2$s\""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] "%s ردود على \"%\""
+msgstr[2] "%1$s ردين على \"%2$s\""
+msgstr[3] "%s ردود على \"%s\""
 msgstr[4] "%s رد على \"%s\""
 msgstr[5] ""
 
@@ -96,7 +96,7 @@ msgstr "تعليقات أقدم"
 
 #: comments.php:81
 msgid "Comments"
-msgstr "التعليقات"
+msgstr "تعليقات"
 
 #: comments.php:117
 msgid "Comments are closed"
@@ -108,8 +108,8 @@ msgstr "أغلق نافذة البحث"
 
 #: footer.php:38
 #, php-format
-msgid "All rights reserved to kadim %s"
-msgstr "كل الحقوق مجفوظة لقادم"
+msgid "All rights reserved to rouh %s"
+msgstr "كل الحقوق محفوظة لقالب قادم %s"
 
 #: functions.php:50
 msgid "Kirki Customizer Framework"
@@ -129,15 +129,15 @@ msgstr ""
 
 #: functions.php:346
 msgid "Blog sidebar"
-msgstr ""
+msgstr "السايدبار"
 
 #: functions.php:348
 msgid "Blog sidebar widgets"
-msgstr ""
+msgstr "ويدجات القائمة الجانبية"
 
 #: functions.php:361
 msgid "Footer Center"
-msgstr ""
+msgstr "الفوتر الأوسط"
 
 #: functions.php:363
 msgid "Centre Footer widget position."
@@ -146,96 +146,96 @@ msgstr ""
 #: functions.php:492
 msgid "Minute"
 msgid_plural "Minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "دقيقة"
+msgstr[1] "دقيقة"
+msgstr[2] "دقيقتان"
+msgstr[3] "دقائق"
+msgstr[4] "دقيقة"
+msgstr[5] "دقيقة"
 
 #: functions.php:505
 msgid "Facebook"
-msgstr ""
+msgstr "فيسبوك"
 
 #: functions.php:510
 msgid "Instagram"
-msgstr ""
+msgstr "انستجرام"
 
 #: functions.php:515
 msgid "Twitter"
-msgstr ""
+msgstr "تويتر"
 
 #: functions.php:520
 msgid "LinkedIn"
-msgstr ""
+msgstr "لينكد إن"
 
 #: functions.php:524
 msgid "Discord"
-msgstr ""
+msgstr "ديسكورد"
 
 #: functions.php:528
 msgid "Pinterest"
-msgstr ""
+msgstr "بينتراست"
 
 #: functions.php:532
 msgid "Behance"
-msgstr ""
+msgstr "بيهانس"
 
 #: functions.php:536
 msgid "Youtube"
-msgstr ""
+msgstr "يوتيوب"
 
 #: functions.php:556
 msgid "Author Socials"
-msgstr ""
+msgstr "الوسائط الاجتماعية للكاتب"
 
 #: includes/customizer.php:11
 msgid "Color"
-msgstr ""
+msgstr "اللون"
 
 #: includes/customizer.php:18
 msgid "Accent color"
-msgstr ""
+msgstr "لون الموقع"
 
 #: includes/customizer.php:19
 msgid "preferably light color"
-msgstr ""
+msgstr "من المفضل لون فاتح"
 
 #: includes/customizer.php:39
 msgid "Accent text color"
-msgstr ""
+msgstr "لون المميز للنصوص"
 
 #: includes/customizer.php:40
 msgid "preferably a darker shade of the chosen accent color"
-msgstr ""
+msgstr "يفضل أن يكون تدرج أقتم من اللون الأساسي"
 
 #: includes/customizer.php:64
 msgid "Logo height"
-msgstr ""
+msgstr "ارتفاع الشعار"
 
 #: includes/customizer.php:90
 msgid "Dark mode Logo"
-msgstr ""
+msgstr "شعار الوضع الليلي"
 
 #: includes/customizer.php:105
 msgid "Alternative Logo Typography"
-msgstr ""
+msgstr "إعدادات الخط لبديل الشعار"
 
 #: includes/customizer.php:139
 msgid "Alternative Logo Dark Scheme color"
-msgstr ""
+msgstr "لون الشعار البديل للوضع الليلي"
 
 #: includes/customizer.php:172
 msgid "Typography"
-msgstr ""
+msgstr "إعدادات الخطوط"
 
 #: includes/customizer.php:179
 msgid "Font size"
-msgstr ""
+msgstr "حجم الخط"
 
 #: includes/customizer.php:207
 msgid "Body Typography"
-msgstr ""
+msgstr "خط الموقع"
 
 #: includes/customizer.php:214
 msgid "Roboto"
@@ -263,102 +263,216 @@ msgstr ""
 
 #: includes/customizer.php:230
 msgid "Headings Typography"
-msgstr ""
+msgstr "خط العناوين"
 
 #: includes/customizer.php:249
 msgid "Slider"
-msgstr ""
+msgstr "السلايدر"
 
 #: includes/customizer.php:256
 msgid "Slider Enabled"
-msgstr ""
+msgstr "السلايرد مفعل"
 
 #: includes/customizer.php:267
 msgid "Choose featured posts category "
-msgstr ""
+msgstr "إختر تصنيف ليظهر على السلايدر"
 
 #: includes/customizer.php:272
 msgid "Select a category"
-msgstr ""
+msgstr "إختر التصنيفات"
 
 #: includes/customizer.php:289
 msgid "Title"
-msgstr ""
+msgstr "العنوان"
 
 #: includes/customizer.php:291 partials/slider-compact.php:34
 msgid "Featured Posts"
-msgstr ""
+msgstr "مقالات مختارة"
 
 #: includes/customizer.php:314 includes/customizer.php:334
 msgid "Notice"
-msgstr ""
+msgstr "الملاحظة العلوية"
 
 #: includes/customizer.php:323
 msgid "Show notice"
-msgstr ""
+msgstr "إظهار الملاحظة"
 
 #: includes/customizer.php:336 template-parts/notice.php:8
 msgid "Lorem Ipsum is simply dummy text of the printing and typesetting"
-msgstr ""
+msgstr "تنبيه هذا مجرد مثال لنص ملاحظة"
 
 #: includes/customizer.php:356
 msgid "Notice background color"
-msgstr ""
+msgstr "لون خلفية الملاحظة"
 
 #: includes/customizer.php:388
 msgid "Notice Typography"
-msgstr ""
+msgstr "إعدادات خط الملاحظة"
 
 #: includes/customizer.php:430
 msgid "Footer"
-msgstr ""
+msgstr "ذيل القالب"
 
 #: includes/customizer.php:438
 msgid "Instagram Token"
-msgstr ""
+msgstr "توكن حسابك على الانستقرام"
 
 #: includes/customizer.php:444
 msgid "Don't have an instagram token ?"
-msgstr ""
+msgstr "ليس لديك توكن إنستقرام ؟"
 
 #: includes/customizer.php:446
 msgid "Generate Your's"
-msgstr ""
+msgstr "أنشئ واجدا"
 
 #: includes/customizer.php:456
 msgid "Copyrights Phrase"
-msgstr ""
+msgstr "جملة الحقوق"
 
 #: includes/customizer.php:458
 msgid "All Rights Reserved 2023"
-msgstr ""
+msgstr "كل الحقوق محفوظة 2023"
 
-#: index.php:32
-msgid "Load more"
-msgstr ""
+#: includes/customizer.php:473
+msgid "Ads"
+msgstr "الإعلانات"
 
-#: partials/components/button-color-scheme.php:1
-msgid "Switch Color Scheme"
-msgstr ""
+#: includes/customizer.php:474
+msgid "Add ad scripts around the website."
+msgstr "أضف إعلانات في أرجاء موقعك"
 
-#: partials/components/post-slider-compact.php:80
-#: template-parts/content-post.php:71 template-parts/single/content.php:48
+#: includes/customizer.php:483
+msgid "Homepage Ads"
+msgstr "إعلانات الصفخة الرئيسية"
+
+#: includes/customizer.php:484
+msgid "Manage ads on the blog homepage"
+msgstr "إدارة إعلانات الصفحة الرئيسية"
+
+#: includes/customizer.php:494 includes/customizer.php:565
+#: includes/customizer.php:635 includes/customizer.php:704
+#: includes/customizer.php:775 includes/customizer.php:844
+#: includes/customizer.php:915 includes/customizer.php:984
+msgid "Top page desktop ad"
+msgstr "الإعلان العلوي لشاشات الكمبيوتر"
+
+#: includes/customizer.php:495 includes/customizer.php:509
+#: includes/customizer.php:523 includes/customizer.php:537
+#: includes/customizer.php:566 includes/customizer.php:580
+#: includes/customizer.php:594 includes/customizer.php:608
+#: includes/customizer.php:636 includes/customizer.php:650
+#: includes/customizer.php:664 includes/customizer.php:678
+#: includes/customizer.php:705 includes/customizer.php:719
+#: includes/customizer.php:733 includes/customizer.php:747
+#: includes/customizer.php:776 includes/customizer.php:790
+#: includes/customizer.php:804 includes/customizer.php:818
+#: includes/customizer.php:845 includes/customizer.php:859
+#: includes/customizer.php:874 includes/customizer.php:889
+#: includes/customizer.php:916 includes/customizer.php:930
+#: includes/customizer.php:944 includes/customizer.php:958
+#: includes/customizer.php:985 includes/customizer.php:999
+#: includes/customizer.php:1013 includes/customizer.php:1027
+msgid "insert the code for the ad."
+msgstr "أدخل كود الإعلان"
+
+#: includes/customizer.php:508 includes/customizer.php:579
+#: includes/customizer.php:649 includes/customizer.php:718
+#: includes/customizer.php:789 includes/customizer.php:858
+#: includes/customizer.php:929 includes/customizer.php:998
+msgid "Top page mobile ad"
+msgstr "الإعلان العلوي لشاشات الموبايل"
+
+#: includes/customizer.php:522 includes/customizer.php:593
+#: includes/customizer.php:663 includes/customizer.php:732
+#: includes/customizer.php:803 includes/customizer.php:873
+#: includes/customizer.php:943 includes/customizer.php:1012
+msgid "Bottom page desktop ad"
+msgstr "الإعلان السفلي لشاشات الكمبيوتر"
+
+#: includes/customizer.php:536 includes/customizer.php:607
+#: includes/customizer.php:677 includes/customizer.php:746
+#: includes/customizer.php:817 includes/customizer.php:888
+#: includes/customizer.php:957 includes/customizer.php:1026
+msgid "Bottom page mobile ad"
+msgstr "الإعلان السفلي لشاشات الموبايل"
+
+#: includes/customizer.php:551
+msgid "Article page"
+msgstr "صفحة المقال"
+
+#: includes/customizer.php:552
+msgid "Manage ads on the article page"
+msgstr "إدارة إعلانات صفحة المقال"
+
+#: includes/customizer.php:623
+msgid "Author page"
+msgstr "صفحة الكاتب"
+
+#: includes/customizer.php:624
+msgid "Manage ads on the author page"
+msgstr "إدارة الإعلانات على صفحة الكاتب"
+
+#: includes/customizer.php:693 includes/customizer.php:833
+msgid "Category page"
+msgstr "صفحة التصنيف"
+
+#: includes/customizer.php:694 includes/customizer.php:834
+msgid "Manage ads on the category page"
+msgstr "إدارة الإعلانات على صفحة التصنيف"
+
+#: includes/customizer.php:761
+msgid "Archive page"
+msgstr "صفحة الأرشيف"
+
+#: includes/customizer.php:762
+msgid "Manage ads on the archive page"
+msgstr "إدارة الإعلانات على صفحة الأرشيف"
+
+#: includes/customizer.php:904
+msgid "Search page"
+msgstr "صفحة البحث"
+
+#: includes/customizer.php:905
+msgid "Manage ads on the search page"
+msgstr "إدارة الإعلانات على صفحة البحث"
+
+#: includes/customizer.php:973
+msgid "Pages"
+msgstr "صفحات"
+
+#: includes/customizer.php:974
+msgid "Manage ads on the pages"
+msgstr "إدارة الإعلانات على الصفحات"
+
+#: includes/tgm/class-tgm-plugin-activation.php:334
+msgid "Install Required Plugins"
+msgstr "ثبت الإضافات اللازمة"
+
+#: includes/tgm/class-tgm-plugin-activation.php:335
+msgid "Install Plugins"
+msgstr "ثبت الإضافات"
+
+#. translators: %s: plugin name.
+#: includes/tgm/class-tgm-plugin-activation.php:337
 #, php-format
-msgid "%1$s ago"
-msgstr ""
+msgid "Installing Plugin: %s"
+msgstr "تثبيت الإضافة : %s"
 
-#: partials/slider-compact.php:150
-msgid "read more"
-msgstr ""
-
-#: search.php:27
-msgid "Search :"
-msgstr ""
-
-#: search.php:39
+#. translators: %s: plugin name.
+#: includes/tgm/class-tgm-plugin-activation.php:339
 #, php-format
-msgid "%d Post found for \"%s\""
-msgid_plural "%d Posts found for \"%s\""
+msgid "Updating Plugin: %s"
+msgstr "تحديث الإضافة : %s"
+
+#: includes/tgm/class-tgm-plugin-activation.php:340
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#. translators: 1: plugin name(s).
+#: includes/tgm/class-tgm-plugin-activation.php:343
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -366,80 +480,598 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
-#: search.php:46
-msgid "Search for something else ?"
+#. translators: 1: plugin name(s).
+#: includes/tgm/class-tgm-plugin-activation.php:349
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: plugin name(s).
+#: includes/tgm/class-tgm-plugin-activation.php:355
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: plugin name(s).
+#: includes/tgm/class-tgm-plugin-activation.php:361
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: plugin name(s).
+#: includes/tgm/class-tgm-plugin-activation.php:367
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: plugin name(s).
+#: includes/tgm/class-tgm-plugin-activation.php:373
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:378
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:383
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:388
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:392
+msgid "Return to Required Plugins Installer"
 msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:393
+#: includes/tgm/class-tgm-plugin-activation.php:920
+#: includes/tgm/class-tgm-plugin-activation.php:2626
+#: includes/tgm/class-tgm-plugin-activation.php:3673
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:394
+#: includes/tgm/class-tgm-plugin-activation.php:3252
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:395
+#: includes/tgm/class-tgm-plugin-activation.php:3045
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: plugin name.
+#: includes/tgm/class-tgm-plugin-activation.php:397
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: includes/tgm/class-tgm-plugin-activation.php:399
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+
+#. translators: 1: dashboard link.
+#: includes/tgm/class-tgm-plugin-activation.php:401
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:402
+msgid "Dismiss this notice"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:403
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:404
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:607
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:608
+msgid "Update Required"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:725
+msgid "Set the parent_slug config variable instead."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:1027
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:1027
+#: includes/tgm/class-tgm-plugin-activation.php:1030
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:1030
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:1214
+#: includes/tgm/class-tgm-plugin-activation.php:3041
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
+
+#. translators: %s: version number
+#: includes/tgm/class-tgm-plugin-activation.php:2075
+#, php-format
+msgid "TGMPA v%s"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2366
+msgid "Required"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2369
+msgid "Recommended"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2385
+msgid "WordPress Repository"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2388
+msgid "External Source"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2391
+msgid "Pre-Packaged"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2408
+msgid "Not Installed"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2412
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2414
+msgid "Active"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2420
+msgid "Required Update not Available"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2423
+msgid "Requires Update"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2426
+msgid "Update recommended"
+msgstr ""
+
+#. translators: 1: install status, 2: update status
+#: includes/tgm/class-tgm-plugin-activation.php:2435
+#, php-format
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#. translators: 1: number of plugins.
+#: includes/tgm/class-tgm-plugin-activation.php:2481
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: number of plugins.
+#: includes/tgm/class-tgm-plugin-activation.php:2485
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: number of plugins.
+#: includes/tgm/class-tgm-plugin-activation.php:2489
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. translators: 1: number of plugins.
+#: includes/tgm/class-tgm-plugin-activation.php:2493
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2575
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2583
+msgid "Installed version:"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2591
+msgid "Minimum required version:"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2603
+msgid "Available version:"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2626
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2640
+msgid "Plugin"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2641
+msgid "Source"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2642
+msgid "Type"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2646
+msgid "Version"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2647
+msgid "Status"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: includes/tgm/class-tgm-plugin-activation.php:2696
+#, php-format
+msgid "Install %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: includes/tgm/class-tgm-plugin-activation.php:2701
+#, php-format
+msgid "Update %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: includes/tgm/class-tgm-plugin-activation.php:2707
+#, php-format
+msgid "Activate %2$s"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2777
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2810
+msgid "Install"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2816
+msgid "Update"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2819
+msgid "Activate"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2850
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2852
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2893
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:2895
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:3001
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:3027
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:3251
+msgid "Plugin activation failed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: includes/tgm/class-tgm-plugin-activation.php:3591
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#. translators: 1: plugin name, 2: error message.
+#: includes/tgm/class-tgm-plugin-activation.php:3594
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: includes/tgm/class-tgm-plugin-activation.php:3596
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:3600
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: includes/tgm/class-tgm-plugin-activation.php:3602
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:3602
+#: includes/tgm/class-tgm-plugin-activation.php:3610
+msgid "Show Details"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:3602
+#: includes/tgm/class-tgm-plugin-activation.php:3610
+msgid "Hide Details"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:3603
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: includes/tgm/class-tgm-plugin-activation.php:3605
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:3608
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: includes/tgm/class-tgm-plugin-activation.php:3610
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: includes/tgm/class-tgm-plugin-activation.php:3611
+msgid "All installations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: includes/tgm/class-tgm-plugin-activation.php:3613
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: index.php:43
+msgid "Load more"
+msgstr "تحميل المزيد"
+
+#: partials/components/button-color-scheme.php:1
+msgid "Switch Color Scheme"
+msgstr "تبديل الألوان"
+
+#: partials/components/post-slider-compact.php:80
+#: template-parts/content-post.php:71 template-parts/single/content.php:48
+#, php-format
+msgid "%1$s ago"
+msgstr "قبل %1$s"
+
+#: partials/slider-compact.php:150
+msgid "read more"
+msgstr "إقرأ المزيد"
+
+#: search.php:26
+msgid "Search :"
+msgstr "بحث :"
+
+#: search.php:38
+#, php-format
+msgid "%d Post found for \"%s\""
+msgid_plural "%d Posts found for \"%s\""
+msgstr[0] "لم يتم العثور على أي نتيجة متعلقة ب \"%2$s\""
+msgstr[1] " مقال حول  \"%2$s\" "
+msgstr[2] "مقالين حول \"%2$s\""
+msgstr[3] "%d مقالات حول \"%2$d\""
+msgstr[4] "%d مقال حول \"%2$s\""
+msgstr[5] ""
+
+#: search.php:45
+msgid "Search for something else ?"
+msgstr "أتبحث عن شيء آخر"
 
 #: searchform.php:26
 msgid "Search&hellip;"
-msgstr ""
+msgstr "بحث&hellip;"
 
 #: searchform.php:27
 msgid "Search"
-msgstr ""
+msgstr "بحث"
 
 #: sidebar.php:25
 msgid "Close the sidebar"
-msgstr ""
+msgstr "أغلق القائمة الجانبية"
+
+#: template-parts/ad.php:34
+msgid "Ad"
+msgstr "إعلان"
 
 #: template-parts/content-post.php:107
 msgid "Tags"
-msgstr ""
+msgstr "وسوم"
 
 #: template-parts/content-post.php:135
 msgid "Continue reading"
-msgstr ""
+msgstr "تابع القراءة"
 
 #: template-parts/footer-instagram.php:72
 msgid "Mute/Unmute volume"
-msgstr ""
+msgstr "كتم/تشغيل الصوت"
 
 #: template-parts/footer-instagram.php:77
 msgid "Play/Pause video"
-msgstr ""
+msgstr "تشغيل/توقيف الفيديو"
 
 #: template-parts/footer-instagram.php:106
 #: template-parts/footer-instagram.php:112
 #: template-parts/footer-instagram.php:117
 #: template-parts/footer-instagram.php:122
 msgid "Follow on instagram"
-msgstr ""
+msgstr "تابعنا على الإنستجرام"
 
 #: template-parts/header-blog.php:50
 msgid "Expand side bar"
-msgstr ""
+msgstr "إفتح القائمة الجانبية"
 
 #: template-parts/header-blog.php:56
 msgid "Open search form"
-msgstr ""
+msgstr "إفتح نافذة البحث"
 
 #: template-parts/notice.php:11
 msgid "Collapse the notice"
-msgstr ""
+msgstr "أغلق الملاحظة"
+
+#: template-parts/posts-navigation-links.php:14
+msgid "Older posts"
+msgstr "مقالات أقدم"
+
+#: template-parts/posts-navigation-links.php:20
+msgid "Newer posts"
+msgstr "مقالات أحدث"
 
 #: template-parts/single/author-card.php:24
 msgid "Written By"
-msgstr ""
+msgstr "كتب من قبل"
 
 #: template-parts/single/author-card.php:79
 #, php-format
 msgid "See %d more Posts written by %s"
 msgid_plural "See %d more Posts written by %s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "تصفح %d مقالة إضافية من قبل %2s"
+msgstr[1] "تصفح %d مقالة إضافية من قبل %2$s"
+msgstr[2] "تصفح  (%d) مقالتين إضافيتين من قبل %2$s"
+msgstr[3] "تصفح %d مقالات إضافية من قبل %2s"
+msgstr[4] "تصفح %d مقالة إضافية من قبل %2s"
+msgstr[5] "تصفح %d مقالة إضافية من قبل %2s"
 
 #: template-parts/single/content.php:14
 msgid "This post is password protected"
-msgstr ""
+msgstr "هذا المقال محمي بكلمة مرور"
 
 #: template-parts/single/content.php:65
 msgid "Comment"
 msgid_plural "Comments"
-msgstr[0] ""
+msgstr[0] "تعليق"
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
@@ -448,19 +1080,19 @@ msgstr[5] ""
 
 #: template-parts/single/content.php:133
 msgid "Page"
-msgstr ""
+msgstr "الصفحة"
 
 #: template-parts/single/content.php:135
 msgid "Page %"
-msgstr ""
+msgstr "الصفحة %"
 
 #: template-parts/single/related-posts.php:37
 msgid "Related Posts"
-msgstr ""
+msgstr "مقالات متعلقة"
 
 #. Theme Name of the plugin/theme
-msgid "Kadim"
-msgstr ""
+msgid "rouh"
+msgstr "قادم"
 
 #. Theme URI of the plugin/theme
 msgid "https://wordpress.org/themes/twentytwenty/"
@@ -468,13 +1100,13 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Kadim ( قادم ) is a single page wordpress theme for coming soon websites, it "
-"comes with stylish and elegant demos"
+"rouh ( قادم ) is a single page wordpress theme for coming soon websites, "
+"it comes with stylish and elegant demos"
 msgstr ""
 
 #. Author of the plugin/theme
 msgid "Moustafa Brahimi"
-msgstr ""
+msgstr "مصطفى براهيمي"
 
 #. Author URI of the plugin/theme
 msgid "https://github.com/brahimi-mustapha"

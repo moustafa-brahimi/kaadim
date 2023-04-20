@@ -2,12 +2,12 @@
 <?php
 
 /**
- * @package kadim
+ * @package rouh
  * @since 1.0
  * footer instagram elemeent
  */
 
-$token = get_theme_mod( "kadim_instagram_account_token", false ); ?>
+$token = get_theme_mod( "rouh_instagram_account_token", false ); ?>
       
 
 <?php if( $token ): ?>
@@ -45,7 +45,7 @@ $token = get_theme_mod( "kadim_instagram_account_token", false ); ?>
                         
                       alt = "<?php $caption; ?>"
                       data-loading-method="macro"
-                      data-image="<?php esc_attr_e( $element["media_url"] ); ?>"
+                      data-image="<?php echo esc_attr( $element["media_url"] ); ?>"
                       class='image'
                     />
 
@@ -69,12 +69,12 @@ $token = get_theme_mod( "kadim_instagram_account_token", false ); ?>
 
                   </a>
 
-                  <button class="video__volume-control js-video-volume"  title="<?php esc_attr_e( "Mute/Unmute volume", "kadim" ); ?>">
+                  <button class="video__volume-control js-video-volume"  title="<?php esc_attr_e( "Mute/Unmute volume", "rouh" ); ?>">
                     <i class="icon muted-icon fa-solid fa-volume-off"></i>
                     <i class="icon unmuted-icon fa-solid fa-volume-high"></i>
                   </button>
 
-                  <button class="video__play-control js-video-play" title="<?php esc_attr_e( "Play/Pause video", "kadim" ); ?>">
+                  <button class="video__play-control js-video-play" title="<?php esc_attr_e( "Play/Pause video", "rouh" ); ?>">
                     <i class="icon play-icon fa-solid fa-fw fa-play"></i>
                     <i class="icon pause-icon fa-solid fa-fw fa-pause"></i>
                   </button>
@@ -100,26 +100,26 @@ $token = get_theme_mod( "kadim_instagram_account_token", false ); ?>
 
     </div>
 
-    <a class='kadim-btn instagram-grid__follow'
+    <a class='rouh-btn instagram-grid__follow'
     href='<?php printf( "https://www.instagram.com/%s", esc_attr( $profile['username'] ) ); ?>' 
     target='__blank'
-    title="<?php esc_attr_e( "Follow on instagram", "kadim" ); ?>"
+    title="<?php esc_attr_e( "Follow on instagram", "rouh" ); ?>"
     >
     
-      <div class="kadim-btn__container">
-        <span class="kadim-btn__label">
+      <div class="rouh-btn__container">
+        <span class="rouh-btn__label">
         <i class='icon fa-solid fa-square-plus'></i>
-        <?php esc_html_e( "Follow on instagram", "kadim" ); ?>
+        <?php esc_html_e( "Follow on instagram", "rouh" ); ?>
         </span>  
 
-        <span class="kadim-btn__label kadim-btn__label--secondary">
+        <span class="rouh-btn__label rouh-btn__label--secondary">
         <i class='icon fa-solid fa-square-plus'></i>
-        <?php esc_html_e( "Follow on instagram", "kadim" ); ?>
+        <?php esc_html_e( "Follow on instagram", "rouh" ); ?>
         </span>  
 
-        <span class="kadim-btn__label kadim-btn__label--placeholder">
+        <span class="rouh-btn__label rouh-btn__label--placeholder">
         <i class='icon fa-solid fa-square-plus'></i>
-        <?php esc_html_e( "Follow on instagram", "kadim" ); ?>
+        <?php esc_html_e( "Follow on instagram", "rouh" ); ?>
         </span>  
 
       </div>

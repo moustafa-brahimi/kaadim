@@ -34,7 +34,7 @@
             <h2 class="related-posts__title">
                 
                 <i class="icon fa-solid fa-fire"></i>
-                <?php esc_html_e( "Related Posts", "kadim" ); ?>
+                <?php esc_html_e( "Related Posts", "rouh" ); ?>
             
             </h2>
             

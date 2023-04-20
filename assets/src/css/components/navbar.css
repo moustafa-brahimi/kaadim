@@ -280,21 +280,23 @@
     justify-content: center;
     column-gap: 78px;
 
-    .sidemenu-btn, .search-btn, .btn-scheme {
+    .sidemenu-btn,
+    .search-btn,
+    .btn-scheme {
       position: relative;
-      margin-right: 0;
-      margin-left: 0;
+      margin-right: 0 !important;
+      margin-left: 0 !important;
     }
 
-    &__container, .menu {
+    &__container,
+    .menu {
       display: none;
     }
   }
 }
 
-
 @media (max-width: 580px) {
-  .kadim-posts {
+  .rouh-posts {
     row-gap: 5px;
   }
 }

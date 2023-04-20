@@ -1,10 +1,19 @@
-.kadim-ad {
+.rouh-ad {
   background: var(--elements-background-color);
-  padding: 26px 40px;
+  padding: 40px 0 28px;
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 980px;
   border: 8px solid var(--accent-text-color);
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+
+  * {
+    max-width: 720px;
+  }
+
   &:not(:has(&__desktop)) {
     display: none;
   }
@@ -12,10 +21,29 @@
   &__mobile {
     display: none;
   }
+
+  &__label {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    background: #e84c3d;
+    color: var(--white);
+    padding: 0 10px;
+    border-radius: 4px;
+  }
+
+  &.single {
+    &__top {
+      margin-top: 60px;
+    }
+  }
 }
 
 @media (max-width: 768px) {
-  .kadim-ad {
+  .rouh-ad {
     display: flex;
 
     &__desktop {
@@ -29,5 +57,11 @@
     &__mobile {
       display: block;
     }
+  }
+}
+
+@media (max-width: 580px) {
+  .rouh-ad {
+    border: 0;
   }
 }

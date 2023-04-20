@@ -4,7 +4,7 @@
 
 ?>
 
-<?php if( get_theme_mod( 'kadim_slider_enabled', true ) ): ?>
+<?php if( get_theme_mod( 'rouh_slider_enabled', true ) ): ?>
     <?php get_template_part( 'partials/slider', 'compact' ); ?>
 <?php endif; ?>
 
@@ -12,44 +12,50 @@
 <?php if( have_posts() ): ?>
 
     <div class="container">
-        
+
         <?php $current_category = get_queried_object(); ?>
 
+        <main class="rouh-posts" id="rouh-posts">
 
-        <main class="kadim-posts" id="kadim-posts">
+            <div class="rouh-archive-board">
 
-            <div class="kadim-archive-board">
+                <div class="rouh-archive-board__path rouh-path">
 
-                <div class="kadim-archive-board__path kadim-path">
-
-                    <a class="kadim-path__item" 
+                    <a class="rouh-path__item" 
                         href="<?php echo esc_attr( home_url() ); ?>"
-                        title="<?php esc_attr_e( "home", "kadim" ); ?>"
+                        title="<?php esc_attr_e( "home", "rouh" ); ?>"
                     >
-                        <?php esc_html_e( "Home", "kadim" ); ?>
+                        <?php esc_html_e( "Home", "rouh" ); ?>
                     </a>
 
-                    <span class="kadim-path__item">
+                    <span class="rouh-path__item">
 
                         <?php if( is_category() ): ?>
-                            <?php esc_html_e( "Category", "kadim" ); ?>
+                            <?php esc_html_e( "Category", "rouh" ); ?>
                         <?php endif; ?>
 
                     </span>
 
-                    <span class="kadim-path__item">
+                    <span class="rouh-path__item">
                         <?php echo esc_html( $current_category->name ); ?>
                     </span>
 
                 </div>
 
 
-                <h1 class="kadim-archive-board__title"><?php echo esc_html( $current_category->name ); ?></h1>
+                <h1 class="rouh-archive-board__title"><?php echo esc_html( $current_category->name ); ?></h1>
 
-                <p class="kadim-archive-board__description"><?php echo esc_html( $current_category->category_description ); ?></p>
+                <p class="rouh-archive-board__description"><?php echo esc_html( $current_category->category_description ); ?></p>
 
 
             </div>
+
+            <?php
+                get_template_part( "template-parts/ad",  "", [
+                    "desktop"   => "rouh_ads_category_top_desktop",
+                    "mobile"    => "rouh_ads_category_top_mobile"
+                ] ); 
+            ?>
 
             <?php while( have_posts() ): ?>
 
@@ -61,9 +67,18 @@
 
             <?php endwhile; ?>
 
+            <?php
+                get_template_part( "template-parts/ad",  "", [
+                    "desktop"   => "rouh_ads_category_bottom_desktop",
+                    "mobile"    => "rouh_ads_category_bottom_mobile"
+                ] ); 
+            ?>
+
+            <?php get_template_part( "template-parts/posts", "navigation-links" ); ?>
             
         </main>
-        
+
+
     </div>
 
 <?php endif; ?>

@@ -20,9 +20,9 @@
 
         ?>
 
-        <?php dynamic_sidebar( 'kadim-1' ); ?>
+        <?php dynamic_sidebar( 'rouh-1' ); ?>
                 
-        <button type="button" class="sidebar__collapse js-btn-collapse-sidebar"  title="<?php esc_attr_e( "Close the sidebar", "kadim" ); ?>">
+        <button type="button" class="sidebar__collapse js-btn-collapse-sidebar"  title="<?php esc_attr_e( "Close the sidebar", "rouh" ); ?>">
 
             <i class="icon fa-solid fa-xmark fa-xl"></i>
 

@@ -55,11 +55,11 @@
   }
 
   > ol:not(.blocks-gallery-grid, .wp-block-latest-comments) {
-    counter-reset: kadim-counter;
+    counter-reset: rouh-counter;
     li {
-      counter-increment: kadim-counter;
+      counter-increment: rouh-counter;
       &::before {
-        content: counter(kadim-counter);
+        content: counter(rouh-counter);
       }
     }
   }
@@ -427,7 +427,8 @@
     }
 
     &.has-child {
-      .wp-block-navigation__submenu-container, .submenu-container {
+      .wp-block-navigation__submenu-container,
+      .submenu-container {
         padding-left: 20px;
         border-left: 2px solid var(--gray-5);
         margin: 4px 4px 5px 15px;
@@ -435,7 +436,6 @@
         [color-scheme="dark"] & {
           border-left: 2px solid var(--gray-80);
         }
-
       }
     }
   }
@@ -497,7 +497,7 @@
 .wp-block-button {
   margin: 24px 0;
   padding: 8px;
-  overflow:visible;
+  overflow: visible;
   &__link {
     background: var(--accent-color);
     color: var(--accent-text-color);

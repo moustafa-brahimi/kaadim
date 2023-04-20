@@ -35,7 +35,7 @@
   --body-font-family: "Poppins", sans-serif;
 }
 
-.kadim {
+.rouh {
   &[color-scheme="dark"] {
     --elements-background-color: var(--gray-87p5);
     --body-text-color: var(--gray-2p5);

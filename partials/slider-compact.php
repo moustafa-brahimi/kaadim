@@ -2,14 +2,13 @@
 
 
 $current_cat = get_queried_object();
-
 $args = [
     'post_type'     =>  'post',
     'post_status'   =>  'publish',
     'posts_per_page'=>  5,
     'ignore_sticky_posts'   =>  true,
     'meta_key'      =>  '_thumbnail_id',
-    'category__in' =>  ( is_category() ? get_queried_object_id()  : get_theme_mod( 'kadim_slider_category', [ 1 ] ) )
+    'category__in' =>  ( is_category() ? get_queried_object_id()  : get_theme_mod( 'rouh_slider_category', [ 1 ] ) )
 ];
 
 
@@ -23,15 +22,15 @@ $query  =   new WP_Query( $args );
 
 <?php if( $query->have_posts() && $count == 5 ): ?>
     
-    <?php $posts_count; ?>
+    <?php $first_post = $query->posts[0]; ?>
     
-    <div class="kadim-slider compact-slider <?php if( is_category() ) { echo esc_attr( "compact-slider--category" ); } ?> js-slider-compact" id="kadim-slider">
+    <div class="rouh-slider compact-slider <?php if( is_category() ) { echo esc_attr( "compact-slider--category" ); } ?> js-slider-compact" id="rouh-slider">
         
         <div class="container">
 
             <h3 class="compact-slider__main-title"> 
 
-                <?php $title = esc_html( is_category() ? $current_cat->cat_name : get_theme_mod( "kadim_slider_title", __( 'Featured Posts', 'kadim' ) ) ); ?>
+                <?php $title = esc_html( is_category() ? $current_cat->cat_name : get_theme_mod( "rouh_slider_title", __( 'Featured Posts', 'rouh' ) ) ); ?>
                 
                 <?php echo $title ?>
                 <?php $separator_type=   'wave'; ?>
@@ -97,11 +96,13 @@ $query  =   new WP_Query( $args );
 
                         </div> <!-- slider__category -->
 
+                        <?php $first_post_id = $first_post->ID; ?>
 
 
-                        <a class="compact-slider__permalink js-slider-permalink" href="#">
+                        <a class="compact-slider__permalink js-slider-permalink" href="<?php echo esc_url( get_the_permalink( $first_post_id ) ); ?>" title="<?php echo esc_attr( get_the_title( $first_post_id ) ); ?>">
                             
                             <h3 class="compact-slider__title js-slider-title">
+                                <?php echo esc_html( get_the_title( $first_post_id ) ); ?>
                             </h3>
 
                         </a><!--  slider__permalink -->
@@ -145,9 +146,9 @@ $query  =   new WP_Query( $args );
                                 </div> <!-- meta -->
 
 
-                                    <a class="readmore compact-slider__readmore js-slider-permalink" href="#">
+                                    <a class="readmore compact-slider__readmore js-slider-permalink" href="<?php echo esc_url( get_the_permalink( $first_post_id ) ); ?>" title="<?php echo esc_attr( get_the_title( $first_post_id ) ); ?>">
                 
-                                        <?php $button_text  =   esc_html( __( 'read more', 'kadim' ) ); ?>
+                                        <?php $button_text  =   esc_html( __( 'read more', 'rouh' ) ); ?>
                 
                                         <span class="readmore__label"> <?php echo $button_text; ?> </span>
                                         <span aria-hidden="true" class="readmore__label readmore__label--secondary"> <?php echo $button_text; ?> </span>
@@ -163,7 +164,7 @@ $query  =   new WP_Query( $args );
 
             </div> <!-- slider__container -->
 
-        </div> <!-- kadim-container -->
+        </div> <!-- rouh-container -->
 
     </div> <!-- slider compact -->
 

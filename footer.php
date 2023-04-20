@@ -4,7 +4,7 @@
       <?php get_search_form(); ?>
 
 
-      <button type="button" class="modal-searchform__collapse js-btn-collapse-searchform"  title="<?php esc_attr_e( "Close search form", "kadim" ); ?>">
+      <button type="button" class="modal-searchform__collapse js-btn-collapse-searchform"  title="<?php esc_attr_e( "Close search form", "rouh" ); ?>">
 
         <i class="icon fa-solid fa-xmark fa-lg"></i>
 
@@ -12,30 +12,30 @@
 
     </div>
 
-    <footer id="kadim-footer" class="kadim-footer">
+    <footer id="rouh-footer" class="rouh-footer">
       
       <?php get_template_part( "template-parts/footer", "instagram" ); ?>
         
-        <div class="kadim-footer__widgets-container" color-scheme="dark">
+        <div class="rouh-footer__widgets-container" color-scheme="dark">
 
 
 
           <!-- 2/3 -->
           <div class="container">
-              <?php if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar('kadim-footer-center-widget') ) ?>
+              <?php if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar('rouh-footer-center-widget') ) ?>
           </div>
           <!-- /End 2/3 -->
 
         </div>
 
-        <div class="kadim-footer__copyrights" >
+        <div class="rouh-footer__copyrights" >
 
             <p>
 
                   <?php
                   echo get_theme_mod( 
-                    "kadim_copyright_sentence",
-                    sprintf( esc_html__( "All rights reserved to kadim %s", "kadim" ), date('Y') )
+                    "rouh_copyright_sentence",
+                    sprintf( esc_html__( "All rights reserved to rouh %s", "rouh" ), date('Y') )
                   ); ?>
 
             </p>

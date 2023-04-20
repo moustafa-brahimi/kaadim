@@ -4,7 +4,7 @@
 
 ?>
 
-<?php if( get_theme_mod( 'kadim_slider_enabled', true ) ): ?>
+<?php if( get_theme_mod( 'rouh_slider_enabled', true ) ): ?>
     <?php get_template_part( 'partials/slider', 'compact' ); ?>
 <?php endif; ?>
 
@@ -13,14 +13,14 @@
 
     <div class="container">
         
-        <?php
-        get_template_part( "template-parts/ad",  "", [
-            "desktop"   => "kadim_ads_home_top_desktop",
-            "mobile"    => "kadim_ads_home_top_mobile"
-        ] ); ?>
+        <main class="rouh-posts" id="rouh-posts">
 
+            <?php
+            get_template_part( "template-parts/ad",  "", [
+                "desktop"   => "rouh_ads_home_top_desktop",
+                "mobile"    => "rouh_ads_home_top_mobile"
+            ] ); ?>
 
-        <main class="kadim-posts" id="kadim-posts">
 
             <?php while( have_posts() ): ?>
 
@@ -31,17 +31,28 @@
 
             <?php endwhile; ?>
 
+            <?php
+            get_template_part( "template-parts/ad",  "", [
+                "desktop"   => "rouh_ads_home_bottom_desktop",
+                "mobile"    => "rouh_ads_home_bottom_mobile"
+            ] ); ?>
             
+            <?php get_template_part( "template-parts/posts", "navigation-links" ); ?>
+
+
         </main>
 
-        <button 
-            title='<?php echo esc_attr_e("Load more", "kadim"); ?>'
-            class="kadim-posts__loadmore js-btn-loadmore"
+        <!-- <button 
+            title='<?php echo esc_attr_e("Load more", "rouh"); ?>'
+            class="rouh-posts__loadmore js-btn-loadmore"
         >
 
         <i class="fa-solid icon fa-ellipsis"></i>
 
-        </button>
+        </button> -->
+
+
+
         
     </div>
 
