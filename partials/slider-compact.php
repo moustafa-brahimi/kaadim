@@ -40,11 +40,11 @@ $query  =   new WP_Query( $args );
             </h3>
 
 
-            <h1 class="compact-slider__main-title-stroke"> 
+            <h3 class="compact-slider__main-title-stroke" role="presentation"> 
                 
                 <?php echo $title; ?>
             
-            </h1>
+            </h3>
 
             <div class="compact-slider__container js-slider-compact-container">
 
@@ -101,9 +101,9 @@ $query  =   new WP_Query( $args );
 
                         <a class="compact-slider__permalink js-slider-permalink" href="<?php echo esc_url( get_the_permalink( $first_post_id ) ); ?>" title="<?php echo esc_attr( get_the_title( $first_post_id ) ); ?>">
                             
-                            <h3 class="compact-slider__title js-slider-title">
+                            <h1 class="compact-slider__title js-slider-title">
                                 <?php echo esc_html( get_the_title( $first_post_id ) ); ?>
-                            </h3>
+                            </h1>
 
                         </a><!--  slider__permalink -->
 

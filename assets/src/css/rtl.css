@@ -332,6 +332,10 @@ input[type="submit"] {
   &__video {
     .video {
       transform: scaleX(-1);
+      &__volume-control,
+      &__play-control {
+        transform: scaleX(-1);
+      }
     }
   }
 }
