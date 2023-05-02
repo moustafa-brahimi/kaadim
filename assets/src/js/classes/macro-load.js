@@ -180,7 +180,6 @@ class MacroLoading {
 
     static loadAll() {
 
-        console.log( "load time" );
 
         const { images, isInViewport, loadingClass, loadedClass, preloadClass, imageLoaded }    =   MacroLoading;
 
@@ -200,42 +199,35 @@ class MacroLoading {
 
             fetch( url ).then( ( response ) => response.blob() ).then( ( blob ) => {
 
-
                 let objectURL = URL.createObjectURL( blob );
 
-                setTimeout(() => {
+                images.forEach( ( image ) => {
 
-                    images.forEach( ( image ) => {
+                    const { classList }  =   image;
 
-                        const { classList }  =   image;
-    
-                        if( image.getAttribute( 'data-image' ) == url )  {
-                            
-                            image.setAttribute( 'src', objectURL );
-                            image.addEventListener( 'load', imageLoaded );
+                    if( image.getAttribute( 'data-image' ) == url )  {
                         
-                        } else if( image.getAttribute( 'data-background' ) == url ) {
-                        
-                            image.style.backgroundImage =   `url(${objectURL})`;
-                            classList.add( loadedClass );
-                        
-                        } 
-                        
-                        else {
-                            return;
-                        }
-    
-                        classList.remove( loadingClass );
-                        classList.remove( preloadClass );
-    
-                        images.delete( image );
-    
-                    });
-    
+                        image.setAttribute( 'src', objectURL );
+                        image.addEventListener( 'load', imageLoaded );
                     
-                }, 2000);
+                    } else if( image.getAttribute( 'data-background' ) == url ) {
+                    
+                        image.style.backgroundImage =   `url(${objectURL})`;
+                        classList.add( loadedClass );
+                    
+                    } 
+                    
+                    else {
+                        return;
+                    }
 
+                    classList.remove( loadingClass );
+                    classList.remove( preloadClass );
 
+                    images.delete( image );
+
+                });
+                    
             });
     
         });

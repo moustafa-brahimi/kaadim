@@ -659,6 +659,7 @@
       cite {
         font-family: var(--body-font-family);
         font-weight: bold;
+        margin-top: 16px;
       }
     }
   }
