@@ -185,9 +185,9 @@ if( !function_exists( "rouh_scripts_styles" ) ):
 
     function rouh_scripts_styles() {
 
-        wp_enqueue_script( "rouh-script", get_template_directory_uri() . "/assets/dist/js/bundle.js", array(), "0.0.1", true );
+        wp_enqueue_script( "rouh-script", get_template_directory_uri() . "/assets/dist/js/bundle.js", array(), "1.0.1", true );
 
-        wp_enqueue_style( "rouh-style", get_template_directory_uri() . "/assets/dist/css/style.css", array(), "0.0.1", "all" );
+        wp_enqueue_style( "rouh-style", get_template_directory_uri() . "/assets/dist/css/style.css", array(), "1.0.1", "all" );
 
 		$supported_fonts = rouh_supported_body_fonts();
 		$body_typography = get_theme_mod( "rouh_body_typography", "poppins" );

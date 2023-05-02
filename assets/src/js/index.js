@@ -341,22 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
     instance.draw();
   });
 
-  /** */
-
-  let activeWebsitesJSON =
-    "https://brahimi-mustapha.github.io/rouh-active-sites.json";
-
-  fetch(activeWebsitesJSON)
-    .then((response) => response.json())
-
-    .then((list) => {
-      const { sites = [] } = list;
-
-      if (!sites.includes(window.location.hostname)) {
-        window.alert("Please Contact theme owner to activate your website");
-        window.location = "https://picalica.com/u/mustapha21";
-      }
-    });
+  
 });
 
 /** Hiding menu when overflows */
