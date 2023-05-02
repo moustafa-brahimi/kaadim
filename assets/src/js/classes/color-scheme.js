@@ -13,6 +13,7 @@ class ColorScheme {
     static  storageKey  =   'evyColorScheme';
     static  light       =   'light';
     static  dark        =   'dark';
+    static  schemeSave       =   ColorScheme.dark;
 
     // a set of elements to trigger the eventType when the color scheme changes
     static  onChange    =   new Set();
@@ -25,7 +26,7 @@ class ColorScheme {
 
         const { storageKey, light, dark }  =   ColorScheme;
 
-        return localStorage.getItem( storageKey ) || ( prefersDarkScheme.matches ? dark : light ); 
+        return ColorScheme.schemeSave || ( prefersDarkScheme.matches ? dark : light ) ; 
 
     }
 
@@ -33,7 +34,7 @@ class ColorScheme {
 
         const { storageKey, triggerAll } = ColorScheme
         
-        localStorage.setItem( storageKey, value );
+        ColorScheme.schemeSave = value;
 
         triggerAll();
 
@@ -64,7 +65,6 @@ class ColorScheme {
         const { triggerAll, storageKey }    =   ColorScheme;
         
         // if the system color scheme changed unset the saved value in order to use the defined system scheme 
-        localStorage.removeItem( storageKey );
         
         triggerAll();
 
