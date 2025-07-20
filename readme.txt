@@ -1,102 +1,174 @@
-rouh ( روح ) is a creative wordpress theme for personal blogs, it comes with stylish and elegant design
+<div align="right" dir="auto">
 
-theme documentation: https://github.com/brahimi-mustapha/rouh-documentation/blob/main/README.md
+# Rouh
 
-# assets licenses
+A creative WordPress theme for personal blogging.
 
-icons 
-    
-    [fontawesome]
+<br>
 
-    assets/dist/img/arrow-right-solid.svg
-    assets/dist/img/caret-down-solid.svg
-    assets/dist/img/quote-right-solid.svg
+## Table of Contents
 
-    https://fontawesome.com/
-    license: https://fontawesome.com/license/free
+<br>
 
+¤ [Installing the Theme](#installing-the-theme)
 
-    [ owned by the theme author ]
+¤ [Font Settings](#font-settings)
 
-    assets\src\img\cloud1.svg
-    assets\src\img\cloud2.svg
-    assets\src\img\moon.svg
-    assets\src\img\sun.svg
-    assets\dist\img\saw-tooth-wave.svg
-    assets\dist\img\wave.svg
+¤ [Top Notice](#top-notice)
 
-   [ footer instagram icon ]
+¤ [Site Logo](#changing-the-logo)
 
-   created and owned by the theme author
+¤ [Enable Slider](#enable-slider)
 
-   [ fonts ]
-   
-   all the fonts used are provided by google fonts 
+¤ [Connect Instagram](#connect-instagram)
 
-   https://fonts.google.com/
+¤ [Sidebar & Footer](#sidebar--footer)
 
-   [ tgm ]
-	
-    license: http://tgmpluginactivation.com/
+<br><br><br><br><br><br>
 
+## Installing the Theme
 
-   [ animejs : javascript animation library ]
+Navigate to Dashboard > Appearance > Themes  
+Then click **Add New**
 
-    license: https://github.com/juliangarnier/anime/blob/master/LICENSE.md
+![install step 1](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/install/step1.png?raw=true)
 
-   [ kirki customizer framework ]
+<br><br>
 
-   https://kirki.org/
-   license: https://github.com/kirki-framework/kirki/blob/master/LICENSE
+On the new page, click on **Upload Theme** (top right)
 
-   [ autoprefixer ]
-   https://www.npmjs.com/package/html-css-autoprefixer
+![install step 2](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/install/step2.png?raw=true)
 
-   [ @babel/core @babel/preset-env babel-loader ]
-   https://babeljs.io/
-   license: https://github.com/dbergey/babeljs/blob/master/LICENSE
+Choose the `rouh.zip` file and click **Install Now**
 
-   [postcss] 
-   license : https://github.com/postcss/postcss/blob/main/LICENSE
+![install step 3](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/install/step3.png?raw=true)
 
-   [postcss-cli]
-   license: https://github.com/postcss/postcss-cli/blob/master/LICENSE
+Then click **Activate**
 
-   [cssnano]
-   license: https://github.com/cssnano/cssnano/blob/master/LICENSE-MIT
+![install step 4](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/install/step4.png?raw=true)
 
-   [postcss-color-mod-function]
-   license: https://www.npmjs.com/package/postcss-color-mod-function   
+Now install the required plugins as shown:
 
-   [postcss-conditionals]
-   license: https://www.npmjs.com/package/postcss-conditionals
+![install step 5](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/install/step5.png?raw=true)
+![install step 6](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/install/step6.png?raw=true)
+![install step 7](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/install/step7.png?raw=true)
+![install step 8](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/install/step8.png?raw=true)
 
-   [postcss-conditionals]
-   license: https://www.npmjs.com/package/postcss-conditionals
+<br><br><br><br><br><br>
 
-   [postcss-easings]
-   license: https://github.com/postcss/postcss-easings/blob/main/LICENSE
+## Font Settings
 
-   [postcss-import]
-   license: https://github.com/postcss/postcss-import/blob/master/LICENSE
+Navigate to:  
+`Dashboard > Appearance > Customize > Font Settings`
 
-   [postcss-import]
-   license: https://github.com/postcss/postcss-import/blob/master/LICENSE
+### Font Size
+Adjust the base font size for the entire site.
 
-   [postcss-nested]
-   license: https://github.com/postcss/postcss-nested/blob/main/LICENSE
+### Font Family
+Choose your preferred font (Google Fonts fully supported), including font weight.
 
-   [postcss-preset-env]
-   license: https://github.com/csstools/postcss-preset-env/blob/main/LICENSE.md
+![font controls](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/font/controls.png?raw=true)
 
-   [postcss-random]
-   license: https://github.com/git-slim/postcss-random/blob/master/LICENSE
+<br><br><br><br><br><br>
 
-   [postcss-inline-svg]
-   license: https://github.com/TrySound/postcss-inline-svg/blob/master/LICENSE
+## Top Notice
 
-   [webpack]
-   license: https://github.com/webpack/webpack/blob/main/LICENSE
+Navigate to:  
+`Dashboard > Appearance > Customize > Top Notice`
 
-   [webpack-cli]
-   license: https://github.com/webpack/webpack-cli/blob/master/LICENSE
+You can control:
+- Enable/Disable
+- Notice content
+- Text and background colors
+- Font settings
+
+<br><br><br><br><br><br>
+
+## Changing the Logo
+
+Navigate to:  
+`Dashboard > Appearance > Customize > Site Identity`
+
+You can adjust:
+- Site Logo
+- Dark Mode Logo
+- Alt text (in case no logo is used)
+- Logo height
+
+<br><br><br><br><br><br>
+
+## Enable Slider
+
+Navigate to:  
+`Dashboard > Appearance > Customize > Slider`
+
+Simply add the categories you want to appear in the slider.  
+**Note:** The selected categories must contain **at least 5 posts** for the slider to show.
+
+![slider guide](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/slider/step1.png?raw=true)
+
+<br><br><br><br><br><br>
+
+## Connect Instagram
+
+Navigate to:  
+`Dashboard > Appearance > Customize > Footer`
+
+You will see an input field for the access token.  
+Click **"Generate One"**
+
+![instagram token step 1](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/instagram-token/step1.png?raw=true)
+
+<br>
+
+A new tab will open. Scroll down and click `Personal Account`
+
+![instagram token step 2](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/instagram-token/step2.png?raw=true)
+
+<br>
+
+Allow Instagram access when prompted.
+
+![instagram token step 3](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/instagram-token/step3.png?raw=true)
+
+<br>
+
+A token will appear — copy it (without copying the label `Access token:`)
+
+![instagram token step 4](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/instagram-token/step4.png?raw=true)
+
+<br>
+
+Paste the token in the input field:
+
+![instagram token step 5](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/instagram-token/step5.png?raw=true)
+
+<br><br><br><br><br><br>
+
+## Ad Management
+
+Navigate to:  
+`Dashboard > Appearance > Customize > Ads`
+
+You'll see this interface:
+
+![ad panels](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/ads/panels.png?raw=true)
+
+Each page type has 2 ad placements (top and bottom) with 2 separate fields:
+- One for desktop code
+- One for mobile code
+
+![ad panels](https://github.com/brahimi-mustapha/rouh-documentation/blob/main/ads/fields.png?raw=true)
+
+## Sidebar & Footer
+
+Navigate to:  
+`Dashboard > Appearance > Widgets`
+
+[More Info on Using WordPress Widgets](https://kinsta.com/blog/wordpress-widgets/#how-to-use-the-wordpress-customizer-to-add-widgets)
+
+---
+
+That’s everything — thank you! 😊
+
+</div>
