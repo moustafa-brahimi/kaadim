@@ -7,7 +7,7 @@
     <div class="container">
 
         
-        <main class="rouh-posts rouh-author-posts" id="rouh-posts">
+        <main class="rouh-posts rouh-author-posts" id="main">
 
             <div class="rouh-archive-board">
 

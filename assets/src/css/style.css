@@ -2,6 +2,7 @@
 @import "./base/globals.css";
 
 @import "./components/notice.css";
+@import "./components/skip-link.css";
 @import "./components/logo.css";
 @import "./components/navbar.css";
 @import "./components/searchform.css";

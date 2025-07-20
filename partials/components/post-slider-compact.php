@@ -27,7 +27,7 @@
         src="<?php echo esc_attr( $macro ); ?>"
         data-image="<?php echo esc_attr( $full_thumbnail ); ?>"
         class="<?php echo 'image'; ?>"
-        alt="<?php echo $meta_data[ "image_meta" ][ "title" ]; ?>" 
+        alt="<?php echo esc_attr( $meta_data[ "image_meta" ][ "title" ] ); ?>" 
 
     />
 
@@ -40,7 +40,7 @@
 
         <?php printf( '<a href="%1$s" class="js-post-category-link">', get_category_link( $first_category ) ); ?>
 
-            <span class='compact-post__category js-post-category'> <?php echo $first_category->name; ?></span>
+            <span class='compact-post__category js-post-category'> <?php echo esc_html( $first_category->name ); ?></span>
 
         </a>
 

@@ -1,0 +1,63 @@
+/* Skip to Content Button - Accessibility Implementation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  z-index: 999999;
+  background: var(--accent-color);
+  color: var(--accent-text-color);
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  transition: all var(--short-duration) easeOutExpo;
+  box-shadow: 4px 4px 0 var(--accent-text-color);
+  transform: translateY(-50px);
+  opacity: 0;
+  
+  /* Ensure the link is accessible but visually hidden by default */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+
+  &:focus {
+    /* Make visible and properly positioned when focused */
+    clip: auto;
+    height: auto;
+    width: auto;
+    top: 6px;
+    transform: translateY(0);
+    opacity: 1;
+    outline: 2px solid var(--accent-text-color);
+    outline-offset: 2px;
+    z-index: 999999;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Alternative screen reader text class for broader compatibility */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+
+  &:focus {
+    clip: auto !important;
+    height: auto;
+    width: auto;
+    display: block;
+    z-index: 999999;
+  }
+}

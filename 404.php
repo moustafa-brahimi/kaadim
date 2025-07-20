@@ -15,7 +15,7 @@
 
 <div class="container">
     
-    <div class="rouh-404">
+    <div class="rouh-404" id="main">
 
         <h1 class="rouh-404__title-404">404</h1>
         <h1 class="rouh-404__title"><?php esc_html_e( "Oops ! page not found", "rouh" ); ?></h1>

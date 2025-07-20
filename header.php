@@ -27,6 +27,8 @@
 
     <?php wp_body_open(); ?>
 
+    <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'rouh' ); ?></a>
+
     <header>
 
         <?php get_template_part( "template-parts/header", "blog" ); ?>

@@ -7,7 +7,7 @@
 
 <?php if( have_posts() ): ?>
 
-    <div class="container">
+    <div class="container" id="main">
 
     <?php
         get_template_part( "template-parts/ad",  "", [

@@ -15,7 +15,7 @@
 
         <?php $current_category = get_queried_object(); ?>
 
-        <main class="rouh-posts" id="rouh-posts">
+        <main class="rouh-posts" id="main">
 
             <div class="rouh-archive-board">
 

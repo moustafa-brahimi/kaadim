@@ -13,7 +13,7 @@
 
     <div class="container">
         
-        <main class="rouh-posts" id="rouh-posts">
+        <main class="rouh-posts" id="main">
 
             <?php
             get_template_part( "template-parts/ad",  "", [
@@ -42,14 +42,6 @@
 
         </main>
 
-        <!-- <button 
-            title='<?php echo esc_attr_e("Load more", "rouh"); ?>'
-            class="rouh-posts__loadmore js-btn-loadmore"
-        >
-
-        <i class="fa-solid icon fa-ellipsis"></i>
-
-        </button> -->
 
 
 

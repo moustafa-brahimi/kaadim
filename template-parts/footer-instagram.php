@@ -35,15 +35,13 @@ $token = get_theme_mod( "rouh_instagram_account_token", false ); ?>
 
               <?php $caption = esc_attr( isset( $element["caption"] ) ? $element["caption"] : "" ); ?>
 
-              <?php if( $element[ "media_type" ] == "IMAGE" ): ?>
+              <?php if( $element[ "media_type" ] == "IMAGE" ): ?>                <div class="instagram-grid__image">
 
-                <div class="instagram-grid__image">
-
-                  <a href="<?php echo $element['permalink']; ?>" target="_blank" title="<?php echo $caption ?>">
+                  <a href="<?php echo esc_url( $element['permalink'] ); ?>" target="_blank" title="<?php echo $caption ?>">
 
                     <img
                         
-                      alt = "<?php $caption; ?>"
+                      alt = "<?php echo $caption; ?>"
                       data-loading-method="macro"
                       data-image="<?php echo esc_attr( $element["media_url"] ); ?>"
                       class='image'
@@ -54,11 +52,9 @@ $token = get_theme_mod( "rouh_instagram_account_token", false ); ?>
                 </div>
 
 
-              <?php elseif( $element[ "media_type" ] == "VIDEO" ): ?>
+              <?php elseif( $element[ "media_type" ] == "VIDEO" ): ?>                <div class="instagram-grid__video">
 
-                <div class="instagram-grid__video">
-
-                  <a href="<?php echo $element['permalink']; ?>" target="_blank" title="<?php echo $caption ?>">
+                  <a href="<?php echo esc_url( $element['permalink'] ); ?>" target="_blank" title="<?php echo $caption ?>">
 
 
                     <video class="video js-instagram-videos" preload="none" loop muted title="<?php echo $caption ?>">

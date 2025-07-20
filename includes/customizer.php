@@ -87,7 +87,7 @@ new \Kirki\Field\Dimension(
 new \Kirki\Field\Image(
 	[
 		'settings'    => 'rouh_logo_dark_mode_version',
-		'label'       => esc_html__( 'Dark mode Logo', 'kirki' ),
+		'label'       => esc_html__( 'Dark mode Logo', 'rouh' ),
 		'section'     => 'title_tagline',
 		'priority'    => 30,
 		'default'     => '',
@@ -102,7 +102,7 @@ new \Kirki\Field\Image(
 new \Kirki\Field\Typography(
 	[
 		'settings'    => 'rouh_logo_alternative_typography',
-		'label'       => esc_html__( 'Alternative Logo Typography', 'kirki' ),
+		'label'       => esc_html__( 'Alternative Logo Typography', 'rouh' ),
 		'section'     => 'title_tagline',
 		'priority'    => 80,
 		'transport'   => 'auto',

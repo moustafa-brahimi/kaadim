@@ -168,4 +168,6 @@ $query  =   new WP_Query( $args );
 
     </div> <!-- slider compact -->
 
+    <?php wp_reset_postdata(); ?>
+
 <?php endif; ?>

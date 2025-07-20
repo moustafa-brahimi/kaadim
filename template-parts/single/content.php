@@ -93,12 +93,11 @@
 
                 width = "<?php echo esc_attr( $meta_data[ "width" ] ); ?>" 
                 height = "<?php echo esc_attr( $meta_data[ "height" ] ); ?>" 
-                data-loading-method="<?php echo "macro"; ?>" 
-                data-image-macro="<?php echo esc_attr( $macro ); ?>" 
+                data-loading-method="<?php echo "macro"; ?>"                data-image-macro="<?php echo esc_attr( $macro ); ?>" 
                 src="<?php echo esc_attr( $macro ); ?>" 
                 data-image="<?php echo esc_attr( $full_image ); ?>" 
                 class="<?php echo 'image'; ?>" 
-                alt="<?php echo $meta_data[ "image_meta" ][ "title" ]; ?>" 
+                alt="<?php echo esc_attr( $meta_data[ "image_meta" ][ "title" ] ); ?>"
 
 
 

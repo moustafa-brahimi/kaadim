@@ -59,11 +59,9 @@
 
             </div>
 
-        </div>
+        </div>        <p class="author-card__description">
 
-        <p class="author-card__description">
-
-            <?php echo $description; ?>
+            <?php echo wp_kses_post( $description ); ?>
 
         </p>
 

@@ -4,7 +4,7 @@
 
     <div class="container">
         
-        <main class="rouh-posts" id="rouh-posts">
+        <main class="rouh-posts" id="main">
 
             <?php global $wp_query; ?>
 

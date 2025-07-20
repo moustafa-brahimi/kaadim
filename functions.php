@@ -418,6 +418,8 @@ function rouh_loadmore_ajax() {
 
 	endwhile;
 
+	wp_reset_postdata();
+
 	echo $query->max_num_pages . " - " . $paged;
 
 	die();
